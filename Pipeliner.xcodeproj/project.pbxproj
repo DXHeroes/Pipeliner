@@ -1,0 +1,782 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F220498F250112AF00ECC510 /* Pipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09AF2500BEF70058FBE7 /* Pipeline.swift */; };
+		F2204990250112C000ECC510 /* PipelineResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09DC2500E1760058FBE7 /* PipelineResult.swift */; };
+		F2204991250112F800ECC510 /* PipelineStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09DE2500E19E0058FBE7 /* PipelineStatus.swift */; };
+		F220499325011CED00ECC510 /* DateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F220499225011CED00ECC510 /* DateService.swift */; };
+		F220499425013B3200ECC510 /* PipelinerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09B52500C0A60058FBE7 /* PipelinerService.swift */; };
+		F220499625013B9F00ECC510 /* GitLabAuthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09AC2500BEBE0058FBE7 /* GitLabAuthType.swift */; };
+		F220499725013C3600ECC510 /* GitLabService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09A82500BE8D0058FBE7 /* GitLabService.swift */; };
+		F220499825013C3B00ECC510 /* DateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F220499225011CED00ECC510 /* DateService.swift */; };
+		F220499C2501407600ECC510 /* Pipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09AF2500BEF70058FBE7 /* Pipeline.swift */; };
+		F220499D2501407C00ECC510 /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09A52500BE600058FBE7 /* HttpService.swift */; };
+		F220499E2501408800ECC510 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09B32500BF450058FBE7 /* ApiError.swift */; };
+		F22049A02501409300ECC510 /* ServiceTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09A22500BE1C0058FBE7 /* ServiceTypeEnum.swift */; };
+		F23768F92501048000249D42 /* AwaitKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23768F02501040F00249D42 /* AwaitKit.framework */; };
+		F23768FC250104F100249D42 /* AwaitKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23768F02501040F00249D42 /* AwaitKit.framework */; };
+		F23768FD250104F100249D42 /* AwaitKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F23768F02501040F00249D42 /* AwaitKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F23769012501051900249D42 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FF09BF2500C87B0058FBE7 /* SwiftUI.framework */; };
+		F23769032501051D00249D42 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FF09BD2500C87B0058FBE7 /* WidgetKit.framework */; };
+		F26ECFB12506763100E62EDD /* PipelineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26ECFB02506763100E62EDD /* PipelineDetailView.swift */; };
+		F2E52EAB2512306E002A4692 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E52EAA2512306E002A4692 /* Config.swift */; };
+		F2E52EAC2512306E002A4692 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E52EAA2512306E002A4692 /* Config.swift */; };
+		F2E52ECC25123501002A4692 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2E52EC1251234E9002A4692 /* PromiseKit.framework */; };
+		F2E52ECD25123501002A4692 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F2E52EC1251234E9002A4692 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F2FF09932500BDA20058FBE7 /* PipelinerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09922500BDA20058FBE7 /* PipelinerApp.swift */; };
+		F2FF09952500BDA20058FBE7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09942500BDA20058FBE7 /* ContentView.swift */; };
+		F2FF09A32500BE1C0058FBE7 /* ServiceTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09A22500BE1C0058FBE7 /* ServiceTypeEnum.swift */; };
+		F2FF09A62500BE600058FBE7 /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09A52500BE600058FBE7 /* HttpService.swift */; };
+		F2FF09A92500BE8D0058FBE7 /* GitLabService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09A82500BE8D0058FBE7 /* GitLabService.swift */; };
+		F2FF09AD2500BEBE0058FBE7 /* GitLabAuthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09AC2500BEBE0058FBE7 /* GitLabAuthType.swift */; };
+		F2FF09B42500BF450058FBE7 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09B32500BF450058FBE7 /* ApiError.swift */; };
+		F2FF09B62500C0A60058FBE7 /* PipelinerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09B52500C0A60058FBE7 /* PipelinerService.swift */; };
+		F2FF09C32500C87B0058FBE7 /* PipelinerWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09C22500C87B0058FBE7 /* PipelinerWidget.swift */; };
+		F2FF09C62500C87C0058FBE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FF09C52500C87C0058FBE7 /* Assets.xcassets */; };
+		F2FF09C92500C87C0058FBE7 /* PipelinerWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09C42500C87B0058FBE7 /* PipelinerWidget.intentdefinition */; };
+		F2FF09CA2500C87C0058FBE7 /* PipelinerWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09C42500C87B0058FBE7 /* PipelinerWidget.intentdefinition */; };
+		F2FF09CD2500C87C0058FBE7 /* PipelinerWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F2FF09BB2500C87B0058FBE7 /* PipelinerWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F2FF09D92500DAB20058FBE7 /* PipelineRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09D82500DAB20058FBE7 /* PipelineRowView.swift */; };
+		F2FF09DB2500DB8F0058FBE7 /* PipelineListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09DA2500DB8F0058FBE7 /* PipelineListView.swift */; };
+		F2FF09DD2500E1760058FBE7 /* PipelineResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09DC2500E1760058FBE7 /* PipelineResult.swift */; };
+		F2FF09DF2500E19E0058FBE7 /* PipelineStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09DE2500E19E0058FBE7 /* PipelineStatus.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F23768EF2501040F00249D42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F23768E92501040E00249D42 /* AwaitKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FEF0141E1E39E12200C4A60B;
+			remoteInfo = AwaitKit;
+		};
+		F23768F12501040F00249D42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F23768E92501040E00249D42 /* AwaitKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FE41FD5D1F46F19F00CD2271;
+			remoteInfo = "AwaitKit Tests";
+		};
+		F2E52EC0251234E9002A4692 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2E52EB7251234E9002A4692 /* PromiseKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63B0AC571D595E1B00FA21D9;
+			remoteInfo = PromiseKit;
+		};
+		F2E52EC2251234E9002A4692 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2E52EB7251234E9002A4692 /* PromiseKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 631751A81D59766500A9DDDC;
+			remoteInfo = "PMKA+Tests";
+		};
+		F2E52EC4251234E9002A4692 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2E52EB7251234E9002A4692 /* PromiseKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6314113C1D59795700E24B9E;
+			remoteInfo = PMKBridgeTests;
+		};
+		F2E52EC6251234E9002A4692 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2E52EB7251234E9002A4692 /* PromiseKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 630019221D596292003B4E30;
+			remoteInfo = PMKCoreTests;
+		};
+		F2E52EC8251234E9002A4692 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2E52EB7251234E9002A4692 /* PromiseKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 633027EA203CC0060037E136;
+			remoteInfo = PMKDeprecatedTests;
+		};
+		F2E52ECA251234E9002A4692 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2E52EB7251234E9002A4692 /* PromiseKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C0244E622047A6CB00ACB4AC;
+			remoteInfo = "PMKJSA+Tests";
+		};
+		F2FF09CB2500C87C0058FBE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2FF09872500BDA20058FBE7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2FF09BA2500C87B0058FBE7;
+			remoteInfo = PipelinerWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F23768FE250104F200249D42 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F23768FD250104F100249D42 /* AwaitKit.framework in Embed Frameworks */,
+				F2E52ECD25123501002A4692 /* PromiseKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2FF09D12500C87C0058FBE7 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F2FF09CD2500C87C0058FBE7 /* PipelinerWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F220499225011CED00ECC510 /* DateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateService.swift; sourceTree = "<group>"; };
+		F23768E92501040E00249D42 /* AwaitKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AwaitKit.xcodeproj; path = "../AwaitKit-master/AwaitKit.xcodeproj"; sourceTree = "<group>"; };
+		F26ECFB02506763100E62EDD /* PipelineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineDetailView.swift; sourceTree = "<group>"; };
+		F2E52EAA2512306E002A4692 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		F2E52EB7251234E9002A4692 /* PromiseKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PromiseKit.xcodeproj; path = "../../Downloads/PromiseKit-master/PromiseKit.xcodeproj"; sourceTree = "<group>"; };
+		F2FF098F2500BDA20058FBE7 /* Pipeliner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pipeliner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2FF09922500BDA20058FBE7 /* PipelinerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelinerApp.swift; sourceTree = "<group>"; };
+		F2FF09942500BDA20058FBE7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F2FF09962500BDA30058FBE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F2FF09992500BDA30058FBE7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F2FF099B2500BDA30058FBE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2FF099C2500BDA30058FBE7 /* Pipeliner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pipeliner.entitlements; sourceTree = "<group>"; };
+		F2FF09A22500BE1C0058FBE7 /* ServiceTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTypeEnum.swift; sourceTree = "<group>"; };
+		F2FF09A52500BE600058FBE7 /* HttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
+		F2FF09A82500BE8D0058FBE7 /* GitLabService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitLabService.swift; sourceTree = "<group>"; };
+		F2FF09AC2500BEBE0058FBE7 /* GitLabAuthType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitLabAuthType.swift; sourceTree = "<group>"; };
+		F2FF09AF2500BEF70058FBE7 /* Pipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pipeline.swift; sourceTree = "<group>"; };
+		F2FF09B32500BF450058FBE7 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		F2FF09B52500C0A60058FBE7 /* PipelinerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelinerService.swift; sourceTree = "<group>"; };
+		F2FF09BB2500C87B0058FBE7 /* PipelinerWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PipelinerWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2FF09BD2500C87B0058FBE7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		F2FF09BF2500C87B0058FBE7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		F2FF09C22500C87B0058FBE7 /* PipelinerWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelinerWidget.swift; sourceTree = "<group>"; };
+		F2FF09C42500C87B0058FBE7 /* PipelinerWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = PipelinerWidget.intentdefinition; sourceTree = "<group>"; };
+		F2FF09C52500C87C0058FBE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F2FF09C72500C87C0058FBE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2FF09C82500C87C0058FBE7 /* PipelinerWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PipelinerWidget.entitlements; sourceTree = "<group>"; };
+		F2FF09D82500DAB20058FBE7 /* PipelineRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineRowView.swift; sourceTree = "<group>"; };
+		F2FF09DA2500DB8F0058FBE7 /* PipelineListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineListView.swift; sourceTree = "<group>"; };
+		F2FF09DC2500E1760058FBE7 /* PipelineResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineResult.swift; sourceTree = "<group>"; };
+		F2FF09DE2500E19E0058FBE7 /* PipelineStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineStatus.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F2FF098C2500BDA20058FBE7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F23768FC250104F100249D42 /* AwaitKit.framework in Frameworks */,
+				F2E52ECC25123501002A4692 /* PromiseKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2FF09B82500C87B0058FBE7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F23769012501051900249D42 /* SwiftUI.framework in Frameworks */,
+				F23768F92501048000249D42 /* AwaitKit.framework in Frameworks */,
+				F23769032501051D00249D42 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F23768EA2501040E00249D42 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F23768F02501040F00249D42 /* AwaitKit.framework */,
+				F23768F22501040F00249D42 /* AwaitKit Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F2E52EB8251234E9002A4692 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F2E52EC1251234E9002A4692 /* PromiseKit.framework */,
+				F2E52EC3251234E9002A4692 /* PMKA+Tests.xctest */,
+				F2E52EC5251234E9002A4692 /* PMKBridgeTests.xctest */,
+				F2E52EC7251234E9002A4692 /* PMKCoreTests.xctest */,
+				F2E52EC9251234E9002A4692 /* PMKDeprecatedTests.xctest */,
+				F2E52ECB251234E9002A4692 /* PMKJSA+Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F2FF09862500BDA20058FBE7 = {
+			isa = PBXGroup;
+			children = (
+				F2FF09912500BDA20058FBE7 /* Pipeliner */,
+				F2FF09C12500C87B0058FBE7 /* PipelinerWidget */,
+				F2FF09BC2500C87B0058FBE7 /* Frameworks */,
+				F2FF09902500BDA20058FBE7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F2FF09902500BDA20058FBE7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F2FF098F2500BDA20058FBE7 /* Pipeliner.app */,
+				F2FF09BB2500C87B0058FBE7 /* PipelinerWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F2FF09912500BDA20058FBE7 /* Pipeliner */ = {
+			isa = PBXGroup;
+			children = (
+				F2FF09AE2500BEEC0058FBE7 /* Common */,
+				F2FF09A72500BE720058FBE7 /* GitLab */,
+				F2FF09A42500BE490058FBE7 /* Http */,
+				F2FF09922500BDA20058FBE7 /* PipelinerApp.swift */,
+				F2FF09942500BDA20058FBE7 /* ContentView.swift */,
+				F2FF09962500BDA30058FBE7 /* Assets.xcassets */,
+				F2FF099B2500BDA30058FBE7 /* Info.plist */,
+				F2FF099C2500BDA30058FBE7 /* Pipeliner.entitlements */,
+				F2FF09982500BDA30058FBE7 /* Preview Content */,
+				F2FF09B52500C0A60058FBE7 /* PipelinerService.swift */,
+				F26ECFB02506763100E62EDD /* PipelineDetailView.swift */,
+			);
+			path = Pipeliner;
+			sourceTree = "<group>";
+		};
+		F2FF09982500BDA30058FBE7 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F2FF09992500BDA30058FBE7 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F2FF09A42500BE490058FBE7 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				F2FF09A52500BE600058FBE7 /* HttpService.swift */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		F2FF09A72500BE720058FBE7 /* GitLab */ = {
+			isa = PBXGroup;
+			children = (
+				F2FF09A82500BE8D0058FBE7 /* GitLabService.swift */,
+				F2FF09AC2500BEBE0058FBE7 /* GitLabAuthType.swift */,
+			);
+			path = GitLab;
+			sourceTree = "<group>";
+		};
+		F2FF09AE2500BEEC0058FBE7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F2FF09A22500BE1C0058FBE7 /* ServiceTypeEnum.swift */,
+				F2FF09AF2500BEF70058FBE7 /* Pipeline.swift */,
+				F2FF09B32500BF450058FBE7 /* ApiError.swift */,
+				F2FF09DC2500E1760058FBE7 /* PipelineResult.swift */,
+				F2FF09DE2500E19E0058FBE7 /* PipelineStatus.swift */,
+				F220499225011CED00ECC510 /* DateService.swift */,
+				F2E52EAA2512306E002A4692 /* Config.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F2FF09BC2500C87B0058FBE7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F2E52EB7251234E9002A4692 /* PromiseKit.xcodeproj */,
+				F23768E92501040E00249D42 /* AwaitKit.xcodeproj */,
+				F2FF09BD2500C87B0058FBE7 /* WidgetKit.framework */,
+				F2FF09BF2500C87B0058FBE7 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F2FF09C12500C87B0058FBE7 /* PipelinerWidget */ = {
+			isa = PBXGroup;
+			children = (
+				F2FF09C22500C87B0058FBE7 /* PipelinerWidget.swift */,
+				F2FF09C42500C87B0058FBE7 /* PipelinerWidget.intentdefinition */,
+				F2FF09C52500C87C0058FBE7 /* Assets.xcassets */,
+				F2FF09C72500C87C0058FBE7 /* Info.plist */,
+				F2FF09C82500C87C0058FBE7 /* PipelinerWidget.entitlements */,
+				F2FF09D82500DAB20058FBE7 /* PipelineRowView.swift */,
+				F2FF09DA2500DB8F0058FBE7 /* PipelineListView.swift */,
+			);
+			path = PipelinerWidget;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F2FF098E2500BDA20058FBE7 /* Pipeliner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2FF099F2500BDA30058FBE7 /* Build configuration list for PBXNativeTarget "Pipeliner" */;
+			buildPhases = (
+				F2FF098B2500BDA20058FBE7 /* Sources */,
+				F2FF098C2500BDA20058FBE7 /* Frameworks */,
+				F2FF098D2500BDA20058FBE7 /* Resources */,
+				F2FF09D12500C87C0058FBE7 /* Embed App Extensions */,
+				F23768FE250104F200249D42 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F2FF09CC2500C87C0058FBE7 /* PBXTargetDependency */,
+			);
+			name = Pipeliner;
+			productName = Pipeliner;
+			productReference = F2FF098F2500BDA20058FBE7 /* Pipeliner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F2FF09BA2500C87B0058FBE7 /* PipelinerWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2FF09CE2500C87C0058FBE7 /* Build configuration list for PBXNativeTarget "PipelinerWidgetExtension" */;
+			buildPhases = (
+				F2FF09B72500C87B0058FBE7 /* Sources */,
+				F2FF09B82500C87B0058FBE7 /* Frameworks */,
+				F2FF09B92500C87B0058FBE7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PipelinerWidgetExtension;
+			productName = PipelinerWidgetExtension;
+			productReference = F2FF09BB2500C87B0058FBE7 /* PipelinerWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F2FF09872500BDA20058FBE7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					F2FF098E2500BDA20058FBE7 = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					F2FF09BA2500C87B0058FBE7 = {
+						CreatedOnToolsVersion = 12.0;
+					};
+				};
+			};
+			buildConfigurationList = F2FF098A2500BDA20058FBE7 /* Build configuration list for PBXProject "Pipeliner" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F2FF09862500BDA20058FBE7;
+			productRefGroup = F2FF09902500BDA20058FBE7 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F23768EA2501040E00249D42 /* Products */;
+					ProjectRef = F23768E92501040E00249D42 /* AwaitKit.xcodeproj */;
+				},
+				{
+					ProductGroup = F2E52EB8251234E9002A4692 /* Products */;
+					ProjectRef = F2E52EB7251234E9002A4692 /* PromiseKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				F2FF098E2500BDA20058FBE7 /* Pipeliner */,
+				F2FF09BA2500C87B0058FBE7 /* PipelinerWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F23768F02501040F00249D42 /* AwaitKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AwaitKit.framework;
+			remoteRef = F23768EF2501040F00249D42 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F23768F22501040F00249D42 /* AwaitKit Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "AwaitKit Tests.xctest";
+			remoteRef = F23768F12501040F00249D42 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F2E52EC1251234E9002A4692 /* PromiseKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PromiseKit.framework;
+			remoteRef = F2E52EC0251234E9002A4692 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F2E52EC3251234E9002A4692 /* PMKA+Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "PMKA+Tests.xctest";
+			remoteRef = F2E52EC2251234E9002A4692 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F2E52EC5251234E9002A4692 /* PMKBridgeTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PMKBridgeTests.xctest;
+			remoteRef = F2E52EC4251234E9002A4692 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F2E52EC7251234E9002A4692 /* PMKCoreTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PMKCoreTests.xctest;
+			remoteRef = F2E52EC6251234E9002A4692 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F2E52EC9251234E9002A4692 /* PMKDeprecatedTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PMKDeprecatedTests.xctest;
+			remoteRef = F2E52EC8251234E9002A4692 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F2E52ECB251234E9002A4692 /* PMKJSA+Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "PMKJSA+Tests.xctest";
+			remoteRef = F2E52ECA251234E9002A4692 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F2FF098D2500BDA20058FBE7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2FF09B92500C87B0058FBE7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2FF09C62500C87C0058FBE7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F2FF098B2500BDA20058FBE7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F220498F250112AF00ECC510 /* Pipeline.swift in Sources */,
+				F2FF09DD2500E1760058FBE7 /* PipelineResult.swift in Sources */,
+				F26ECFB12506763100E62EDD /* PipelineDetailView.swift in Sources */,
+				F2FF09952500BDA20058FBE7 /* ContentView.swift in Sources */,
+				F2FF09A62500BE600058FBE7 /* HttpService.swift in Sources */,
+				F2FF09B42500BF450058FBE7 /* ApiError.swift in Sources */,
+				F2FF09932500BDA20058FBE7 /* PipelinerApp.swift in Sources */,
+				F2FF09DF2500E19E0058FBE7 /* PipelineStatus.swift in Sources */,
+				F2FF09B62500C0A60058FBE7 /* PipelinerService.swift in Sources */,
+				F220499325011CED00ECC510 /* DateService.swift in Sources */,
+				F2E52EAB2512306E002A4692 /* Config.swift in Sources */,
+				F2FF09A32500BE1C0058FBE7 /* ServiceTypeEnum.swift in Sources */,
+				F2FF09AD2500BEBE0058FBE7 /* GitLabAuthType.swift in Sources */,
+				F2FF09A92500BE8D0058FBE7 /* GitLabService.swift in Sources */,
+				F2FF09CA2500C87C0058FBE7 /* PipelinerWidget.intentdefinition in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2FF09B72500C87B0058FBE7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F22049A02501409300ECC510 /* ServiceTypeEnum.swift in Sources */,
+				F220499E2501408800ECC510 /* ApiError.swift in Sources */,
+				F220499D2501407C00ECC510 /* HttpService.swift in Sources */,
+				F220499C2501407600ECC510 /* Pipeline.swift in Sources */,
+				F220499825013C3B00ECC510 /* DateService.swift in Sources */,
+				F220499725013C3600ECC510 /* GitLabService.swift in Sources */,
+				F220499625013B9F00ECC510 /* GitLabAuthType.swift in Sources */,
+				F220499425013B3200ECC510 /* PipelinerService.swift in Sources */,
+				F2204991250112F800ECC510 /* PipelineStatus.swift in Sources */,
+				F2204990250112C000ECC510 /* PipelineResult.swift in Sources */,
+				F2FF09DB2500DB8F0058FBE7 /* PipelineListView.swift in Sources */,
+				F2FF09D92500DAB20058FBE7 /* PipelineRowView.swift in Sources */,
+				F2E52EAC2512306E002A4692 /* Config.swift in Sources */,
+				F2FF09C92500C87C0058FBE7 /* PipelinerWidget.intentdefinition in Sources */,
+				F2FF09C32500C87B0058FBE7 /* PipelinerWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F2FF09CC2500C87C0058FBE7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F2FF09BA2500C87B0058FBE7 /* PipelinerWidgetExtension */;
+			targetProxy = F2FF09CB2500C87C0058FBE7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F2FF099D2500BDA30058FBE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F2FF099E2500BDA30058FBE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		F2FF09A02500BDA30058FBE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Pipeliner/Pipeliner.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Pipeliner/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Pipeliner/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DxHeroes.Pipeliner;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F2FF09A12500BDA30058FBE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Pipeliner/Pipeliner.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Pipeliner/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Pipeliner/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DxHeroes.Pipeliner;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		F2FF09CF2500C87C0058FBE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PipelinerWidget/PipelinerWidget.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PipelinerWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DxHeroes.Pipeliner.PipelinerWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F2FF09D02500C87C0058FBE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PipelinerWidget/PipelinerWidget.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PipelinerWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DxHeroes.Pipeliner.PipelinerWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F2FF098A2500BDA20058FBE7 /* Build configuration list for PBXProject "Pipeliner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2FF099D2500BDA30058FBE7 /* Debug */,
+				F2FF099E2500BDA30058FBE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2FF099F2500BDA30058FBE7 /* Build configuration list for PBXNativeTarget "Pipeliner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2FF09A02500BDA30058FBE7 /* Debug */,
+				F2FF09A12500BDA30058FBE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2FF09CE2500C87C0058FBE7 /* Build configuration list for PBXNativeTarget "PipelinerWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2FF09CF2500C87C0058FBE7 /* Debug */,
+				F2FF09D02500C87C0058FBE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F2FF09872500BDA20058FBE7 /* Project object */;
+}
