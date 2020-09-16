@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,16 +19,15 @@
 		F220499D2501407C00ECC510 /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09A52500BE600058FBE7 /* HttpService.swift */; };
 		F220499E2501408800ECC510 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09B32500BF450058FBE7 /* ApiError.swift */; };
 		F22049A02501409300ECC510 /* ServiceTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09A22500BE1C0058FBE7 /* ServiceTypeEnum.swift */; };
-		F23768F92501048000249D42 /* AwaitKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23768F02501040F00249D42 /* AwaitKit.framework */; };
-		F23768FC250104F100249D42 /* AwaitKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23768F02501040F00249D42 /* AwaitKit.framework */; };
-		F23768FD250104F100249D42 /* AwaitKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F23768F02501040F00249D42 /* AwaitKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F23769012501051900249D42 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FF09BF2500C87B0058FBE7 /* SwiftUI.framework */; };
-		F23769032501051D00249D42 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FF09BD2500C87B0058FBE7 /* WidgetKit.framework */; };
+		F26C86C025125423002841FE /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = F26C86BF25125423002841FE /* PromiseKit */; };
 		F26ECFB12506763100E62EDD /* PipelineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26ECFB02506763100E62EDD /* PipelineDetailView.swift */; };
+		F2B13A13251254F0007EA0C9 /* AwaitKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2B13A12251254F0007EA0C9 /* AwaitKit */; };
+		F2B13A1525125527007EA0C9 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2B13A1425125527007EA0C9 /* PromiseKit */; };
+		F2B13A172512552C007EA0C9 /* AwaitKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2B13A162512552C007EA0C9 /* AwaitKit */; };
+		F2B13A18251255E8007EA0C9 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FF09BF2500C87B0058FBE7 /* SwiftUI.framework */; };
+		F2B13A1D25125674007EA0C9 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FF09BD2500C87B0058FBE7 /* WidgetKit.framework */; };
 		F2E52EAB2512306E002A4692 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E52EAA2512306E002A4692 /* Config.swift */; };
 		F2E52EAC2512306E002A4692 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E52EAA2512306E002A4692 /* Config.swift */; };
-		F2E52ECC25123501002A4692 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2E52EC1251234E9002A4692 /* PromiseKit.framework */; };
-		F2E52ECD25123501002A4692 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F2E52EC1251234E9002A4692 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F2FF09932500BDA20058FBE7 /* PipelinerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09922500BDA20058FBE7 /* PipelinerApp.swift */; };
 		F2FF09952500BDA20058FBE7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09942500BDA20058FBE7 /* ContentView.swift */; };
 		F2FF09A32500BE1C0058FBE7 /* ServiceTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09A22500BE1C0058FBE7 /* ServiceTypeEnum.swift */; };
@@ -49,62 +48,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F23768EF2501040F00249D42 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F23768E92501040E00249D42 /* AwaitKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = FEF0141E1E39E12200C4A60B;
-			remoteInfo = AwaitKit;
-		};
-		F23768F12501040F00249D42 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F23768E92501040E00249D42 /* AwaitKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = FE41FD5D1F46F19F00CD2271;
-			remoteInfo = "AwaitKit Tests";
-		};
-		F2E52EC0251234E9002A4692 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F2E52EB7251234E9002A4692 /* PromiseKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 63B0AC571D595E1B00FA21D9;
-			remoteInfo = PromiseKit;
-		};
-		F2E52EC2251234E9002A4692 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F2E52EB7251234E9002A4692 /* PromiseKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 631751A81D59766500A9DDDC;
-			remoteInfo = "PMKA+Tests";
-		};
-		F2E52EC4251234E9002A4692 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F2E52EB7251234E9002A4692 /* PromiseKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6314113C1D59795700E24B9E;
-			remoteInfo = PMKBridgeTests;
-		};
-		F2E52EC6251234E9002A4692 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F2E52EB7251234E9002A4692 /* PromiseKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 630019221D596292003B4E30;
-			remoteInfo = PMKCoreTests;
-		};
-		F2E52EC8251234E9002A4692 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F2E52EB7251234E9002A4692 /* PromiseKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 633027EA203CC0060037E136;
-			remoteInfo = PMKDeprecatedTests;
-		};
-		F2E52ECA251234E9002A4692 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F2E52EB7251234E9002A4692 /* PromiseKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C0244E622047A6CB00ACB4AC;
-			remoteInfo = "PMKJSA+Tests";
-		};
 		F2FF09CB2500C87C0058FBE7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F2FF09872500BDA20058FBE7 /* Project object */;
@@ -115,18 +58,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		F23768FE250104F200249D42 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				F23768FD250104F100249D42 /* AwaitKit.framework in Embed Frameworks */,
-				F2E52ECD25123501002A4692 /* PromiseKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F2FF09D12500C87C0058FBE7 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -142,10 +73,8 @@
 
 /* Begin PBXFileReference section */
 		F220499225011CED00ECC510 /* DateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateService.swift; sourceTree = "<group>"; };
-		F23768E92501040E00249D42 /* AwaitKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AwaitKit.xcodeproj; path = "../AwaitKit-master/AwaitKit.xcodeproj"; sourceTree = "<group>"; };
 		F26ECFB02506763100E62EDD /* PipelineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineDetailView.swift; sourceTree = "<group>"; };
 		F2E52EAA2512306E002A4692 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		F2E52EB7251234E9002A4692 /* PromiseKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PromiseKit.xcodeproj; path = "../../Downloads/PromiseKit-master/PromiseKit.xcodeproj"; sourceTree = "<group>"; };
 		F2FF098F2500BDA20058FBE7 /* Pipeliner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pipeliner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FF09922500BDA20058FBE7 /* PipelinerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelinerApp.swift; sourceTree = "<group>"; };
 		F2FF09942500BDA20058FBE7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -179,8 +108,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F23768FC250104F100249D42 /* AwaitKit.framework in Frameworks */,
-				F2E52ECC25123501002A4692 /* PromiseKit.framework in Frameworks */,
+				F2B13A13251254F0007EA0C9 /* AwaitKit in Frameworks */,
+				F26C86C025125423002841FE /* PromiseKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,37 +117,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F23769012501051900249D42 /* SwiftUI.framework in Frameworks */,
-				F23768F92501048000249D42 /* AwaitKit.framework in Frameworks */,
-				F23769032501051D00249D42 /* WidgetKit.framework in Frameworks */,
+				F2B13A18251255E8007EA0C9 /* SwiftUI.framework in Frameworks */,
+				F2B13A1525125527007EA0C9 /* PromiseKit in Frameworks */,
+				F2B13A172512552C007EA0C9 /* AwaitKit in Frameworks */,
+				F2B13A1D25125674007EA0C9 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F23768EA2501040E00249D42 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F23768F02501040F00249D42 /* AwaitKit.framework */,
-				F23768F22501040F00249D42 /* AwaitKit Tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		F2E52EB8251234E9002A4692 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F2E52EC1251234E9002A4692 /* PromiseKit.framework */,
-				F2E52EC3251234E9002A4692 /* PMKA+Tests.xctest */,
-				F2E52EC5251234E9002A4692 /* PMKBridgeTests.xctest */,
-				F2E52EC7251234E9002A4692 /* PMKCoreTests.xctest */,
-				F2E52EC9251234E9002A4692 /* PMKDeprecatedTests.xctest */,
-				F2E52ECB251234E9002A4692 /* PMKJSA+Tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		F2FF09862500BDA20058FBE7 = {
 			isa = PBXGroup;
 			children = (
@@ -298,8 +206,6 @@
 		F2FF09BC2500C87B0058FBE7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F2E52EB7251234E9002A4692 /* PromiseKit.xcodeproj */,
-				F23768E92501040E00249D42 /* AwaitKit.xcodeproj */,
 				F2FF09BD2500C87B0058FBE7 /* WidgetKit.framework */,
 				F2FF09BF2500C87B0058FBE7 /* SwiftUI.framework */,
 			);
@@ -331,7 +237,6 @@
 				F2FF098C2500BDA20058FBE7 /* Frameworks */,
 				F2FF098D2500BDA20058FBE7 /* Resources */,
 				F2FF09D12500C87C0058FBE7 /* Embed App Extensions */,
-				F23768FE250104F200249D42 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -339,6 +244,10 @@
 				F2FF09CC2500C87C0058FBE7 /* PBXTargetDependency */,
 			);
 			name = Pipeliner;
+			packageProductDependencies = (
+				F26C86BF25125423002841FE /* PromiseKit */,
+				F2B13A12251254F0007EA0C9 /* AwaitKit */,
+			);
 			productName = Pipeliner;
 			productReference = F2FF098F2500BDA20058FBE7 /* Pipeliner.app */;
 			productType = "com.apple.product-type.application";
@@ -356,6 +265,10 @@
 			dependencies = (
 			);
 			name = PipelinerWidgetExtension;
+			packageProductDependencies = (
+				F2B13A1425125527007EA0C9 /* PromiseKit */,
+				F2B13A162512552C007EA0C9 /* AwaitKit */,
+			);
 			productName = PipelinerWidgetExtension;
 			productReference = F2FF09BB2500C87B0058FBE7 /* PipelinerWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -386,18 +299,12 @@
 				Base,
 			);
 			mainGroup = F2FF09862500BDA20058FBE7;
+			packageReferences = (
+				F26C86BE25125423002841FE /* XCRemoteSwiftPackageReference "PromiseKit" */,
+				F2B13A11251254F0007EA0C9 /* XCRemoteSwiftPackageReference "AwaitKit" */,
+			);
 			productRefGroup = F2FF09902500BDA20058FBE7 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = F23768EA2501040E00249D42 /* Products */;
-					ProjectRef = F23768E92501040E00249D42 /* AwaitKit.xcodeproj */;
-				},
-				{
-					ProductGroup = F2E52EB8251234E9002A4692 /* Products */;
-					ProjectRef = F2E52EB7251234E9002A4692 /* PromiseKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				F2FF098E2500BDA20058FBE7 /* Pipeliner */,
@@ -405,65 +312,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		F23768F02501040F00249D42 /* AwaitKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = AwaitKit.framework;
-			remoteRef = F23768EF2501040F00249D42 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F23768F22501040F00249D42 /* AwaitKit Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "AwaitKit Tests.xctest";
-			remoteRef = F23768F12501040F00249D42 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F2E52EC1251234E9002A4692 /* PromiseKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = PromiseKit.framework;
-			remoteRef = F2E52EC0251234E9002A4692 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F2E52EC3251234E9002A4692 /* PMKA+Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "PMKA+Tests.xctest";
-			remoteRef = F2E52EC2251234E9002A4692 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F2E52EC5251234E9002A4692 /* PMKBridgeTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = PMKBridgeTests.xctest;
-			remoteRef = F2E52EC4251234E9002A4692 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F2E52EC7251234E9002A4692 /* PMKCoreTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = PMKCoreTests.xctest;
-			remoteRef = F2E52EC6251234E9002A4692 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F2E52EC9251234E9002A4692 /* PMKDeprecatedTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = PMKDeprecatedTests.xctest;
-			remoteRef = F2E52EC8251234E9002A4692 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F2E52ECB251234E9002A4692 /* PMKJSA+Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "PMKJSA+Tests.xctest";
-			remoteRef = F2E52ECA251234E9002A4692 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F2FF098D2500BDA20058FBE7 /* Resources */ = {
@@ -777,6 +625,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F26C86BE25125423002841FE /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mxcl/PromiseKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.10.0;
+			};
+		};
+		F2B13A11251254F0007EA0C9 /* XCRemoteSwiftPackageReference "AwaitKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yannickl/AwaitKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F26C86BF25125423002841FE /* PromiseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F26C86BE25125423002841FE /* XCRemoteSwiftPackageReference "PromiseKit" */;
+			productName = PromiseKit;
+		};
+		F2B13A12251254F0007EA0C9 /* AwaitKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F2B13A11251254F0007EA0C9 /* XCRemoteSwiftPackageReference "AwaitKit" */;
+			productName = AwaitKit;
+		};
+		F2B13A1425125527007EA0C9 /* PromiseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F26C86BE25125423002841FE /* XCRemoteSwiftPackageReference "PromiseKit" */;
+			productName = PromiseKit;
+		};
+		F2B13A162512552C007EA0C9 /* AwaitKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F2B13A11251254F0007EA0C9 /* XCRemoteSwiftPackageReference "AwaitKit" */;
+			productName = AwaitKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F2FF09872500BDA20058FBE7 /* Project object */;
 }
