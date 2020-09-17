@@ -21,11 +21,12 @@
 		F22049A02501409300ECC510 /* ServiceTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09A22500BE1C0058FBE7 /* ServiceTypeEnum.swift */; };
 		F26C86C025125423002841FE /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = F26C86BF25125423002841FE /* PromiseKit */; };
 		F26ECFB12506763100E62EDD /* PipelineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26ECFB02506763100E62EDD /* PipelineDetailView.swift */; };
+		F29E5B5D2513937500963075 /* ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29E5B5C2513937500963075 /* ServiceInterface.swift */; };
+		F2AAB709251370DA00D152A1 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FF09BD2500C87B0058FBE7 /* WidgetKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F2AAB711251375DD00D152A1 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FF09BF2500C87B0058FBE7 /* SwiftUI.framework */; };
 		F2B13A13251254F0007EA0C9 /* AwaitKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2B13A12251254F0007EA0C9 /* AwaitKit */; };
 		F2B13A1525125527007EA0C9 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2B13A1425125527007EA0C9 /* PromiseKit */; };
 		F2B13A172512552C007EA0C9 /* AwaitKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2B13A162512552C007EA0C9 /* AwaitKit */; };
-		F2B13A18251255E8007EA0C9 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FF09BF2500C87B0058FBE7 /* SwiftUI.framework */; };
-		F2B13A1D25125674007EA0C9 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FF09BD2500C87B0058FBE7 /* WidgetKit.framework */; };
 		F2E52EAB2512306E002A4692 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E52EAA2512306E002A4692 /* Config.swift */; };
 		F2E52EAC2512306E002A4692 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E52EAA2512306E002A4692 /* Config.swift */; };
 		F2FF09932500BDA20058FBE7 /* PipelinerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09922500BDA20058FBE7 /* PipelinerApp.swift */; };
@@ -37,7 +38,6 @@
 		F2FF09B42500BF450058FBE7 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09B32500BF450058FBE7 /* ApiError.swift */; };
 		F2FF09B62500C0A60058FBE7 /* PipelinerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09B52500C0A60058FBE7 /* PipelinerService.swift */; };
 		F2FF09C32500C87B0058FBE7 /* PipelinerWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09C22500C87B0058FBE7 /* PipelinerWidget.swift */; };
-		F2FF09C62500C87C0058FBE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FF09C52500C87C0058FBE7 /* Assets.xcassets */; };
 		F2FF09C92500C87C0058FBE7 /* PipelinerWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09C42500C87B0058FBE7 /* PipelinerWidget.intentdefinition */; };
 		F2FF09CA2500C87C0058FBE7 /* PipelinerWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09C42500C87B0058FBE7 /* PipelinerWidget.intentdefinition */; };
 		F2FF09CD2500C87C0058FBE7 /* PipelinerWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F2FF09BB2500C87B0058FBE7 /* PipelinerWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -74,6 +74,7 @@
 /* Begin PBXFileReference section */
 		F220499225011CED00ECC510 /* DateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateService.swift; sourceTree = "<group>"; };
 		F26ECFB02506763100E62EDD /* PipelineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineDetailView.swift; sourceTree = "<group>"; };
+		F29E5B5C2513937500963075 /* ServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceInterface.swift; sourceTree = "<group>"; };
 		F2E52EAA2512306E002A4692 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		F2FF098F2500BDA20058FBE7 /* Pipeliner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pipeliner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FF09922500BDA20058FBE7 /* PipelinerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelinerApp.swift; sourceTree = "<group>"; };
@@ -117,10 +118,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2B13A18251255E8007EA0C9 /* SwiftUI.framework in Frameworks */,
+				F2AAB711251375DD00D152A1 /* SwiftUI.framework in Frameworks */,
 				F2B13A1525125527007EA0C9 /* PromiseKit in Frameworks */,
 				F2B13A172512552C007EA0C9 /* AwaitKit in Frameworks */,
-				F2B13A1D25125674007EA0C9 /* WidgetKit.framework in Frameworks */,
+				F2AAB709251370DA00D152A1 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +200,7 @@
 				F2FF09DE2500E19E0058FBE7 /* PipelineStatus.swift */,
 				F220499225011CED00ECC510 /* DateService.swift */,
 				F2E52EAA2512306E002A4692 /* Config.swift */,
+				F29E5B5C2513937500963075 /* ServiceInterface.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -263,6 +265,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				F2AAB710251374AB00D152A1 /* PBXTargetDependency */,
+				F2AAB70E251374A600D152A1 /* PBXTargetDependency */,
 			);
 			name = PipelinerWidgetExtension;
 			packageProductDependencies = (
@@ -325,7 +329,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2FF09C62500C87C0058FBE7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +342,7 @@
 				F220498F250112AF00ECC510 /* Pipeline.swift in Sources */,
 				F2FF09DD2500E1760058FBE7 /* PipelineResult.swift in Sources */,
 				F26ECFB12506763100E62EDD /* PipelineDetailView.swift in Sources */,
+				F29E5B5D2513937500963075 /* ServiceInterface.swift in Sources */,
 				F2FF09952500BDA20058FBE7 /* ContentView.swift in Sources */,
 				F2FF09A62500BE600058FBE7 /* HttpService.swift in Sources */,
 				F2FF09B42500BF450058FBE7 /* ApiError.swift in Sources */,
@@ -379,6 +383,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F2AAB70E251374A600D152A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = F2AAB70D251374A600D152A1 /* PromiseKit */;
+		};
+		F2AAB710251374AB00D152A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = F2AAB70F251374AB00D152A1 /* AwaitKit */;
+		};
 		F2FF09CC2500C87C0058FBE7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F2FF09BA2500C87B0058FBE7 /* PipelinerWidgetExtension */;
@@ -422,6 +434,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = CNTGY24437;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -483,6 +496,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = CNTGY24437;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -505,15 +519,16 @@
 		F2FF09A02500BDA30058FBE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Pipeliner/Pipeliner.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development: dev@dxheroes.io (76NPA5VB8V)";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Pipeliner/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
+				DEVELOPMENT_TEAM = CNTGY24437;
+				ENABLE_PREVIEWS = NO;
 				INFOPLIST_FILE = Pipeliner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -522,6 +537,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = DxHeroes.Pipeliner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -529,15 +545,16 @@
 		F2FF09A12500BDA30058FBE7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Pipeliner/Pipeliner.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development: dev@dxheroes.io (76NPA5VB8V)";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Pipeliner/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
+				DEVELOPMENT_TEAM = CNTGY24437;
+				ENABLE_PREVIEWS = NO;
 				INFOPLIST_FILE = Pipeliner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -546,6 +563,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = DxHeroes.Pipeliner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -556,8 +574,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PipelinerWidget/PipelinerWidget.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development: dev@dxheroes.io (76NPA5VB8V)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = CNTGY24437;
 				INFOPLIST_FILE = PipelinerWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -567,7 +586,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = DxHeroes.Pipeliner.PipelinerWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -578,8 +598,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PipelinerWidget/PipelinerWidget.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development: dev@dxheroes.io (76NPA5VB8V)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = CNTGY24437;
 				INFOPLIST_FILE = PipelinerWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -589,7 +610,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = DxHeroes.Pipeliner.PipelinerWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -604,7 +626,7 @@
 				F2FF099E2500BDA30058FBE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		F2FF099F2500BDA30058FBE7 /* Build configuration list for PBXNativeTarget "Pipeliner" */ = {
 			isa = XCConfigurationList;
@@ -613,7 +635,7 @@
 				F2FF09A12500BDA30058FBE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		F2FF09CE2500C87C0058FBE7 /* Build configuration list for PBXNativeTarget "PipelinerWidgetExtension" */ = {
 			isa = XCConfigurationList;
@@ -622,7 +644,7 @@
 				F2FF09D02500C87C0058FBE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 
@@ -650,6 +672,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F26C86BE25125423002841FE /* XCRemoteSwiftPackageReference "PromiseKit" */;
 			productName = PromiseKit;
+		};
+		F2AAB70D251374A600D152A1 /* PromiseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F26C86BE25125423002841FE /* XCRemoteSwiftPackageReference "PromiseKit" */;
+			productName = PromiseKit;
+		};
+		F2AAB70F251374AB00D152A1 /* AwaitKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F2B13A11251254F0007EA0C9 /* XCRemoteSwiftPackageReference "AwaitKit" */;
+			productName = AwaitKit;
 		};
 		F2B13A12251254F0007EA0C9 /* AwaitKit */ = {
 			isa = XCSwiftPackageProductDependency;

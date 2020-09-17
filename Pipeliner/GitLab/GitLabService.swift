@@ -12,7 +12,7 @@ import AwaitKit
 struct Project: Codable{
     let name: String
 }
-class GitLabService {
+class GitLabService: IService {
     internal let httpService: HttpService = HttpService()
     
     func getProjectName(baseUrl: String, projectId: String, token: String) throws -> String {
