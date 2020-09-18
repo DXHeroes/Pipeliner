@@ -38,7 +38,7 @@ BitBucket | 🚧
 ## Support 🦸‍♀️ 🦸‍♂️
 Didn't you find what you expected? Contact us via our public [Slack](https://bit.ly/slack_developer_experience)
 
-### Issues
+## Issues
 You can find issues [here](https://github.com/DXHeroes/Pipeliner/issues)
 
 ## Contributing 👩‍💻 👨‍💻
