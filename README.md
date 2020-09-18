@@ -18,6 +18,7 @@ BitBucket | 🚧
   * [Dependencies](#Dependencies)
   * [Installation](#Installation)
 * [Support](#support-%EF%B8%8F-%EF%B8%8F)
+* [Issues](#issues)
 * [Contributing](#contributing--)
 * [Licence](#license-)  
 <!-- tocstop -->
@@ -36,6 +37,9 @@ BitBucket | 🚧
 
 ## Support 🦸‍♀️ 🦸‍♂️
 Didn't you find what you expected? Contact us via our public [Slack](https://bit.ly/slack_developer_experience)
+
+### Issues
+You can find issues [here](https://github.com/DXHeroes/Pipeliner/issues)
 
 ## Contributing 👩‍💻 👨‍💻
 Feel free to contribute to our Pipeliner. Please follow the [Contribution Guide](CONTRIBUTING.md).
