@@ -17,9 +17,9 @@ BitBucket | 🚧
 * [Getting Started](#Getting-Started-)
   * [Dependencies](#Dependencies)
   * [Installation](#Installation)
-* [Support](#Support)
-* [Contributing](#Contributing)
-* [Licence](#Licence)  
+* [Support](#support-%EF%B8%8F-%EF%B8%8F)
+* [Contributing](#contributing--)
+* [Licence](#license-)  
 <!-- tocstop -->
 
 ## Getting Started 🏁
