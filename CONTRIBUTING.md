@@ -1,6 +1,6 @@
 # Contributing to Pipeliner
 
-It seems like you want to participate on our Pipeliner - that's great! We welcome contributions to our [open source project on GitHub](http://github.com/DXHeroes/dx-scanner).
+It seems like you want to participate on our Pipeliner - that's great! We welcome contributions to our [open source project on GitHub](https://github.com/DXHeroes/Pipeliner).
 
 ## Introduction
 
