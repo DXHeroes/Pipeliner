@@ -1,6 +1,17 @@
-## What is Pipeliner
 
-Pipeliner is simple MacOS Big Sur widget app for checking pipeline status. It is created in Swift 5 and Swift UI using WidgetKit.
+
+## What is Pipeliner
+<div style="float: left">
+  <img src="https://github.com/DXHeroes/pipeliner/blob/master/docs/pipeliner.png" width="600" />
+</div>
+Pipeliner is simple MacOS Big Sur widget app for checking pipeline status. Project consists of two apps: First, main application enables user to save configuration of repository. This configiration is saved on users Mac and is use to fetch pipelines data from GitLab/GitHub/BitBucket API.
+
+Second part of application is widget which shows status of (number of pipelines depends on widget selected size) last pipelines.
+<div style="float: left">
+  <img src="https://github.com/DXHeroes/pipeliner/blob/master/docs/widget.png" width="300" />
+</div>
+
+ It is created in Swift 5 and Swift UI using WidgetKit.
 
 
 ### What version control services are supported?
