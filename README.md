@@ -18,6 +18,7 @@ BitBucket | 🚧
   * [Dependencies](#Dependencies)
   * [Installation](#Installation)
 * [Support](#support-%EF%B8%8F-%EF%B8%8F)
+* [Issues](#issues)
 * [Contributing](#contributing--)
 * [Licence](#license-)  
 <!-- tocstop -->
@@ -27,14 +28,18 @@ BitBucket | 🚧
 ### Dependencies
 - Apple ID
 - Big Sur ([MacOS Big Sur](https://beta.apple.com/sp/betaprogram/enroll))
-- XCode 12 ([XCode12](https://developer.apple.com/xcode/))
 
 ### Installation
 
-App uses [PromiseKit](https://github.com/mxcl/PromiseKit) and [AwaitKit](https://github.com/yannickl/AwaitKit). These dependencies should be resolved by XCode automatically.
+1. **Fork & Clone** the repository
+2. **Start** pipeliner.app in dist folder
+3. **Add Widget** in the widget controll menu
 
 ## Support 🦸‍♀️ 🦸‍♂️
 Didn't you find what you expected? Contact us via our public [Slack](https://bit.ly/slack_developer_experience)
+
+## Issues
+You can find issues [here](https://github.com/DXHeroes/Pipeliner/issues)
 
 ## Contributing 👩‍💻 👨‍💻
 Feel free to contribute to our Pipeliner. Please follow the [Contribution Guide](CONTRIBUTING.md).

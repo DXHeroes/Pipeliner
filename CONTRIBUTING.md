@@ -1,6 +1,6 @@
 # Contributing to Pipeliner
 
-It seems like you want to participate on our Pipeliner - that's great! We welcome contributions to our [open source project on GitHub](http://github.com/DXHeroes/dx-scanner).
+It seems like you want to participate on our Pipeliner - that's great! We welcome contributions to our [open source project on GitHub](https://github.com/DXHeroes/Pipeliner).
 
 ## Introduction
 
@@ -28,9 +28,12 @@ Follow these steps:
    - install XCode 12 ([XCode12](https://developer.apple.com/xcode/))
 3. **Installation**
 App uses [PromiseKit](https://github.com/mxcl/PromiseKit) and [AwaitKit](https://github.com/yannickl/AwaitKit). These dependencies should be resolved by XCode automatically.
-4. **Commit** changes to your own branch by convention. See https://www.conventionalcommits.org/en/v1.0.0/
-5. **Push** your work back up to your fork  
-6. Submit a **Pull Request** so that we can review your changes
+4. **Build** the pipeliner main app and pipelinerWidget by cliking `build` in `product` menu or by ```command + B``` shortcut 
+5. **Start** the pipeliner main app by clicking "play" button. 
+6. **Start** the pipeliner widget by selecting `PipelinerWidgetExtension` from targed drop down and clicking "play" button. Widget should start in WidgetSimulator
+7. **Commit** changes to your own branch by convention. See https://www.conventionalcommits.org/en/v1.0.0/
+8. **Push** your work back up to your fork  
+9. Submit a **Pull Request** so that we can review your changes
 
 **NOTE: Be sure to merge the latest from "upstream" before making a pull request.**
 
