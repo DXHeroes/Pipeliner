@@ -6,7 +6,7 @@
 	<dict>
 		<key>Resources/PipelinerWidget.intentdefinition</key>
 		<data>
-		Od804bCvrtwriKQjMw6wZjQkML4=
+		fcvTS7k4fXGVh7wkgB6Sv/ZutbU=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -15,16 +15,16 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			bs/P6TOolsOXwegxW4BkMv/FHzo=
+			EdIE/d43RFxi/8AEg3IOEhLIqCc=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"6ecfcfe933a896c397c1e8315b806432ffc51f3a" or cdhash H"98b8bf247745af6966506c898d973653b7921e7a"</string>
+			<string>identifier "DxHeroes.Pipeliner.PipelinerWidget" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: dev@dxheroes.io (76NPA5VB8V)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>Resources/PipelinerWidget.intentdefinition</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			sycjnOrRSwW3lKwrQX6VIWqAz75JL/xz3XXqWtKztlQ=
+			opyRr/kmR2PYoUSI3cana/1dxH804QeQ3fIeLLvRycw=
 			</data>
 		</dict>
 	</dict>

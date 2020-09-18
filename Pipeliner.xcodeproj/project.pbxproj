@@ -22,8 +22,9 @@
 		F26C86C025125423002841FE /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = F26C86BF25125423002841FE /* PromiseKit */; };
 		F26ECFB12506763100E62EDD /* PipelineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26ECFB02506763100E62EDD /* PipelineDetailView.swift */; };
 		F29E5B5D2513937500963075 /* ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29E5B5C2513937500963075 /* ServiceInterface.swift */; };
+		F29E5B5E25147CCB00963075 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FF09BF2500C87B0058FBE7 /* SwiftUI.framework */; };
+		F29E5B6125147D0B00963075 /* ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29E5B5C2513937500963075 /* ServiceInterface.swift */; };
 		F2AAB709251370DA00D152A1 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FF09BD2500C87B0058FBE7 /* WidgetKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		F2AAB711251375DD00D152A1 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FF09BF2500C87B0058FBE7 /* SwiftUI.framework */; };
 		F2B13A13251254F0007EA0C9 /* AwaitKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2B13A12251254F0007EA0C9 /* AwaitKit */; };
 		F2B13A1525125527007EA0C9 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2B13A1425125527007EA0C9 /* PromiseKit */; };
 		F2B13A172512552C007EA0C9 /* AwaitKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2B13A162512552C007EA0C9 /* AwaitKit */; };
@@ -118,7 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2AAB711251375DD00D152A1 /* SwiftUI.framework in Frameworks */,
+				F29E5B5E25147CCB00963075 /* SwiftUI.framework in Frameworks */,
 				F2B13A1525125527007EA0C9 /* PromiseKit in Frameworks */,
 				F2B13A172512552C007EA0C9 /* AwaitKit in Frameworks */,
 				F2AAB709251370DA00D152A1 /* WidgetKit.framework in Frameworks */,
@@ -362,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F29E5B6125147D0B00963075 /* ServiceInterface.swift in Sources */,
 				F22049A02501409300ECC510 /* ServiceTypeEnum.swift in Sources */,
 				F220499E2501408800ECC510 /* ApiError.swift in Sources */,
 				F220499D2501407C00ECC510 /* HttpService.swift in Sources */,
