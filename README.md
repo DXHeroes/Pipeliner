@@ -1,4 +1,10 @@
 
+  <div align="center">
+<h1> Pipeliner </h1>
+</div>
+
+[![Slack](https://img.shields.io/badge/slack-@DeveloperExperience-%234A154B.svg?logo=slack)](https://bit.ly/slack_developer_experience)
+
 
 ## What is Pipeliner
 
