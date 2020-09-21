@@ -48,8 +48,8 @@ BitBucket | 🚧
 ### Installation
 
 1. **Fork & Clone** the repository
-2. **Start** pipeliner.app in dist folder
-3. **Add Widget** in the widget controll menu
+2. **Start** copy pipeliner.app in dist folder to Application folder and then configure & run 
+3. **Add Widget** in the widget control menu
 
 ## Support 🦸‍♀️ 🦸‍♂️
 Didn't you find what you expected? Contact us via our public [Slack](https://bit.ly/slack_developer_experience)
