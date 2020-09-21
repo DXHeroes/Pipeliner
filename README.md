@@ -24,6 +24,19 @@ Second part of application is widget which shows status of (number of pipelines 
 </div>
  It is created in Swift 5 and Swift UI using WidgetKit.
 
+## Hacktoberfest 2020 🎉
+
+We are celebrating **Hacktoberfest 2020!** The Pipeliner is a perfect project to contribute to if you want to improve your Swift 5 programming skills. All you need is to be an excited coder who wants to progress **open-source** projects!
+
+During the event, we will be periodically updating the **"Leaderboard of Contributors"** - table with the most active contributors. The Leaderboard will be posted to our Twitter. By the end of the event, **Top 3 contributors** will receive a **permanent Badge of Honor** with links to their socials/websites on this repository. On top of that, **the contributor with the most merged pull requests** will receive **exclusive DX Heroes merchandise!**
+
+Check the [Issues tab](https://github.com/DXHeroes/Pipeliner/issues) first for issues we would highly appreciate your help with. If you have a different issue or bug, we are excited for what you will create! Creativity has no bounds! 😊
+
+Please follow our [Contribution Guide](CONTRIBUTING.md) 🖤
+
+We are looking forward to your contributions! 💙
+
+About Hacktoberfest: https://hacktoberfest.digitalocean.com/
 
 ### What version control services are supported?
 
