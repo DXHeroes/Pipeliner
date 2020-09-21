@@ -52,6 +52,7 @@ BitBucket | 🚧
 3. **Add Widget** in the widget control menu
 
 ## Support 🦸‍♀️ 🦸‍♂️
+You can find known issues [here](https://github.com/DXHeroes/Pipeliner/issues)
 Didn't you find what you expected? Contact us via our public [Slack](https://bit.ly/slack_developer_experience)
 
 ## Issues
