@@ -8,4 +8,5 @@
 import Foundation
 enum ServiceType: String, CaseIterable {
     case GITLAB = "GITLAB"
+    case GITHUB = "GITHUB"
 }
