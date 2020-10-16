@@ -7,9 +7,9 @@
 
 import Foundation
 struct DateService {
-    func parse(date: String) throws -> Date {
+    func parse(date: String, isWithFractionalSeconds: Bool = false) throws -> Date {
         let dateFormatter = ISO8601DateFormatter()
-        dateFormatter.formatOptions = [.withFractionalSeconds, .withInternetDateTime]
+        dateFormatter.formatOptions = isWithFractionalSeconds ? [.withFractionalSeconds, .withInternetDateTime] : [.withInternetDateTime]
         guard let result = dateFormatter.date(from: date) else {
             throw ApiError.invalidDate
         }
