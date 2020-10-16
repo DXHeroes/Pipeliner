@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class Pipeline: Codable, Identifiable {
+struct Pipeline: Codable, Identifiable {
     public let id: Int
     let sha: String
     let ref: String
