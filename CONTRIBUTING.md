@@ -26,10 +26,14 @@ Follow these steps:
 2. **Setup** the Pipeliner
    - install Big Sur ([MacOS Big Sur](https://beta.apple.com/sp/betaprogram/enroll))
    - install XCode 12 ([XCode12](https://developer.apple.com/xcode/))
+   - To configure for local development, go to Pipeliner Project `->` Pipeliner, PipelinerWidgetExtension Targets `->` Signing & Capabilities: 
+      - change Team to your Personal team
+      - change Signing Certificate to "Sign to Run Locally"
 3. **Installation**
 App uses [PromiseKit](https://github.com/mxcl/PromiseKit) and [AwaitKit](https://github.com/yannickl/AwaitKit). These dependencies should be resolved by XCode automatically.
 4. **Build** the pipeliner main app and pipelinerWidget by cliking `build` in `product` menu or by ```command + B``` shortcut 
-5. **Start** the pipeliner main app by clicking "play" button. 
+5. **Start** the pipeliner main app by clicking "play" button.
+  - If you are running Xcode Version 12.2 beta 3 and the program is crashing with a `SIGCONT` message, try one of the alternatives listed in this [Apple Developer thread](https://developer.apple.com/forums/thread/663823).
 6. **Start** the pipeliner widget by selecting `PipelinerWidgetExtension` from targed drop down and clicking "play" button. Widget should start in WidgetSimulator
 7. **Commit** changes to your own branch by convention. See https://www.conventionalcommits.org/en/v1.0.0/
 8. **Push** your work back up to your fork  
