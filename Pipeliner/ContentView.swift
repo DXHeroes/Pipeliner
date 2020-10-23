@@ -50,12 +50,16 @@ struct ContentView: View {
                 Divider()
                 Form {
                     Section{
-                        Text("Base Url").padding(.horizontal)
+                        HStack {
+                            Text("Web Address").cornerRadius(15).padding(.leading)
+                            Image(systemName: "questionmark.circle").font(.title2).foregroundColor(.blue)
+                                .help("Where your repository is hosted.")
+                        }
                         TextField("http://gitlab.com",text: $baseUrl).cornerRadius(5).padding(.horizontal)
                         Text("Project Id").padding(.horizontal)
                         TextField("1234",text: $projectId).cornerRadius(5).padding(.horizontal)
                         HStack {
-                            Text("Private Acces Token").cornerRadius(15).padding(.leading)
+                            Text("Private Access Token").cornerRadius(15).padding(.leading)
                             Link(destination: URL(string: "https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#creating-a-personal-access-token")!) {
                                 Image(systemName: "questionmark.circle").font(.title2).foregroundColor(.blue)
                             }
