@@ -23,6 +23,14 @@ struct ContentView: View {
     
     @Environment(\.colorScheme) var colorScheme
 
+    let bgColorDark: NSColor = .darkGray
+    let headerIconDark: Color = .white
+    let headerTextDark: Color = .gray
+    let miniIconDark: Color = .blue
+    let formTitlesDark: Color = .white
+    let projectTitleDark: Color = .pink
+    let projectSubtitleDark: Color = .gray
+
     init() {
         _pipelines = State(initialValue:  pipelinerService.getPipelines(pipelineCount: 10))
         _configurations = State(initialValue:  ConfigurationService.getConfigurations())
@@ -46,11 +54,11 @@ struct ContentView: View {
     }
    var body: some View {
     ZStack {
-        Color(.darkGray).opacity(0.15).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        Color(bgColorDark).opacity(0.15).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
         HStack(content: {
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
-                Image(systemName: "gear").font(.system(size: 40)).foregroundColor(.white)
-                Text("Add Configuration").multilineTextAlignment(.center).foregroundColor(.gray)
+                Image(systemName: "gear").font(.system(size: 40)).foregroundColor(headerIconDark)
+                Text("Add Configuration").multilineTextAlignment(.center).foregroundColor(headerTextDark)
                 Divider()
                 Picker("Service", selection: $selection.animation()) {
                     ForEach(ServiceType.allCases, id: \.self) {
@@ -71,7 +79,7 @@ struct ContentView: View {
                         HStack {
                             Text("Private Access Token").cornerRadius(15).padding(.leading)
                             Link(destination: selection.tokenDescriptionLink()) {
-                                Image(systemName: "questionmark.circle").font(.title2).foregroundColor(.blue)
+                                Image(systemName: "questionmark.circle").font(.title2).foregroundColor(miniIconDark)
                             }
                         }
                         TextField("your-secret-token",text: $token).cornerRadius(5).padding(.horizontal)
@@ -87,18 +95,18 @@ struct ContentView: View {
                         savedBaseUrl = "not found"
                     }
                 }) {
-                    Image(systemName: "plus.circle").font(.system(size: 24)).foregroundColor(.blue)
+                    Image(systemName: "plus.circle").font(.system(size: 24)).foregroundColor(miniIconDark)
                 }.disabled(!self.isFormValid()).padding().buttonStyle(BorderlessButtonStyle())
                 VStack {
-                    Image(systemName: "square.and.arrow.down.on.square").font(.system(size: 40)).foregroundColor(.white)
-                    Text("Saved Configuration").multilineTextAlignment(.center).foregroundColor(.gray)
+                    Image(systemName: "square.and.arrow.down.on.square").font(.system(size: 40)).foregroundColor(headerIconDark)
+                    Text("Saved Configuration").multilineTextAlignment(.center).foregroundColor(headerTextDark)
                     Divider()
                     VStack {
                         ForEach(configurations, id: \.self){ configuration in
                             HStack(content: {
                                 VStack(alignment: .leading, content: {
                                     Text(configuration.repositoryName.uppercased())
-                                    Text(configuration.baseUrl).foregroundColor(.gray)
+                                    Text(configuration.baseUrl).foregroundColor(projectSubtitleDark)
                                 })
                                 Spacer()
                                 VStack(alignment: .leading, content: {
@@ -107,10 +115,10 @@ struct ContentView: View {
                                         pipelines = pipelinerService.getPipelines(pipelineCount: 10)
                                         WidgetCenter.shared.reloadAllTimelines()
                                     }) {
-                                        Image(systemName: "minus.circle").font(.system(size: 24)).foregroundColor(.blue)
+                                        Image(systemName: "minus.circle").font(.system(size: 24)).foregroundColor(miniIconDark)
                                     }
                                 })
-                            }).foregroundColor(Color.white).padding(.horizontal).buttonStyle(BorderlessButtonStyle())
+                            }).foregroundColor(projectTitleDark).padding(.horizontal).buttonStyle(BorderlessButtonStyle())
                         }
                     }.padding(.bottom)
                 }.padding(.bottom)
@@ -118,8 +126,8 @@ struct ContentView: View {
             }).padding(.bottom)
             Divider()
             VStack {
-                Image(systemName: "waveform.path.ecg").font(.system(size: 40)).foregroundColor(.white)
-                Text("Pipelines").multilineTextAlignment(.center).foregroundColor(.gray)
+                Image(systemName: "waveform.path.ecg").font(.system(size: 40)).foregroundColor(headerIconDark)
+                Text("Pipelines").multilineTextAlignment(.center).foregroundColor(headerTextDark)
                 Divider()
                 if(pipelines.count != 0) {
                 ForEach(0..<pipelines.count){ index in
@@ -130,7 +138,7 @@ struct ContentView: View {
                 Spacer()
             }
             
-        }).foregroundColor(Color.white).padding()
+        }).foregroundColor(formTitlesDark).padding()
         Spacer()
     }.padding(.bottom)
    }
