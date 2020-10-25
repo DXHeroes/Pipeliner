@@ -57,8 +57,14 @@ struct ContentView: View {
       Color(colorScheme == .dark ? windowBackground.dark: windowBackground.light).opacity(0.15).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
         HStack(content: {
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
-              Image(systemName: "gear").font(.system(size: 40)).foregroundColor(colorScheme == .dark ? headerIcon.dark: headerIcon.light).padding(.bottom, 6)
-              Text("Add Configuration").font(.title2).multilineTextAlignment(.center).foregroundColor(colorScheme == .dark ? headerText.dark: headerText.light)
+              Image(systemName: "gear")
+                .font(.system(size: 40))
+                .foregroundColor(colorScheme == .dark ? headerIcon.dark: headerIcon.light)
+                .padding(.bottom, 6)
+              Text("Add Configuration")
+                .font(.title2)
+                .multilineTextAlignment(.center)
+                .foregroundColor(colorScheme == .dark ? headerText.dark: headerText.light)
                 Divider()
                 Picker("Service", selection: $selection.animation()) {
                     ForEach(ServiceType.allCases, id: \.self) {
@@ -70,19 +76,36 @@ struct ContentView: View {
                 .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
                 Form {
                     Section{
-                        Text("Base Url").font(.title3).padding(.horizontal)
-                        TextField(selection.urlPlaceholder(),text: $baseUrl).cornerRadius(5).padding(.horizontal)
-                        if selection != .GITHUB {
-                            Text("Project ID").padding(.horizontal)
-                            TextField("1234",text: $projectId).cornerRadius(5).padding(.horizontal)
+                      Section{
+                        Text("Base Url")
+                          .font(.title3)
+                          .padding(.horizontal)
+                          TextField(selection.urlPlaceholder()text: $baseUrl)
+                            .cornerRadius(5)
+                            .padding(.horizontal)
+                      }.padding(.bottom, 2)
+                      if selection != .GITHUB {
+                        Section{
+                            Text("Project ID")
+                                .font(.title3)
+                                .padding(.horizontal)
+                            TextField("1234",text: $projectId)
+                                .cornerRadius(5)
+                                .padding(.horizontal)
+                        }.padding(.bottom, 2)
+                      }
+                      HStack {
+                          Text("Private Access Token")
+                            .font(.title3)
+                            .cornerRadius(15)
+                            .padding(.leading)
+                          Link(destination: selection.tokenDescriptionLink()) {
+                            Image(systemName: "questionmark.circle").font(.title3).foregroundColor(colorScheme == .dark ? miniIcon.dark: miniIcon.light)
+                          }
                         }
-                        HStack {
-                            Text("Private Access Token").font(.title3).cornerRadius(15).padding(.leading)
-                            Link(destination: selection.tokenDescriptionLink()) {
-                              Image(systemName: "questionmark.circle").font(.title3).foregroundColor(colorScheme == .dark ? miniIcon.dark: miniIcon.light)
-                            }
-                        }
-                        TextField("your-secret-token",text: $token).cornerRadius(5).padding(.horizontal)
+                        TextField("your-secret-token",text: $token)
+                          .cornerRadius(5)
+                          .padding(.horizontal)
                     }
                 }
                 Button(action: {
@@ -106,14 +129,14 @@ struct ContentView: View {
                 .cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
                 .padding()
               VStack {
-                    Image(systemName: "square.and.arrow.down.on.square").font(.system(size: 40)).foregroundColor(colorScheme == .dark ? headerIcon.dark: headerIcon.light).padding(.bottom, 6)
+                  Image(systemName: "square.and.arrow.down.on.square").font(.system(size: 40)).foregroundColor(colorScheme == .dark ? headerIcon.dark: headerIcon.light).padding(.bottom, 6)
                   Text("Saved Configuration").font(.title2).multilineTextAlignment(.center).foregroundColor(colorScheme == .dark ? headerText.dark: headerText.light)
                     Divider()
                     VStack {
                         ForEach(configurations, id: \.self){ configuration in
                             HStack(content: {
                                 VStack(alignment: .leading, content: {
-                                    Text(configuration.repositoryName.uppercased())
+                                  Text(configuration.repositoryName.uppercased())
                                   Text(configuration.baseUrl).foregroundColor(projectSubtitle)
                                 })
                                 Spacer()
@@ -129,9 +152,9 @@ struct ContentView: View {
                             }).foregroundColor(projectTitle.dark).padding(.horizontal).buttonStyle(BorderlessButtonStyle())
                         }
                     }.padding(.bottom)
-                }.padding(.bottom)
+                }.padding(.top)
                 Spacer()
-            }).padding(.bottom)
+            }).padding()
             Divider()
             VStack {
                 Image(systemName: "waveform.path.ecg").font(.system(size: 40)).foregroundColor(colorScheme == .dark ? headerIcon.dark: headerIcon.light).padding(.bottom, 6)
