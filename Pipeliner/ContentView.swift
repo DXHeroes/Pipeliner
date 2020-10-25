@@ -25,8 +25,8 @@ struct ContentView: View {
 
     let windowBackground = (dark: NSColor.darkGray, light: NSColor.white)
     let headerIcon = (dark: Color.white, light: Color.purple)
-    let headerText = Color.gray
-    let miniIcon = Color.blue
+    let headerText = (dark: Color.gray, light: Color.black)
+    let miniIcon = (dark: Color.blue, light: Color.purple)
     let formTitle = (dark: Color.white, light: Color.black)
     let projectTitle = (dark: Color.white, light: Color.black)
     let projectSubtitle = Color.gray
@@ -54,11 +54,11 @@ struct ContentView: View {
     }
    var body: some View {
     ZStack {
-        Color(windowBackground.dark).opacity(0.15).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+      Color(colorScheme == .dark ? windowBackground.dark: windowBackground.light).opacity(0.15).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
         HStack(content: {
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
-                Image(systemName: "gear").font(.system(size: 40)).foregroundColor(headerIcon.dark)
-                Text("Add Configuration").multilineTextAlignment(.center).foregroundColor(headerText)
+              Image(systemName: "gear").font(.system(size: 40)).foregroundColor(colorScheme == .dark ? headerIcon.dark: headerIcon.light)
+                Text("Add Configuration").multilineTextAlignment(.center).foregroundColor(colorScheme == .dark ? headerText.dark: headerText.light)
                 Divider()
                 Picker("Service", selection: $selection.animation()) {
                     ForEach(ServiceType.allCases, id: \.self) {
@@ -79,7 +79,7 @@ struct ContentView: View {
                         HStack {
                             Text("Private Access Token").cornerRadius(15).padding(.leading)
                             Link(destination: selection.tokenDescriptionLink()) {
-                                Image(systemName: "questionmark.circle").font(.title2).foregroundColor(miniIcon)
+                              Image(systemName: "questionmark.circle").font(.title2).foregroundColor(colorScheme == .dark ? miniIcon.dark: miniIcon.light)
                             }
                         }
                         TextField("your-secret-token",text: $token).cornerRadius(5).padding(.horizontal)
@@ -95,11 +95,11 @@ struct ContentView: View {
                         savedBaseUrl = "not found"
                     }
                 }) {
-                    Image(systemName: "plus.circle").font(.system(size: 24)).foregroundColor(miniIcon)
+                    Image(systemName: "plus.circle").font(.system(size: 24)).foregroundColor(colorScheme == .dark ? miniIcon.dark: miniIcon.light)
                 }.disabled(!self.isFormValid()).padding().buttonStyle(BorderlessButtonStyle())
                 VStack {
-                    Image(systemName: "square.and.arrow.down.on.square").font(.system(size: 40)).foregroundColor(headerIcon.dark)
-                    Text("Saved Configuration").multilineTextAlignment(.center).foregroundColor(headerText)
+                    Image(systemName: "square.and.arrow.down.on.square").font(.system(size: 40)).foregroundColor(colorScheme == .dark ? headerIcon.dark: headerIcon.light)
+                    Text("Saved Configuration").multilineTextAlignment(.center).foregroundColor(colorScheme == .dark ? headerText.dark: headerText.light)
                     Divider()
                     VStack {
                         ForEach(configurations, id: \.self){ configuration in
@@ -115,7 +115,7 @@ struct ContentView: View {
                                         pipelines = pipelinerService.getPipelines(pipelineCount: 10)
                                         WidgetCenter.shared.reloadAllTimelines()
                                     }) {
-                                        Image(systemName: "minus.circle").font(.system(size: 24)).foregroundColor(miniIcon)
+                                        Image(systemName: "minus.circle").font(.system(size: 24)).foregroundColor(colorScheme == .dark ? miniIcon.dark: miniIcon.light)
                                     }
                                 })
                             }).foregroundColor(projectTitle.dark).padding(.horizontal).buttonStyle(BorderlessButtonStyle())
@@ -126,8 +126,8 @@ struct ContentView: View {
             }).padding(.bottom)
             Divider()
             VStack {
-                Image(systemName: "waveform.path.ecg").font(.system(size: 40)).foregroundColor(headerIcon.dark)
-                Text("Pipelines").multilineTextAlignment(.center).foregroundColor(headerText)
+                Image(systemName: "waveform.path.ecg").font(.system(size: 40)).foregroundColor(colorScheme == .dark ? headerIcon.dark: headerIcon.light)
+                Text("Pipelines").multilineTextAlignment(.center).foregroundColor(colorScheme == .dark ? headerText.dark: headerText.light)
                 Divider()
                 if(pipelines.count != 0) {
                 ForEach(0..<pipelines.count){ index in
@@ -138,7 +138,7 @@ struct ContentView: View {
                 Spacer()
             }
             
-        }).foregroundColor(formTitle.dark).padding()
+        }).foregroundColor(colorScheme == .dark ? formTitle.dark: formTitle.light).padding()
         Spacer()
     }.padding(.bottom)
    }

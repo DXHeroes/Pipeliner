@@ -15,7 +15,7 @@ struct PipelineDetailView: View {
     let status = (failed: Color.red, success: Color.green)
     let detailText = (dark: Color.white, light: Color.black)
     let detailReference = Color.gray
-    let linkAction = Color.blue
+    let linkAction = (dark: Color.blue, light: Color.purple)
 
     var body: some View {
         HStack(content: {
@@ -34,9 +34,9 @@ struct PipelineDetailView: View {
                 Text("\(pipeline.age) ago").foregroundColor(detailReference)
             })
             Link(destination: URL(string: pipeline.url)!) {
-                Image(systemName: "link").font(.title2).foregroundColor(linkAction)
+              Image(systemName: "link").font(.title2).foregroundColor(colorScheme == .dark ? linkAction.dark: linkAction.light)
             }.padding(.horizontal)
-        }).foregroundColor(detailText.dark).padding(.horizontal)
+        }).foregroundColor(colorScheme == .dark ? detailText.dark: detailText.light).padding(.horizontal)
         if(!isLastRow) {
             Divider()
         }
