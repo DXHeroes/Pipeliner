@@ -95,9 +95,17 @@ struct ContentView: View {
                         savedBaseUrl = "not found"
                     }
                 }) {
-                    Image(systemName: "plus.circle").font(.system(size: 24)).foregroundColor(colorScheme == .dark ? miniIcon.dark: miniIcon.light)
-                }.disabled(!self.isFormValid()).padding().buttonStyle(BorderlessButtonStyle())
-                VStack {
+                  HStack {
+                    Image(systemName: "plus").font(.system(size: 16)).foregroundColor(.white)
+                    Text("Save").font(.system(size: 12)).fontWeight(.semibold).foregroundColor(.white)
+                  }
+                }
+                .disabled(!self.isFormValid())
+                .background(colorScheme == .dark ? miniIcon.dark: miniIcon.light)
+                .buttonStyle(BorderedButtonStyle())
+                .cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
+                .padding()
+              VStack {
                     Image(systemName: "square.and.arrow.down.on.square").font(.system(size: 40)).foregroundColor(colorScheme == .dark ? headerIcon.dark: headerIcon.light).padding(.bottom, 6)
                   Text("Saved Configuration").font(.title2).multilineTextAlignment(.center).foregroundColor(colorScheme == .dark ? headerText.dark: headerText.light)
                     Divider()
