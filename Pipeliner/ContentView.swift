@@ -21,6 +21,8 @@ struct ContentView: View {
     
     @State private var selection: ServiceType = .GITLAB
     
+    @Environment(\.colorScheme) var colorScheme
+
     init() {
         _pipelines = State(initialValue:  pipelinerService.getPipelines(pipelineCount: 10))
         _configurations = State(initialValue:  ConfigurationService.getConfigurations())
