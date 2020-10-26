@@ -19,6 +19,8 @@ struct ContentView: View {
     @State private var pipelines: [PipelineResult]
     @State private var configurations: [Config]
     
+    @State private var selection: ServiceType = .GITLAB
+    
     init() {
         _pipelines = State(initialValue:  pipelinerService.getPipelines(pipelineCount: 10))
         _configurations = State(initialValue:  ConfigurationService.getConfigurations())
@@ -48,6 +50,14 @@ struct ContentView: View {
                 Image(systemName: "gear").font(.system(size: 40)).foregroundColor(.white)
                 Text("Add Configuration").multilineTextAlignment(.center).foregroundColor(.gray)
                 Divider()
+                Picker("Service", selection: $selection.animation()) {
+                    ForEach(ServiceType.allCases, id: \.self) {
+                        Text($0.rawValue).tag($0)
+                    }
+                }
+                .pickerStyle(DefaultPickerStyle())
+                .padding(.horizontal)
+                .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
                 Form {
                     Section{
                         HStack {
@@ -55,12 +65,14 @@ struct ContentView: View {
                             Image(systemName: "questionmark.circle").font(.title2).foregroundColor(.blue)
                                 .help("Where your repository is hosted.")
                         }
-                        TextField("http://gitlab.com",text: $baseUrl).cornerRadius(5).padding(.horizontal)
-                        Text("Project Id").padding(.horizontal)
-                        TextField("1234",text: $projectId).cornerRadius(5).padding(.horizontal)
+                        TextField(selection.urlPlaceholder(),text: $baseUrl).cornerRadius(5).padding(.horizontal)
+                        if selection != .GITHUB {
+                            Text("Project Id").padding(.horizontal)
+                            TextField("1234",text: $projectId).cornerRadius(5).padding(.horizontal)
+                        }
                         HStack {
                             Text("Private Access Token").cornerRadius(15).padding(.leading)
-                            Link(destination: URL(string: "https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#creating-a-personal-access-token")!) {
+                            Link(destination: selection.tokenDescriptionLink()) {
                                 Image(systemName: "questionmark.circle").font(.title2).foregroundColor(.blue)
                             }
                         }
