@@ -6,11 +6,11 @@
 //
 
 import Foundation
-struct Pipeline: Codable, Identifiable {
+struct Pipeline: Decodable, Identifiable {
     public let id: Int
     let sha: String
     let ref: String
-    let status: String
+    let status: PipelineStatus
     let created_at: String
     let updated_at: String
     let web_url: String

@@ -53,7 +53,15 @@ class PipelinerService {
             for pipeline in pipelinesWithRepoName {
                 let duration = try dateService.format(from: try dateService.parse(date: pipeline.pipeline.created_at), to: try dateService.parse(date: pipeline.pipeline.updated_at))
                 let age = try dateService.format(from: try dateService.parse(date: pipeline.pipeline.updated_at), to: Date())
-                results.append(PipelineResult(id: pipeline.pipeline.id, ref: pipeline.pipeline.ref, status: pipeline.pipeline.status == PipelineStatus.SUCCESS.rawValue ? PipelineStatus.SUCCESS : PipelineStatus.FAILED, duration: duration, age: age, url: pipeline.pipeline.web_url, repositoryName: pipeline.repositoryName))
+                let result = PipelineResult(
+                    id: pipeline.pipeline.id,
+                    ref: pipeline.pipeline.ref,
+                    status: pipeline.pipeline.status,
+                    duration: duration,
+                    age: age,
+                    url: pipeline.pipeline.web_url,
+                    repositoryName: pipeline.repositoryName)
+                results.append(result)
             }
             //Return rigth number of pipelines
             return results.enumerated().filter { $0.offset < pipelineCount }.map { $0.element }
