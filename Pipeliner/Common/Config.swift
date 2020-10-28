@@ -12,4 +12,5 @@ struct Config: Codable, Identifiable, Hashable {
     let projectId: String
     let token: String
     let repositoryName: String
+    let serviceType: ServiceType
 }
