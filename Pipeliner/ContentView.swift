@@ -28,6 +28,7 @@ struct ContentView: View {
 
     
     private func isFormValid() -> Bool {
+        // GitHub service doesn't use projectId
         if self.selection != .GITHUB && projectId.isEmpty {
             return false
         }
