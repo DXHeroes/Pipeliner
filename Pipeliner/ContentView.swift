@@ -60,7 +60,11 @@ struct ContentView: View {
                 .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
                 Form {
                     Section{
-                        Text("Base Url").padding(.horizontal)
+                        HStack {
+                            Text("Web Address").cornerRadius(15).padding(.leading)
+                            Image(systemName: "questionmark.circle").font(.title2).foregroundColor(.blue)
+                                .help("Where your repository is hosted.")
+                        }
                         TextField(selection.urlPlaceholder(),text: $baseUrl).cornerRadius(5).padding(.horizontal)
                         if selection != .GITHUB {
                             Text("Project Id").padding(.horizontal)
