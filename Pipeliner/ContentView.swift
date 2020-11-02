@@ -20,6 +20,8 @@ struct ContentView: View {
     @State private var configurations: [Config]
     
     @State private var selection: ServiceType = .GITLAB
+    @State private var showingError = false
+    @State private var errorInfo = ""
     
     init() {
         _pipelines = State(initialValue:  pipelinerService.getPipelines(pipelineCount: 10))
@@ -28,7 +30,7 @@ struct ContentView: View {
 
     
     private func isFormValid() -> Bool {
-        if projectId.isEmpty {
+        if projectId.isEmpty && selection != .GITHUB {
             return false
         }
 
@@ -80,17 +82,24 @@ struct ContentView: View {
                     }
                 }
                 Button(action: {
-                    if let projectName = pipelinerService.getProjectName(baseUrl: baseUrl, projectId: projectId, token: token) {
-                        configurations =  ConfigurationService.addConfiguration(config: Config(id: UUID().uuidString, baseUrl: baseUrl, projectId: projectId, token: token, repositoryName: projectName))
-                        pipelines = pipelinerService.getPipelines(pipelineCount: 10)
-                        WidgetCenter.shared.reloadAllTimelines()
-
-                    } else {
-                        savedBaseUrl = "not found"
+                    pipelinerService.getProjectName(baseUrl: baseUrl, projectId: projectId, token: token) { (result) in
+                        switch result {
+                        case .success(let projectName):
+                            print(projectName)
+                        case .failure(let error):
+                            guard let error = error as? ApiError else { return }
+                            errorInfo = error.rawValue
+                            showingError.toggle()
+                        }
                     }
                 }) {
                     Image(systemName: "plus.circle").font(.system(size: 24)).foregroundColor(.blue)
                 }.disabled(!self.isFormValid()).padding().buttonStyle(BorderlessButtonStyle())
+                .alert(isPresented: $showingError) {
+                   Alert(title: Text(errorInfo),
+                         message: nil,
+                         dismissButton: .default(Text("OK")))
+               }
                 VStack {
                     Image(systemName: "square.and.arrow.down.on.square").font(.system(size: 40)).foregroundColor(.white)
                     Text("Saved Configuration").multilineTextAlignment(.center).foregroundColor(.gray)

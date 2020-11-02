@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		725D03A5254F890B00ED0FEB /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725D03A4254F890B00ED0FEB /* Result.swift */; };
+		725D03A8254F895C00ED0FEB /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725D03A4254F890B00ED0FEB /* Result.swift */; };
 		72B62F012532C763009DBE8A /* GitHubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D86CA4252AB3880071A45B /* GitHubService.swift */; };
 		72B62F052532C9C9009DBE8A /* Workflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B62F042532C9C9009DBE8A /* Workflow.swift */; };
 		72B62F082532CA5D009DBE8A /* Workflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B62F042532C9C9009DBE8A /* Workflow.swift */; };
@@ -77,6 +79,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		725D03A4254F890B00ED0FEB /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		72B62F042532C9C9009DBE8A /* Workflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflow.swift; sourceTree = "<group>"; };
 		72D86CA4252AB3880071A45B /* GitHubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubService.swift; sourceTree = "<group>"; };
 		F220499225011CED00ECC510 /* DateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateService.swift; sourceTree = "<group>"; };
@@ -218,6 +221,7 @@
 				F220499225011CED00ECC510 /* DateService.swift */,
 				F2E52EAA2512306E002A4692 /* Config.swift */,
 				F29E5B5C2513937500963075 /* ServiceInterface.swift */,
+				725D03A4254F890B00ED0FEB /* Result.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -362,6 +366,7 @@
 				F26ECFB12506763100E62EDD /* PipelineDetailView.swift in Sources */,
 				F29E5B5D2513937500963075 /* ServiceInterface.swift in Sources */,
 				F2FF09952500BDA20058FBE7 /* ContentView.swift in Sources */,
+				725D03A5254F890B00ED0FEB /* Result.swift in Sources */,
 				F2FF09A62500BE600058FBE7 /* HttpService.swift in Sources */,
 				F2FF09B42500BF450058FBE7 /* ApiError.swift in Sources */,
 				F2FF09932500BDA20058FBE7 /* PipelinerApp.swift in Sources */,
@@ -383,6 +388,7 @@
 			files = (
 				72B62F082532CA5D009DBE8A /* Workflow.swift in Sources */,
 				F29E5B6125147D0B00963075 /* ServiceInterface.swift in Sources */,
+				725D03A8254F895C00ED0FEB /* Result.swift in Sources */,
 				F22049A02501409300ECC510 /* ServiceTypeEnum.swift in Sources */,
 				F220499E2501408800ECC510 /* ApiError.swift in Sources */,
 				F220499D2501407C00ECC510 /* HttpService.swift in Sources */,

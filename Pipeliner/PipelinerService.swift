@@ -16,11 +16,12 @@ class PipelinerService {
         self.dateService = DateService()
     }
     
-    func getProjectName(baseUrl: String, projectId: String, token: String) -> String? {
+    func getProjectName(baseUrl: String, projectId: String, token: String, _ completion: @escaping (Result<String>) -> Void) {
         do {
-            return try gitLabService.getProjectName(baseUrl: baseUrl, projectId: projectId, token: token)
+            let projectName = try gitLabService.getProjectName(baseUrl: baseUrl, projectId: projectId, token: token)
+            completion(.success(projectName))
         } catch  {
-            return nil
+            completion(.failure(error))
         }
     }
 
