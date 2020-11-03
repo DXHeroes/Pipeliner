@@ -8,20 +8,23 @@
 import Foundation
 
 class PipelinerService {
-    internal let gitLabService: GitLabService
     internal let dateService: DateService
-    
+    private let resolver = ServiceResolver()
+
     init() {
-        self.gitLabService = GitLabService()
         self.dateService = DateService()
     }
     
-    func getProjectName(baseUrl: String, projectId: String, token: String) -> String? {
-        do {
-            return try gitLabService.getProjectName(baseUrl: baseUrl, projectId: projectId, token: token)
-        } catch  {
-            return nil
-        }
+    func getConfig(_ serviceType: ServiceType, baseUrl: String, projectId: String, token: String) throws -> Config {
+        let service = self.resolver.resolve(serviceType)
+        let projectName = try service.getProjectName(baseUrl: baseUrl, projectId: projectId, token: token)
+        return Config(
+            id: UUID().uuidString,
+            baseUrl: baseUrl,
+            projectId: projectId,
+            token: token,
+            repositoryName: projectName,
+            serviceType: serviceType)
     }
 
     func getPipelines(pipelineCount: Int) -> [PipelineResult]{
@@ -36,7 +39,8 @@ class PipelinerService {
             var pipelinesWithRepoName: [PipelineWithRepoName] = []
             //Get pipelines from API
             for config in configs {
-                let pipelines = try gitLabService.getPipelines(config: config, pipelineCount: pipelineCountPerRepo)
+                let service = self.resolver.resolve(config.serviceType)
+                let pipelines = try service.getPipelines(config: config, pipelineCount: pipelineCountPerRepo)
                 for pipeline in pipelines {
                     pipelinesWithRepoName.append(PipelineWithRepoName(pipeline: pipeline, name: config.repositoryName, date: try dateService.parse(date: pipeline.updated_at)))
                 }
@@ -49,7 +53,15 @@ class PipelinerService {
             for pipeline in pipelinesWithRepoName {
                 let duration = try dateService.format(from: try dateService.parse(date: pipeline.pipeline.created_at), to: try dateService.parse(date: pipeline.pipeline.updated_at))
                 let age = try dateService.format(from: try dateService.parse(date: pipeline.pipeline.updated_at), to: Date())
-                results.append(PipelineResult(id: pipeline.pipeline.id, ref: pipeline.pipeline.ref, status: pipeline.pipeline.status == PipelineStatus.SUCCESS.rawValue ? PipelineStatus.SUCCESS : PipelineStatus.FAILED, duration: duration, age: age, url: pipeline.pipeline.web_url, repositoryName: pipeline.repositoryName))
+                let result = PipelineResult(
+                    id: pipeline.pipeline.id,
+                    ref: pipeline.pipeline.ref,
+                    status: pipeline.pipeline.status,
+                    duration: duration,
+                    age: age,
+                    url: pipeline.pipeline.web_url,
+                    repositoryName: pipeline.repositoryName)
+                results.append(result)
             }
             //Return rigth number of pipelines
             return results.enumerated().filter { $0.offset < pipelineCount }.map { $0.element }
@@ -107,5 +119,24 @@ class ConfigurationService {
             }
         }
         return []
+    }
+}
+
+private struct ServiceResolver {
+    private let gitHubService: GitHubService
+    private let gitLabService: GitLabService
+
+    init() {
+        self.gitHubService = GitHubService()
+        self.gitLabService = GitLabService()
+    }
+
+    func resolve(_ serviceType: ServiceType) -> IService {
+        switch serviceType {
+        case .GITHUB:
+            return self.gitHubService
+        case .GITLAB:
+            return self.gitLabService
+        }
     }
 }

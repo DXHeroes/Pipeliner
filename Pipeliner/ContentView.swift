@@ -28,7 +28,8 @@ struct ContentView: View {
 
     
     private func isFormValid() -> Bool {
-        if projectId.isEmpty {
+        // GitHub service doesn't use projectId
+        if self.selection != .GITHUB && projectId.isEmpty {
             return false
         }
 
@@ -80,8 +81,10 @@ struct ContentView: View {
                     }
                 }
                 Button(action: {
-                    if let projectName = pipelinerService.getProjectName(baseUrl: baseUrl, projectId: projectId, token: token) {
-                        configurations =  ConfigurationService.addConfiguration(config: Config(id: UUID().uuidString, baseUrl: baseUrl, projectId: projectId, token: token, repositoryName: projectName))
+                    if let config = try? pipelinerService.getConfig(
+                        self.selection, baseUrl: self.baseUrl, projectId: self.projectId, token: self.token) {
+
+                        configurations =  ConfigurationService.addConfiguration(config: config)
                         pipelines = pipelinerService.getPipelines(pipelineCount: 10)
                         WidgetCenter.shared.reloadAllTimelines()
 
