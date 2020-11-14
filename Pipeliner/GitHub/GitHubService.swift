@@ -41,28 +41,10 @@ class GitHubService: IService {
         var request = URLRequest(url: url)
         request.setValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
         request.setValue("bearer \(config.token)", forHTTPHeaderField:"Authorization")
-        
-        guard let data = try? await(httpService.getData(request: request)) else {
-            throw ApiError.emptyResponse
-        }
-        
-        guard let workflows = try? JSONDecoder().decode(Workflows.self, from: data) else {
-            throw ApiError.decodeError
-        }
-        
-        var pipelines = [Pipeline]()
-        
-        workflows.workflow_runs.forEach {
-            pipelines.append(Pipeline(
-                                id: $0.id,
-                                sha: $0.head_sha,
-                                ref: $0.repository.html_url,
-                                status: $0.status,
-                                created_at: $0.created_at,
-                                updated_at: $0.updated_at,
-                                web_url: $0.html_url))
-        }
-        
-        return pipelines
+        let data = try await(httpService.getData(request: request))
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        let workflows = try decoder.decode(Workflows.self, from: data)
+        return workflows.workflowRuns.map(Pipeline.init)
     }
 }

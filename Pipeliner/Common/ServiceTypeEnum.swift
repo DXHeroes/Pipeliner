@@ -6,7 +6,7 @@
 //
 
 import Foundation
-enum ServiceType: String, CaseIterable {
+enum ServiceType: String, CaseIterable, Codable {
     case GITLAB = "GITLAB"
     case GITHUB = "GITHUB"
     

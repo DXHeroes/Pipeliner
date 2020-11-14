@@ -30,7 +30,8 @@ struct ContentView: View {
 
     
     private func isFormValid() -> Bool {
-        if projectId.isEmpty && selection != .GITHUB {
+        // GitHub service doesn't use projectId
+        if self.selection != .GITHUB && projectId.isEmpty {
             return false
         }
 
@@ -82,15 +83,15 @@ struct ContentView: View {
                     }
                 }
                 Button(action: {
-                    pipelinerService.getProjectName(baseUrl: baseUrl, projectId: projectId, token: token) { (result) in
-                        switch result {
-                        case .success(let projectName):
-                            print(projectName)
-                        case .failure(let error):
-                            guard let error = error as? ApiError else { return }
-                            errorInfo = error.rawValue
-                            showingError.toggle()
-                        }
+                    if let config = try? pipelinerService.getConfig(
+                        self.selection, baseUrl: self.baseUrl, projectId: self.projectId, token: self.token) {
+
+                        configurations =  ConfigurationService.addConfiguration(config: config)
+                        pipelines = pipelinerService.getPipelines(pipelineCount: 10)
+                        WidgetCenter.shared.reloadAllTimelines()
+
+                    } else {
+                        savedBaseUrl = "not found"
                     }
                 }) {
                     Image(systemName: "plus.circle").font(.system(size: 24)).foregroundColor(.blue)

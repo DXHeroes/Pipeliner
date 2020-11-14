@@ -6,7 +6,7 @@
 //
 
 import Foundation
-public enum PipelineStatus: String {
+public enum PipelineStatus: String, Decodable {
     case SUCCESS = "success"
     case FAILED = "failed"
 }
