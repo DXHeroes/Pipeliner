@@ -20,9 +20,12 @@ struct PipelineDetailView: View {
             Spacer()
             if(pipeline.status == PipelineStatus.FAILED) {
                 Image(systemName: "xmark").font(.title).foregroundColor(.red)
-            } else {
+            } else if(pipeline.status == PipelineStatus.SUCCESS) {
                 Image(systemName: "checkmark").font(.title).foregroundColor(.green)
-            }
+			} else {
+				Text(pipeline.status.rawValue).foregroundColor(.gray)
+				Image(systemName: "arrow.triangle.2.circlepath").font(.title).foregroundColor(.yellow)
+			}
             VStack(alignment: .leading, content: {
                 Text(pipeline.duration)
                 Text("\(pipeline.age) ago").foregroundColor(.gray)
