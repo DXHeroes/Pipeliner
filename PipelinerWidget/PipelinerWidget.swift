@@ -13,7 +13,7 @@ struct Provider: IntentTimelineProvider {
     let service: PipelinerService = PipelinerService()
 
     func placeholder(in context: Context) -> SimpleEntry {
-        return SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "test", status: PipelineStatus.FAILED, duration: "54 min", age: "4 min", url: "url", repositoryName: "Cool Project")], error: false)
+        return SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "test", status: PipelineStatus.FAILED, duration: "54 min", age: "4 min", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.GITHUB)], error: false)
     }
 
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
@@ -22,15 +22,15 @@ struct Provider: IntentTimelineProvider {
         if(context.isPreview) {
             switch context.family {
             case .systemSmall:
-                entry = SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "test", status: PipelineStatus.FAILED, duration: "4 min", age: "54 min", url: "url", repositoryName: "Cool Project")], error: false)
+                entry = SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "test", status: PipelineStatus.FAILED, duration: "4 min", age: "54 min", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.GITHUB)], error: false)
             case .systemMedium:
-                entry = SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "fix:test", status: PipelineStatus.SUCCESS, duration: "4 min", age: "54 min", url: "url", repositoryName: "Cool Project"), PipelineResult(id: 2, ref: "feat: make it cooler", status: PipelineStatus.SUCCESS, duration: "6 min", age: "4 hours", url: "url", repositoryName: "Second Project"), PipelineResult(id: 3, ref: "chore: clean up", status: PipelineStatus.FAILED, duration: "9 min", age: "8 hours", url: "url", repositoryName: "Cool Project")
+                entry = SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "fix:test", status: PipelineStatus.SUCCESS, duration: "4 min", age: "54 min", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.GITHUB), PipelineResult(id: 2, ref: "feat: make it cooler", status: PipelineStatus.SUCCESS, duration: "6 min", age: "4 hours", url: "url", repositoryName: "Second Project", serviceType: ServiceType.GITHUB), PipelineResult(id: 3, ref: "chore: clean up", status: PipelineStatus.FAILED, duration: "9 min", age: "8 hours", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.GITHUB)
                 ], error: false)
             case .systemLarge:
-                entry = SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "fix:test", status: PipelineStatus.SUCCESS, duration: "4 min", age: "54 min", url: "url", repositoryName: "Cool Project"), PipelineResult(id: 2, ref: "feat: make it cooler", status: PipelineStatus.SUCCESS, duration: "6 min", age: "4 hours", url: "url", repositoryName: "Second Project"), PipelineResult(id: 3, ref: "chore: clean up", status: PipelineStatus.FAILED, duration: "9 min", age: "8 hours", url: "url", repositoryName: "Cool Project"), PipelineResult(id: 4, ref: "fix:test", status: PipelineStatus.SUCCESS, duration: "4 min", age: "9 hours", url: "url", repositoryName: "Cool Project"), PipelineResult(id: 5, ref: "feat: make it cooler", status: PipelineStatus.SUCCESS, duration: "6 min", age: "10 hours", url: "url", repositoryName: "Second Project"), PipelineResult(id: 6, ref: "chore: clean up", status: PipelineStatus.FAILED, duration: "9 min", age: "13 hours", url: "url", repositoryName: "Cool Project")
+                entry = SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "fix:test", status: PipelineStatus.SUCCESS, duration: "4 min", age: "54 min", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.GITHUB), PipelineResult(id: 2, ref: "feat: make it cooler", status: PipelineStatus.SUCCESS, duration: "6 min", age: "4 hours", url: "url", repositoryName: "Second Project", serviceType: ServiceType.GITHUB), PipelineResult(id: 3, ref: "chore: clean up", status: PipelineStatus.FAILED, duration: "9 min", age: "8 hours", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.GITHUB), PipelineResult(id: 4, ref: "fix:test", status: PipelineStatus.SUCCESS, duration: "4 min", age: "9 hours", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.GITHUB), PipelineResult(id: 5, ref: "feat: make it cooler", status: PipelineStatus.SUCCESS, duration: "6 min", age: "10 hours", url: "url", repositoryName: "Second Project", serviceType: ServiceType.GITHUB), PipelineResult(id: 6, ref: "chore: clean up", status: PipelineStatus.FAILED, duration: "9 min", age: "13 hours", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.GITHUB)
                 ], error: false)
             default:
-                entry = SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "fix:test", status: PipelineStatus.SUCCESS, duration: "4 min", age: "54 min", url: "url", repositoryName: "Cool Project"), PipelineResult(id: 2, ref: "feat: make it cooler", status: PipelineStatus.SUCCESS, duration: "6 min", age: "4 hours", url: "url", repositoryName: "Second Project"), PipelineResult(id: 3, ref: "chore: clean up", status: PipelineStatus.FAILED, duration: "9 min", age: "8 hours", url: "url", repositoryName: "Cool Project")
+                entry = SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "fix:test", status: PipelineStatus.SUCCESS, duration: "4 min", age: "54 min", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.GITHUB), PipelineResult(id: 2, ref: "feat: make it cooler", status: PipelineStatus.SUCCESS, duration: "6 min", age: "4 hours", url: "url", repositoryName: "Second Project", serviceType: ServiceType.GITHUB), PipelineResult(id: 3, ref: "chore: clean up", status: PipelineStatus.FAILED, duration: "9 min", age: "8 hours", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.GITHUB)
                 ], error: false)
         }
         // use real data
@@ -98,7 +98,7 @@ struct PipelinerWidget: Widget {
 
 struct PipelinerWidget_Previews: PreviewProvider {
     static var previews: some View {
-        PipelinerWidgetEntryView(entry: SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "test", status: PipelineStatus.FAILED, duration: "54 min", age: "4 min", url: "url", repositoryName: "Cool project")], error: false))
+        PipelinerWidgetEntryView(entry: SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "test", status: PipelineStatus.FAILED, duration: "54 min", age: "4 min", url: "url", repositoryName: "Cool project", serviceType: ServiceType.GITHUB)], error: false))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

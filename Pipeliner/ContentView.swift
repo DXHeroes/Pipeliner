@@ -18,7 +18,7 @@ struct ContentView: View {
     @State private var savedBaseUrl = ""
     @State private var pipelines: [PipelineResult]
     @State private var configurations: [Config]
-    
+    @Environment(\.colorScheme) var colorScheme
     @State private var selection: ServiceType = .GITLAB
     
     init() {
@@ -43,6 +43,7 @@ struct ContentView: View {
 
         return true
     }
+   let allServices = ServiceType.allCases
    var body: some View {
     ZStack {
         Color(.darkGray).opacity(0.15).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
@@ -52,8 +53,11 @@ struct ContentView: View {
                 Text("Add Configuration").multilineTextAlignment(.center).foregroundColor(.gray)
                 Divider()
                 Picker("Service", selection: $selection.animation()) {
-                    ForEach(ServiceType.allCases, id: \.self) {
-                        Text($0.rawValue).tag($0)
+                    ForEach(allServices,id: \.self) { allServices in
+                        HStack(content: {
+                            Image( nsImage: allServices.serviceIcon(colorScheme: colorScheme))
+                            Text(allServices.serviceName())
+                        }).tag(allServices)
                     }
                 }
                 .pickerStyle(DefaultPickerStyle())
@@ -83,7 +87,6 @@ struct ContentView: View {
                 Button(action: {
                     if let config = try? pipelinerService.getConfig(
                         self.selection, baseUrl: self.baseUrl, projectId: self.projectId, token: self.token) {
-
                         configurations =  ConfigurationService.addConfiguration(config: config)
                         pipelines = pipelinerService.getPipelines(pipelineCount: 10)
                         WidgetCenter.shared.reloadAllTimelines()
@@ -102,7 +105,10 @@ struct ContentView: View {
                         ForEach(configurations, id: \.self){ configuration in
                             HStack(content: {
                                 VStack(alignment: .leading, content: {
-                                    Text(configuration.repositoryName.uppercased())
+                                    HStack(content: {
+                                        Image( nsImage: configuration.serviceType.serviceIcon(colorScheme: colorScheme))
+                                        Text(configuration.repositoryName.uppercased())
+                                    })
                                     Text(configuration.baseUrl).foregroundColor(.gray)
                                 })
                                 Spacer()

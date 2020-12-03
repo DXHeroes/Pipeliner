@@ -42,7 +42,7 @@ class PipelinerService {
                 let service = self.resolver.resolve(config.serviceType)
                 let pipelines = try service.getPipelines(config: config, pipelineCount: pipelineCountPerRepo)
                 for pipeline in pipelines {
-                    pipelinesWithRepoName.append(PipelineWithRepoName(pipeline: pipeline, name: config.repositoryName, date: try dateService.parse(date: pipeline.updated_at)))
+                    pipelinesWithRepoName.append(PipelineWithRepoName(pipeline: pipeline, name: config.repositoryName, date: try dateService.parse(date: pipeline.updated_at), serviceType: config.serviceType))
                 }
             }
             //Sort pipelines according to date
@@ -60,7 +60,8 @@ class PipelinerService {
                     duration: duration,
                     age: age,
                     url: pipeline.pipeline.web_url,
-                    repositoryName: pipeline.repositoryName)
+                    repositoryName: pipeline.repositoryName,
+                    serviceType: pipeline.serviceType)
                 results.append(result)
             }
             //Return rigth number of pipelines
@@ -75,11 +76,13 @@ class PipelineWithRepoName{
     let pipeline: Pipeline
     let date: Date
     let repositoryName: String
+    let serviceType: ServiceType
     
-    init(pipeline: Pipeline, name: String, date: Date) {
+    init(pipeline: Pipeline, name: String, date: Date, serviceType: ServiceType) {
         self.pipeline = pipeline
         self.date = date
         self.repositoryName = name
+        self.serviceType = serviceType
     }
 }
 

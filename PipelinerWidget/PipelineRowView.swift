@@ -11,12 +11,15 @@ struct PipelineRowView: View {
     public let pipeline: PipelineResult
     public let size: WidgetFamily
     public let isLastRow: Bool
-    
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
             switch size {
             case .systemSmall:
                 VStack(alignment: .center, content: {
-                    Text(pipeline.repositoryName.uppercased())
+                    HStack(content: {
+                        Image( nsImage: pipeline.serviceType.serviceIcon(colorScheme: colorScheme))
+                        Text(pipeline.repositoryName.uppercased())
+                    })
                     Text(pipeline.ref).foregroundColor(.gray)
                     Spacer()
                     if(pipeline.status == PipelineStatus.FAILED) {
@@ -34,7 +37,10 @@ struct PipelineRowView: View {
             default:
                 HStack(content: {
                     VStack(alignment: .leading, content: {
-                        Text(pipeline.repositoryName.uppercased())
+                        HStack(content: {
+                            Image( nsImage: pipeline.serviceType.serviceIcon(colorScheme: colorScheme))
+                            Text(pipeline.repositoryName.uppercased())
+                        })
                         Text(pipeline.ref).foregroundColor(.gray)
                     })
                     Spacer()
@@ -61,6 +67,6 @@ struct PipelineRowView: View {
 
 struct PipelineRowView_Previews: PreviewProvider {
     static var previews: some View {
-        PipelineRowView(pipeline: PipelineResult(id: 1, ref: "test", status: PipelineStatus.FAILED, duration: "54 min", age: "4 min", url: "url", repositoryName: "Cool Project"), size: .systemMedium, isLastRow: false)
+        PipelineRowView(pipeline: PipelineResult(id: 1, ref: "test", status: PipelineStatus.FAILED, duration: "54 min", age: "4 min", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.GITHUB), size: .systemMedium, isLastRow: false)
     }
 }

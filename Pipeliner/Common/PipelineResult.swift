@@ -14,4 +14,5 @@ public struct PipelineResult: Identifiable, Hashable {
     public let age: String
     public let url: String
     public let repositoryName: String
+    let serviceType: ServiceType
 }
