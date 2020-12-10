@@ -4,7 +4,7 @@
 </div>
 
 [![Slack](https://img.shields.io/badge/slack-@DeveloperExperience-%234A154B.svg?logo=slack)](https://bit.ly/slack_developer_experience)
-[![Pipeliner Roadmap](https://img.shields.io/badge/public%20roadmap-https%3A%2F%2Froadmap.dxheroes.io-%2339D2DA)](https://roadmap.dxheroes.io)
+[![Pipeliner Roadmap](https://img.shields.io/badge/public%20roadmap-https%3A%2F%2Froadmap.dxheroes.io-%23108DE4)](https://roadmap.dxheroes.io)
 
 
 ## What is Pipeliner
