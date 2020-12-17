@@ -25,6 +25,7 @@
 		F22049A02501409300ECC510 /* ServiceTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09A22500BE1C0058FBE7 /* ServiceTypeEnum.swift */; };
 		F26C86C025125423002841FE /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = F26C86BF25125423002841FE /* PromiseKit */; };
 		F26ECFB12506763100E62EDD /* PipelineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26ECFB02506763100E62EDD /* PipelineDetailView.swift */; };
+		F28349DD258B9671004DC329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FF09962500BDA30058FBE7 /* Assets.xcassets */; };
 		F29E5B5D2513937500963075 /* ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29E5B5C2513937500963075 /* ServiceInterface.swift */; };
 		F29E5B5E25147CCB00963075 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FF09BF2500C87B0058FBE7 /* SwiftUI.framework */; };
 		F29E5B6125147D0B00963075 /* ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29E5B5C2513937500963075 /* ServiceInterface.swift */; };
@@ -339,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F28349DD258B9671004DC329 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,6 +595,7 @@
 		F2FF09CF2500C87C0058FBE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PipelinerWidget/PipelinerWidget.entitlements;
@@ -617,6 +620,7 @@
 		F2FF09D02500C87C0058FBE7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PipelinerWidget/PipelinerWidget.entitlements;
