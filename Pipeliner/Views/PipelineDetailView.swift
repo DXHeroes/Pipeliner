@@ -20,7 +20,7 @@ struct PipelineDetailView: View {
             Spacer()
             VStack(alignment: .leading, content: {
                 if(pipeline.status == PipelineStatus.FAILED) {
-                    Image(systemName: "xmark").font(.title).foregroundColor(.red)
+                    Image(systemName: "xmark").font(.title).foregroundColor(Color("error"))
                 } else {
                     Image(systemName: "checkmark").font(.title).foregroundColor(Color("lightteal"))
                 }
