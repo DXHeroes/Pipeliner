@@ -28,7 +28,7 @@ struct PipelineDetailView: View {
             VStack(alignment: .leading, content: {
                 Text(pipeline.duration)
                 Text("\(pipeline.age) ago").foregroundColor(.gray)
-            })
+            }).frame(width: 80, height: 40)
             Link(destination: URL(string: pipeline.url)!) {
                 Image(systemName: "link").font(.title2).foregroundColor(.blue)
             }.padding(.horizontal)
