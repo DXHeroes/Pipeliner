@@ -13,6 +13,7 @@ struct AddConfigurationView: View {
     @State private var token = ""
     @State private var baseUrl = ""
     @State private var serviceType: ServiceType = .GITLAB
+    @Environment(\.colorScheme) var colorScheme    
     public let onAdd: (_ baseUrl: String, _ token: String, _ projectId: String, _ serviceType: ServiceType) -> Void
     
     
@@ -32,7 +33,7 @@ struct AddConfigurationView: View {
         
         return true
     }
-    
+    let allServices = ServiceType.allCases
     var body: some View {
         ZStack(alignment: .top, content: {
             Color("purple")
@@ -41,8 +42,11 @@ struct AddConfigurationView: View {
                 HStack {
                     DxLabel(text: "service")
                     Picker("", selection: $serviceType.animation()) {
-                        ForEach(ServiceType.allCases, id: \.self) {
-                            Text($0.rawValue).tag($0)
+                        ForEach(allServices,id: \.self) { allServices in
+                            HStack(content: {
+                                Image( nsImage: allServices.serviceIcon(colorScheme: colorScheme))
+                                Text(allServices.serviceName())
+                            }).tag(allServices)
                         }
                     }
                     .pickerStyle(DefaultPickerStyle())

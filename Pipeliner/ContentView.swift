@@ -12,6 +12,7 @@ struct ContentView: View {
     internal let pipelinerService: PipelinerService = PipelinerService()
     @State private var pipelines: [PipelineResult]
     @State private var configurations: [Config]
+    @Environment(\.colorScheme) var colorScheme
     
     init() {
         _pipelines = State(initialValue:  pipelinerService.getPipelines(pipelineCount: 10))
@@ -48,6 +49,7 @@ struct ContentView: View {
                                 }).padding(.horizontal)
                                 ForEach(configurations.indices, id: \.self){ index in
                                     HStack(content: {
+                                        Image( nsImage: configurations[index].serviceType.serviceIcon(colorScheme: colorScheme))
                                         VStack(alignment: .leading, content: {
                                             Text(configurations[index].repositoryName.uppercased())
                                             Text(configurations[index].baseUrl).foregroundColor(.gray)
