@@ -10,135 +10,67 @@ import WidgetKit
 
 struct ContentView: View {
     internal let pipelinerService: PipelinerService = PipelinerService()
-    static let serviceTypes = ServiceType.allCases.map { $0.rawValue }
-    @State private var serviceType = 0
-    @State private var projectId = ""
-    @State private var token = ""
-    @State private var baseUrl = ""
-    @State private var savedBaseUrl = ""
     @State private var pipelines: [PipelineResult]
     @State private var configurations: [Config]
-    
-    @State private var selection: ServiceType = .GITLAB
     
     init() {
         _pipelines = State(initialValue:  pipelinerService.getPipelines(pipelineCount: 10))
         _configurations = State(initialValue:  ConfigurationService.getConfigurations())
     }
-
     
-    private func isFormValid() -> Bool {
-        // GitHub service doesn't use projectId
-        if self.selection != .GITHUB && projectId.isEmpty {
-            return false
-        }
-
-        if baseUrl.isEmpty {
-            return false
-        }
-        
-        if token.isEmpty {
-            return false
-        }
-
-        return true
-    }
-   var body: some View {
-    ZStack {
-        Color(.darkGray).opacity(0.15).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-        HStack(content: {
-            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
-                Image(systemName: "gear").font(.system(size: 40)).foregroundColor(.white)
-                Text("Add Configuration").multilineTextAlignment(.center).foregroundColor(.gray)
-                Divider()
-                Picker("Service", selection: $selection.animation()) {
-                    ForEach(ServiceType.allCases, id: \.self) {
-                        Text($0.rawValue).tag($0)
-                    }
-                }
-                .pickerStyle(DefaultPickerStyle())
-                .padding(.horizontal)
-                .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
-                Form {
-                    Section{
-                        HStack {
-                            Text("Web Address").cornerRadius(15).padding(.leading)
-                            Image(systemName: "questionmark.circle").font(.title2).foregroundColor(.blue)
-                                .help("Where your repository is hosted.")
+    var body: some View {
+        ZStack {
+            Color("darkblue")
+            HStack(content: {
+                VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
+                    AddConfigurationView(onAdd: { baseUrl, token, projectId, serviceType in
+                        if let config = try? pipelinerService.getConfig(
+                            serviceType, baseUrl: baseUrl, projectId: projectId, token: token) {
+                            configurations =  ConfigurationService.addConfiguration(config: config)
+                            pipelines = pipelinerService.getPipelines(pipelineCount: 10)
+                            WidgetCenter.shared.reloadAllTimelines()
+                            
                         }
-                        TextField(selection.urlPlaceholder(),text: $baseUrl).cornerRadius(5).padding(.horizontal)
-                        if selection != .GITHUB {
-                            Text("Project Id").padding(.horizontal)
-                            TextField("1234",text: $projectId).cornerRadius(5).padding(.horizontal)
-                        }
-                        HStack {
-                            Text("Private Access Token").cornerRadius(15).padding(.leading)
-                            Link(destination: selection.tokenDescriptionLink()) {
-                                Image(systemName: "questionmark.circle").font(.title2).foregroundColor(.blue)
+                    })
+                    Spacer()
+                    ZStack(alignment: .top, content: {
+                        Color("purple")
+                        VStack {
+                            Text("Configurations").font(.system(size: 24)).foregroundColor(Color("white-60")).frame(maxWidth: .infinity, alignment: .topLeading).padding()
+                            if(configurations.count != 0) {
+                                HStack(content: {
+                                    VStack(alignment: .leading, content: {
+                                        Text("name".uppercased()).font(.system(size: 12)).foregroundColor(Color("white-60"))
+                                    })
+                                    Spacer()
+                                    VStack(alignment: .leading, content: {
+                                            Text("remove".uppercased()).font(.system(size: 12)).foregroundColor(Color("white-60"))                    })
+                                }).padding(.horizontal)
+                                ForEach(configurations.indices, id: \.self){ index in
+                                    HStack(content: {
+                                        VStack(alignment: .leading, content: {
+                                            Text(configurations[index].repositoryName.uppercased())
+                                            Text(configurations[index].baseUrl).foregroundColor(.gray)
+                                        })
+                                        Spacer()
+                                        VStack(alignment: .leading, content: {
+                                            DxButton(label: "remove", action: {
+                                                        configurations = ConfigurationService.deleteConfiguration(id: configurations[index].id)
+                                                        pipelines = pipelinerService.getPipelines(pipelineCount: 10)
+                                                        WidgetCenter.shared.reloadAllTimelines()               }, color: Color("error"), shadow: false)
+                                        })
+                                    }).foregroundColor(Color.white).padding(.horizontal).padding([.vertical], index % 2 == 0 ? 8 : 0).background(index % 2 == 0 ? Color("white-4") : Color("purple"))
+                                }
+                            } else {
+                                Text("There are no data").font(.system(size: 18)).foregroundColor(Color("white-60"))
                             }
-                        }
-                        TextField("your-secret-token",text: $token).cornerRadius(5).padding(.horizontal)
-                    }
-                }
-                Button(action: {
-                    if let config = try? pipelinerService.getConfig(
-                        self.selection, baseUrl: self.baseUrl, projectId: self.projectId, token: self.token) {
-
-                        configurations =  ConfigurationService.addConfiguration(config: config)
-                        pipelines = pipelinerService.getPipelines(pipelineCount: 10)
-                        WidgetCenter.shared.reloadAllTimelines()
-
-                    } else {
-                        savedBaseUrl = "not found"
-                    }
-                }) {
-                    Image(systemName: "plus.circle").font(.system(size: 24)).foregroundColor(.blue)
-                }.disabled(!self.isFormValid()).padding().buttonStyle(BorderlessButtonStyle())
-                VStack {
-                    Image(systemName: "square.and.arrow.down.on.square").font(.system(size: 40)).foregroundColor(.white)
-                    Text("Saved Configuration").multilineTextAlignment(.center).foregroundColor(.gray)
-                    Divider()
-                    VStack {
-                        ForEach(configurations, id: \.self){ configuration in
-                            HStack(content: {
-                                VStack(alignment: .leading, content: {
-                                    Text(configuration.repositoryName.uppercased())
-                                    Text(configuration.baseUrl).foregroundColor(.gray)
-                                })
-                                Spacer()
-                                VStack(alignment: .leading, content: {
-                                    Button(action: {
-                                        configurations = ConfigurationService.deleteConfiguration(id: configuration.id)
-                                        pipelines = pipelinerService.getPipelines(pipelineCount: 10)
-                                        WidgetCenter.shared.reloadAllTimelines()
-                                    }) {
-                                        Image(systemName: "minus.circle").font(.system(size: 24)).foregroundColor(.blue)
-                                    }
-                                })
-                            }).foregroundColor(Color.white).padding(.horizontal).buttonStyle(BorderlessButtonStyle())
-                        }
-                    }.padding(.bottom)
-                }.padding(.bottom)
-                Spacer()
-            }).padding(.bottom)
-            Divider()
-            VStack {
-                Image(systemName: "waveform.path.ecg").font(.system(size: 40)).foregroundColor(.white)
-                Text("Pipelines").multilineTextAlignment(.center).foregroundColor(.gray)
-                Divider()
-                if(pipelines.count != 0) {
-                ForEach(0..<pipelines.count){ index in
-                    PipelineDetailView(pipeline: pipelines[index], isLastRow: index == pipelines.count - 1 ? true : false)
-                }
-                    
-                }
-                Spacer()
-            }
-            
-        }).foregroundColor(Color.white).padding()
-        Spacer()
-    }.padding(.bottom)
-   }
+                        }.padding(.bottom)
+                    }).padding(.vertical, 40).padding(.horizontal, 30)
+                }).padding(.bottom)
+                PipelineView(pipelines: pipelines)
+            }).foregroundColor(Color.white).padding()
+        }.padding(.bottom)
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

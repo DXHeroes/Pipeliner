@@ -27,7 +27,7 @@ class GitLabService: IService {
         let project = try decoder.decode(Project.self, from: data)
         return project.name
     }
-
+    
     func getPipelines(config: Config, pipelineCount: Int) throws -> [Pipeline] {
         let urlString: String = "\(config.baseUrl)/api/v4/projects/\(config.projectId)/pipelines?per_page=\(pipelineCount)"
         guard let url = URL(string: urlString) else {

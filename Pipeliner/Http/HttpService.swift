@@ -17,6 +17,7 @@ class HttpService {
                 if let data = data {
                     promise.fulfill(data)
                 }
-        }.resume()}
+            }.resume()
+        }
     }
 }

@@ -23,12 +23,12 @@ struct Workflow: Decodable, Identifiable {
             case success
             case timedOut
         }
-
+        
         case completed(Conclusion)
         case inProgress
         case queued
     }
-
+    
     private enum CodingKeys: CodingKey {
         case conclusion
         case createdAt
@@ -39,7 +39,7 @@ struct Workflow: Decodable, Identifiable {
         case status
         case updatedAt
     }
-
+    
     public let id: Int
     let sha: String
     let status: Status
@@ -47,7 +47,7 @@ struct Workflow: Decodable, Identifiable {
     let updatedAt: String
     let url: String
     let repository: Repository
-
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
@@ -56,7 +56,7 @@ struct Workflow: Decodable, Identifiable {
         self.sha = try container.decode(String.self, forKey: .headSha)
         self.updatedAt = try container.decode(String.self, forKey: .updatedAt)
         self.url = try container.decode(String.self, forKey: .htmlUrl)
-
+        
         let status = try container.decode(String.self, forKey: .status)
         switch status {
         case "completed":
@@ -91,7 +91,7 @@ private extension Workflow.Status {
         if case .completed(let conclusion) = self, case .success = conclusion {
             return .SUCCESS
         }
-
+        
         return .FAILED
     }
 }
