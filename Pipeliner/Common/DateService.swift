@@ -14,7 +14,7 @@ struct DateService {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
             guard let secondTry = dateFormatter.date(from: date) else {
-            throw ApiError.invalidDate
+                throw ApiError.invalidDate
             }
             return secondTry
         }

@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct PipelineDetailView: View {
+    public let index: Int
     public let pipeline: PipelineResult
-    public let isLastRow: Bool
-
+    
     var body: some View {
         HStack(content: {
             VStack(alignment: .leading, content: {
@@ -18,11 +18,13 @@ struct PipelineDetailView: View {
                 Text(pipeline.ref).foregroundColor(.gray)
             })
             Spacer()
-            if(pipeline.status == PipelineStatus.FAILED) {
-                Image(systemName: "xmark").font(.title).foregroundColor(.red)
-            } else {
-                Image(systemName: "checkmark").font(.title).foregroundColor(.green)
-            }
+            VStack(alignment: .leading, content: {
+                if(pipeline.status == PipelineStatus.FAILED) {
+                    Image(systemName: "xmark").font(.title).foregroundColor(.red)
+                } else {
+                    Image(systemName: "checkmark").font(.title).foregroundColor(Color("lightteal"))
+                }
+            })
             VStack(alignment: .leading, content: {
                 Text(pipeline.duration)
                 Text("\(pipeline.age) ago").foregroundColor(.gray)
@@ -30,15 +32,12 @@ struct PipelineDetailView: View {
             Link(destination: URL(string: pipeline.url)!) {
                 Image(systemName: "link").font(.title2).foregroundColor(.blue)
             }.padding(.horizontal)
-        }).foregroundColor(Color.white).padding(.horizontal)
-        if(!isLastRow) {
-            Divider()
-        }
+        }).foregroundColor(Color.white).padding(.horizontal).padding([.vertical], self.index % 2 == 0 ? 8 : 0) .background(self.index % 2 == 0 ? Color("white-4") : Color("purple"))
     }
 }
 
 struct PipelineDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PipelineDetailView(pipeline: PipelineResult(id: 1, ref: "test", status: PipelineStatus.FAILED, duration: "54 min", age: "4 min", url: "url", repositoryName: "Cool Project"), isLastRow: false)
+        PipelineDetailView(index: 0, pipeline: PipelineResult(id: 1, ref: "test", status: PipelineStatus.FAILED, duration: "54 min", age: "4 min", url: "url", repositoryName: "Cool Project"))
     }
 }
