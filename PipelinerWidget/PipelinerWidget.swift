@@ -41,7 +41,6 @@ struct Provider: IntentTimelineProvider {
     }
 
    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        print("get timeline", configuration)
         let now = Date()
         let nextUpdate = Calendar.current.date(byAdding: .minute, value: 1, to: now)!
         let data = service.getPipelines(pipelineCount: getPipelineCount(context: context))
@@ -78,7 +77,7 @@ struct PipelinerWidgetEntryView : View {
     @ViewBuilder
     var body: some View {
         ZStack {
-            Color(.darkGray).opacity(0.2).edgesIgnoringSafeArea(.all)
+            Color("WidgetBackground").edgesIgnoringSafeArea(.all)
             PipelineListView(pipelines: entry.pipelines, size: family)
         }
     }}

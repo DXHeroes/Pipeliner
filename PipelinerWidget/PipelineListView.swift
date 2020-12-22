@@ -14,7 +14,7 @@ struct PipelineListView: View {
     var body: some View {
         VStack {
             ForEach(0..<pipelines.count){ index in
-                PipelineRowView(pipeline: pipelines[index], size: size, isLastRow: index == pipelines.count - 1 ? true : false)
+                PipelineRowView(pipeline: pipelines[index], size: size, isOdd: index % 2 != 0)
             }
         }.padding(.bottom)
     }

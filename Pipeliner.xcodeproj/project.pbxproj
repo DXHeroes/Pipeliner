@@ -36,6 +36,7 @@
 		F2B13A13251254F0007EA0C9 /* AwaitKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2B13A12251254F0007EA0C9 /* AwaitKit */; };
 		F2B13A1525125527007EA0C9 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2B13A1425125527007EA0C9 /* PromiseKit */; };
 		F2B13A172512552C007EA0C9 /* AwaitKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2B13A162512552C007EA0C9 /* AwaitKit */; };
+		F2BE2A1E2591E6C400437E99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FF09C52500C87C0058FBE7 /* Assets.xcassets */; };
 		F2D16DBA25909D51004258CC /* DxLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D16DB925909D51004258CC /* DxLabel.swift */; };
 		F2D16DBE2590B0C5004258CC /* PipelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D16DBD2590B0C5004258CC /* PipelineView.swift */; };
 		F2E52EAB2512306E002A4692 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E52EAA2512306E002A4692 /* Config.swift */; };
@@ -379,6 +380,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2BE2A1E2591E6C400437E99 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
