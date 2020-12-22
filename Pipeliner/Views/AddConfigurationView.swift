@@ -70,7 +70,7 @@ struct AddConfigurationView: View {
                     }
                 }
                 DxButton(label: "Add Configuration", action:{
-                            self.onAdd(baseUrl, token, projectId, serviceType)}).disabled(!self.isFormValid()).padding()
+                            self.onAdd(baseUrl, token, projectId, serviceType)}, color: Color("blue"), shadow: true).disabled(!self.isFormValid()).padding()
             }
         }).padding(.vertical, 40).padding(.horizontal, 30)    }
 }

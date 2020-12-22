@@ -21,12 +21,12 @@ struct PipelineView: View {
                             Text("name".uppercased()).font(.system(size: 12)).foregroundColor(Color("white-60"))
                         })
                         Spacer()
-                        VStack(alignment: .center, content: {
+                        VStack(alignment: .trailing, content: {
                             Text("status".uppercased()).font(.system(size: 12)).foregroundColor(Color("white-60"))
                         })
-                        VStack(alignment: .center, content: {
+                        VStack(alignment: .leading, content: {
                             Text("duration".uppercased()).font(.system(size: 12)).foregroundColor(Color("white-60"))
-                        })
+                        }).frame(width: 90)
                         VStack(alignment: .leading, content: {
                                 Text("detail".uppercased()).font(.system(size: 12)).foregroundColor(Color("white-60"))                    })
                     }).padding(.horizontal)

@@ -20,7 +20,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            Color("darkblue").edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+            Color("darkblue")
             HStack(content: {
                 VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
                     AddConfigurationView(onAdd: { baseUrl, token, projectId, serviceType in
@@ -54,13 +54,11 @@ struct ContentView: View {
                                         })
                                         Spacer()
                                         VStack(alignment: .leading, content: {
-                                            Button(action: {
-                                                    configurations = ConfigurationService.deleteConfiguration(id: configurations[index].id)
-                                                    pipelines = pipelinerService.getPipelines(pipelineCount: 10)
-                                                    WidgetCenter.shared.reloadAllTimelines()                                            }) {
-                                                Image(systemName: "minus.circle").font(.system(size: 24)).foregroundColor(.blue)
-                                            }
-                                        }).buttonStyle(BorderlessButtonStyle())
+                                            DxButton(label: "remove", action: {
+                                                        configurations = ConfigurationService.deleteConfiguration(id: configurations[index].id)
+                                                        pipelines = pipelinerService.getPipelines(pipelineCount: 10)
+                                                        WidgetCenter.shared.reloadAllTimelines()               }, color: Color("error"), shadow: false)
+                                        })
                                     }).foregroundColor(Color.white).padding(.horizontal).padding([.vertical], index % 2 == 0 ? 8 : 0).background(index % 2 == 0 ? Color("white-4") : Color("purple"))
                                 }
                             } else {
