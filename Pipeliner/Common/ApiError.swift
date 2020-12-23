@@ -6,9 +6,10 @@
 //
 
 import Foundation
-enum ApiError: Error {
-    case invalidUrl
-    case emptyResponse
-    case invalidDate
-    case configurationNotFound
+enum ApiError: String, Error {
+    case invalidUrl = "Invalid URL"
+    case emptyResponse = "Empty response"
+    case invalidDate = "Invalid date"
+    case configurationNotFound = "Configuration not found"
+    case decodeError = "Decode error"
 }

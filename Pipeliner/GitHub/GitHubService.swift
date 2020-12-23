@@ -21,8 +21,15 @@ class GitHubService: IService {
         var request = URLRequest(url: url)
         request.setValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
         request.setValue("bearer \(token)", forHTTPHeaderField:"Authorization")
-        let data = try await(httpService.getData(request: request))
-        let project = try JSONDecoder().decode(Project.self, from: data)
+        
+        guard let data = try? await(httpService.getData(request: request)) else {
+            throw ApiError.emptyResponse
+        }
+        
+        guard let project = try? JSONDecoder().decode(Project.self, from: data) else {
+            throw ApiError.decodeError
+        }
+        
         return project.name
     }
     

@@ -64,6 +64,7 @@ struct ContentView: View {
                             } else {
                                 Text("There are no data").font(.system(size: 18)).foregroundColor(Color("white-60"))
                             }
+
                         }.padding(.bottom)
                     }).padding(.vertical, 40).padding(.horizontal, 30)
                 }).padding(.bottom)
