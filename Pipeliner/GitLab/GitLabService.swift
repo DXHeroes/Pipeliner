@@ -22,15 +22,8 @@ class GitLabService: IService {
         }
         var request = URLRequest(url: url)
         request.setValue(token, forHTTPHeaderField:"PRIVATE-TOKEN")
-        
-        guard let data = try? await(httpService.getData(request: request)) else {
-            throw ApiError.emptyResponse
-        }
-        
-        guard let project = try? JSONDecoder().decode(Project.self, from: data) else {
-            throw ApiError.decodeError
-        }
-        
+        let data = try await(httpService.getData(request: request))
+        let project = try JSONDecoder().decode(Project.self, from: data)
         return project.name
     }
     
@@ -41,13 +34,7 @@ class GitLabService: IService {
         }
         var request = URLRequest(url: url)
         request.setValue(config.token, forHTTPHeaderField:"PRIVATE-TOKEN")
-        guard let data = try? await(httpService.getData(request: request)) else {
-            throw ApiError.emptyResponse
-        }
-        
-        guard let pipelines = try? JSONDecoder().decode([Pipeline].self, from: data) else {
-            throw ApiError.decodeError
-        }
-        
+        let data = try await(httpService.getData(request: request))
+        let pipelines = try JSONDecoder().decode([Pipeline].self, from: data)
         return pipelines
     }}
