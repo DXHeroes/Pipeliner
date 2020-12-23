@@ -4,6 +4,14 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Resources/AppIcon.icns</key>
+		<data>
+		1GYFAwvPh/DupuoVkEyj+qXPIEg=
+		</data>
+		<key>Resources/Assets.car</key>
+		<data>
+		6dOwdiUKFuGqEsyOYTrerfDDFzU=
+		</data>
 		<key>Resources/PipelinerWidget.intentdefinition</key>
 		<data>
 		fcvTS7k4fXGVh7wkgB6Sv/ZutbU=
@@ -15,10 +23,24 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			EdIE/d43RFxi/8AEg3IOEhLIqCc=
+			vwkGSHBHs+10eSkRigFRQR+k4S8=
 			</data>
 			<key>requirement</key>
 			<string>identifier "DxHeroes.Pipeliner.PipelinerWidget" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: dev@dxheroes.io (76NPA5VB8V)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+		</dict>
+		<key>Resources/AppIcon.icns</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Bkzfbm30JUXG3LPLH+kiIYDfSpMEjppMdwPK2w4kjr8=
+			</data>
+		</dict>
+		<key>Resources/Assets.car</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Gmrt3Qe/9n3Q3L/FiMsZOV5kN9L17Oz1D34hcSE1J6c=
+			</data>
 		</dict>
 		<key>Resources/PipelinerWidget.intentdefinition</key>
 		<dict>

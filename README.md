@@ -4,6 +4,7 @@
 </div>
 
 [![Slack](https://img.shields.io/badge/slack-@DeveloperExperience-%234A154B.svg?logo=slack)](https://bit.ly/slack_developer_experience)
+[![Pipeliner Roadmap](https://img.shields.io/badge/public%20roadmap-https%3A%2F%2Froadmap.dxheroes.io-%23108DE4)](https://roadmap.dxheroes.io)
 
 
 ## What is Pipeliner
@@ -41,6 +42,7 @@ BitBucket | 🚧
 * [Support](#support-%EF%B8%8F-%EF%B8%8F)
 * [Issues](#issues)
 * [Contributing](#contributing--)
+  * [Roadmap](#Roadmap)
 * [Licence](#license-)  
 <!-- tocstop -->
 
@@ -65,6 +67,10 @@ You can find issues [here](https://github.com/DXHeroes/Pipeliner/issues)
 
 ## Contributing 👩‍💻 👨‍💻
 Feel free to contribute to our Pipeliner. Please follow the [Contribution Guide](CONTRIBUTING.md).
+
+### Roadmap 
+
+See our [public roadmap](https://roadmap.dxheroes.io).
 
 ## License 📝
 
