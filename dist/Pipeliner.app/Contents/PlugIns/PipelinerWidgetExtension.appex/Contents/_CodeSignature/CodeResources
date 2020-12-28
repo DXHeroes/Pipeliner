@@ -4,6 +4,14 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Resources/AppIcon.icns</key>
+		<data>
+		1GYFAwvPh/DupuoVkEyj+qXPIEg=
+		</data>
+		<key>Resources/Assets.car</key>
+		<data>
+		3KfIt++xO+LQYe/R+GGJsBoEPzw=
+		</data>
 		<key>Resources/PipelinerWidget.intentdefinition</key>
 		<data>
 		fcvTS7k4fXGVh7wkgB6Sv/ZutbU=
@@ -11,6 +19,20 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Resources/AppIcon.icns</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Bkzfbm30JUXG3LPLH+kiIYDfSpMEjppMdwPK2w4kjr8=
+			</data>
+		</dict>
+		<key>Resources/Assets.car</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			wPhuz4LBtPvW+O0L6XIjatW7EgJyAgVjQiov06+n7fE=
+			</data>
+		</dict>
 		<key>Resources/PipelinerWidget.intentdefinition</key>
 		<dict>
 			<key>hash2</key>
