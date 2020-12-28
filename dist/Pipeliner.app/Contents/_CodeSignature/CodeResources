@@ -23,7 +23,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			1qZgGTiDwSH8pymlMw8MQxkhGQs=
+			O610H9uTvxxshAlGiMFsAXe4Z48=
 			</data>
 			<key>requirement</key>
 			<string>identifier "DxHeroes.Pipeliner.PipelinerWidget" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: dev@dxheroes.io (76NPA5VB8V)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
