@@ -30,7 +30,7 @@ Second part of application is widget which shows status of (number of pipelines 
 Language | Supported
 ------------ | -------------
 GitLab | ✅
-GitHub | 🚧
+GitHub | ✅
 BitBucket | 🚧
 
 ## Table of Contents
