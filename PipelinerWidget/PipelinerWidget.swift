@@ -35,7 +35,7 @@ struct Provider: IntentTimelineProvider {
         }
         // use real data
         } else {
-            entry = SimpleEntry(date: Date(), pipelines: service.getPipelines(pipelineCount: getPipelineCount(context: context)), error: false)
+            entry = SimpleEntry(date: Date(), pipelines: try! service.getPipelines(pipelineCount: getPipelineCount(context: context)), error: false)
         }
         completion(entry)
     }
@@ -43,7 +43,7 @@ struct Provider: IntentTimelineProvider {
    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         let now = Date()
         let nextUpdate = Calendar.current.date(byAdding: .minute, value: 1, to: now)!
-        let data = service.getPipelines(pipelineCount: getPipelineCount(context: context))
+        let data = try! service.getPipelines(pipelineCount: getPipelineCount(context: context))
         let timeline = Timeline(entries: [SimpleEntry(date: Date(), pipelines: data, error: false)], policy: .after(nextUpdate))
         completion(timeline)
     }

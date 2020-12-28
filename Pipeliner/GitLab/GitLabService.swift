@@ -23,8 +23,7 @@ class GitLabService: IService {
         var request = URLRequest(url: url)
         request.setValue(token, forHTTPHeaderField:"PRIVATE-TOKEN")
         let data = try await(httpService.getData(request: request))
-        let decoder = JSONDecoder()
-        let project = try decoder.decode(Project.self, from: data)
+        let project = try JSONDecoder().decode(Project.self, from: data)
         return project.name
     }
     
@@ -36,6 +35,6 @@ class GitLabService: IService {
         var request = URLRequest(url: url)
         request.setValue(config.token, forHTTPHeaderField:"PRIVATE-TOKEN")
         let data = try await(httpService.getData(request: request))
-        let decoder = JSONDecoder()
-        return try decoder.decode([Pipeline].self, from: data)
+        let pipelines = try JSONDecoder().decode([Pipeline].self, from: data)
+        return pipelines
     }}

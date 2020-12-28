@@ -21,7 +21,7 @@ class GitHubService: IService {
         var request = URLRequest(url: url)
         request.setValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
         request.setValue("bearer \(token)", forHTTPHeaderField:"Authorization")
-        let data = try await(httpService.getData(request: request))
+        let data = try await(self.httpService.getData(request: request))
         let project = try JSONDecoder().decode(Project.self, from: data)
         return project.name
     }
