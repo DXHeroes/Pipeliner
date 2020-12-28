@@ -19,7 +19,7 @@ struct PipelineDetailView: View {
                     Text(pipeline.repositoryName.uppercased())
                 })
                 Text(pipeline.ref).foregroundColor(.gray).lineLimit(nil)
-
+                
             })
             Spacer()
             VStack(alignment: .leading, content: {
@@ -28,8 +28,10 @@ struct PipelineDetailView: View {
                 }  else if(pipeline.status == PipelineStatus.SUCCESS) {
                     Image(systemName: "checkmark").font(.title).foregroundColor(Color("lightteal"))
                 } else {
-                    Text(pipeline.status.rawValue).foregroundColor(.gray)
-                    Image(systemName: "arrow.triangle.2.circlepath").font(.title).foregroundColor(.yellow)
+                    VStack(alignment: .trailing, content: {
+                        Text(pipeline.status.rawValue).foregroundColor(.gray)
+                        Image(systemName: "arrow.triangle.2.circlepath").font(.title).foregroundColor(.yellow)
+                    })
                 }
             })
             VStack(alignment: .leading, content: {
