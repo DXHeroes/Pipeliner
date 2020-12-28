@@ -35,47 +35,44 @@ struct AddConfigurationView: View {
     }
     let allServices = ServiceType.allCases
     var body: some View {
-        ZStack(alignment: .top, content: {
-            Color("purple")
-            VStack {
-                Text("Add configuration").font(.system(size: 24)).foregroundColor(Color("white-60")).frame(maxWidth: .infinity, alignment: .topLeading).padding()
-                HStack {
-                    DxLabel(text: "service")
-                    Picker("", selection: $serviceType.animation()) {
-                        ForEach(allServices,id: \.self) { allServices in
-                            HStack(content: {
-                                Image( nsImage: allServices.serviceIcon(colorScheme: colorScheme))
-                                Text(allServices.serviceName())
-                            }).tag(allServices)
-                        }
-                    }
-                    .pickerStyle(DefaultPickerStyle())
-                    .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
-                }.padding([.top, .horizontal])
-                Form {
-                    Section{
-                        HStack {
-                            DxLabel(text: "Web Address")
-                            Image(systemName: "questionmark.circle").font(.title2).foregroundColor(.blue)
-                                .help("Where your repository is hosted.")
-                        }.padding([.top, .leading])
-                        DxTextField(value: $baseUrl,placeholder: serviceType.urlPlaceholder(), animation: animation).padding(.horizontal)
-                        if serviceType != .GITHUB {
-                            DxLabel(text: "Project Id").padding([.top, .leading])
-                            DxTextField(value: $projectId,placeholder: "1234", animation: animation).padding(.horizontal)
-                        }
-                        HStack {
-                            DxLabel(text: "Private Access Token")
-                            Link(destination: serviceType.tokenDescriptionLink()) {
-                                Image(systemName: "questionmark.circle").font(.title2).foregroundColor(.blue)
-                            }
-                        }.padding([.top, .leading])
-                        DxTextField(value: $token,placeholder: "your-secret-token", animation: animation).padding(.horizontal)
+        VStack {
+            Text("Add configuration").font(.system(size: 24)).foregroundColor(Color("white-60")).frame(maxWidth: .infinity, alignment: .topLeading).padding()
+            HStack {
+                DxLabel(text: "service")
+                Picker("", selection: $serviceType.animation()) {
+                    ForEach(allServices,id: \.self) { allServices in
+                        HStack(content: {
+                            Image( nsImage: allServices.serviceIcon(colorScheme: colorScheme))
+                            Text(allServices.serviceName())
+                        }).tag(allServices)
                     }
                 }
-                DxButton(label: "Add Configuration", action:{
-                            self.onAdd(baseUrl, token, projectId, serviceType)}, color: Color("blue"), shadow: true).disabled(!self.isFormValid()).padding()
+                .pickerStyle(DefaultPickerStyle())
+                .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+            }.padding([.top, .horizontal])
+            Form {
+                Section{
+                    HStack {
+                        DxLabel(text: "Web Address")
+                        Image(systemName: "questionmark.circle").font(.title2).foregroundColor(.blue)
+                            .help("Where your repository is hosted.")
+                    }.padding([.top, .leading])
+                    DxTextField(value: $baseUrl,placeholder: serviceType.urlPlaceholder(), animation: animation).padding(.horizontal)
+                    if serviceType != .GITHUB {
+                        DxLabel(text: "Project Id").padding([.top, .leading])
+                        DxTextField(value: $projectId,placeholder: "1234", animation: animation).padding(.horizontal)
+                    }
+                    HStack {
+                        DxLabel(text: "Private Access Token")
+                        Link(destination: serviceType.tokenDescriptionLink()) {
+                            Image(systemName: "questionmark.circle").font(.title2).foregroundColor(.blue)
+                        }
+                    }.padding([.top, .leading])
+                    DxTextField(value: $token,placeholder: "your-secret-token", animation: animation).padding(.horizontal)
+                }
             }
-        }).padding(.vertical, 40).padding(.horizontal, 30)    }
+            DxButton(label: "Add Configuration", action:{
+                        self.onAdd(baseUrl, token, projectId, serviceType)}, color: Color("blue"), shadow: true).disabled(!self.isFormValid()).padding()
+        }.background(Color("purple"))
+    }
 }
-

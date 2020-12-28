@@ -10,7 +10,7 @@ import Foundation
 class PipelinerService {
     internal let dateService: DateService
     private let resolver = ServiceResolver()
-
+    
     init() {
         self.dateService = DateService()
     }
@@ -26,50 +26,49 @@ class PipelinerService {
             repositoryName: projectName,
             serviceType: serviceType)
     }
-
-    func getPipelines(pipelineCount: Int) -> [PipelineResult]{
+    
+    func getPipelines(pipelineCount: Int) throws -> [PipelineResult]{
         let configs = ConfigurationService.getConfigurations()
         //count number of pipelines per repository
         var pipelineCountPerRepo = pipelineCount
         if(configs.count != 0 && pipelineCount > 1){
             pipelineCountPerRepo  = Int((Double(pipelineCount) / Double(configs.count)).rounded(.up))
         }
-        do {
-            var results: [PipelineResult] = []
-            var pipelinesWithRepoName: [PipelineWithRepoName] = []
-            //Get pipelines from API
-            for config in configs {
-                let service = self.resolver.resolve(config.serviceType)
-                let pipelines = try service.getPipelines(config: config, pipelineCount: pipelineCountPerRepo)
-                for pipeline in pipelines {
-                    pipelinesWithRepoName.append(PipelineWithRepoName(pipeline: pipeline, name: config.repositoryName, date: try dateService.parse(date: pipeline.updated_at), serviceType: config.serviceType))
-                }
+        var results: [PipelineResult] = []
+        var pipelinesWithRepoName: [PipelineWithRepoName] = []
+        //Get pipelines from API
+        for config in configs {
+            let service = self.resolver.resolve(config.serviceType)
+            let pipelines = try service.getPipelines(config: config, pipelineCount: pipelineCountPerRepo)
+            for pipeline in pipelines {
+                pipelinesWithRepoName.append(PipelineWithRepoName(pipeline: pipeline, name: config.repositoryName, date: try dateService.parse(date: pipeline.updated_at), serviceType: config.serviceType))
             }
-            //Sort pipelines according to date
-            pipelinesWithRepoName.sort{
-                $0.date > $1.date
-            }
-            //Create PipelineResult objects
-            for pipeline in pipelinesWithRepoName {
-                let duration = try dateService.format(from: try dateService.parse(date: pipeline.pipeline.created_at), to: try dateService.parse(date: pipeline.pipeline.updated_at))
-                let age = try dateService.format(from: try dateService.parse(date: pipeline.pipeline.updated_at), to: Date())
-                let result = PipelineResult(
-                    id: pipeline.pipeline.id,
-                    ref: pipeline.pipeline.ref,
-                    status: pipeline.pipeline.status,
-                    duration: duration,
-                    age: age,
-                    url: pipeline.pipeline.web_url,
-                    repositoryName: pipeline.repositoryName,
-                    serviceType: pipeline.serviceType)
-                results.append(result)
-            }
-            //Return rigth number of pipelines
-            return results.enumerated().filter { $0.offset < pipelineCount }.map { $0.element }
-        } catch  {
-            print("err", error)
-            return []
         }
+        //Sort pipelines according to date
+        pipelinesWithRepoName.sort{
+            $0.date > $1.date
+        }
+        //Create PipelineResult objects
+        for pipeline in pipelinesWithRepoName {
+            let duration = try dateService.format(from: try dateService.parse(date: pipeline.pipeline.created_at), to: try dateService.parse(date: pipeline.pipeline.updated_at))
+            let age = try dateService.format(from: try dateService.parse(date: pipeline.pipeline.updated_at), to: Date())
+            let result = PipelineResult(
+                id: pipeline.pipeline.id,
+                ref: pipeline.pipeline.ref,
+                status: pipeline.pipeline.status,
+                duration: duration,
+                age: age,
+                url: pipeline.pipeline.web_url,
+                repositoryName: pipeline.repositoryName,
+                serviceType: pipeline.serviceType)
+            results.append(result)
+        }
+        //Sort pipelines according to date
+        pipelinesWithRepoName.sort{
+            $0.date > $1.date
+        }
+        //Return rigth number of pipelines
+        return results.enumerated().filter { $0.offset < pipelineCount }.map { $0.element }
     }
 }
 class PipelineWithRepoName{
@@ -128,12 +127,12 @@ class ConfigurationService {
 private struct ServiceResolver {
     private let gitHubService: GitHubService
     private let gitLabService: GitLabService
-
+    
     init() {
         self.gitHubService = GitHubService()
         self.gitLabService = GitLabService()
     }
-
+    
     func resolve(_ serviceType: ServiceType) -> IService {
         switch serviceType {
         case .GITHUB:
