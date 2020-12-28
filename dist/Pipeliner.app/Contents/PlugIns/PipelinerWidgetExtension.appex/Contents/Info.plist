@@ -10,6 +10,10 @@
 	<string>PipelinerWidget</string>
 	<key>CFBundleExecutable</key>
 	<string>PipelinerWidgetExtension</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
+	<key>CFBundleIconName</key>
+	<string>AppIcon</string>
 	<key>CFBundleIdentifier</key>
 	<string>DxHeroes.Pipeliner.PipelinerWidget</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -44,10 +48,14 @@
 	<string>12A8189n</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>11.0</string>
+	<key>NSAccentColorName</key>
+	<string>AccentColor</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widgetkit-extension</string>
 	</dict>
+	<key>NSWidgetBackgroundColorName</key>
+	<string>WidgetBackground</string>
 </dict>
 </plist>

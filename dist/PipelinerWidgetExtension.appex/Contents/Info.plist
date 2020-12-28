@@ -48,6 +48,8 @@
 	<string>12A8189n</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>11.0</string>
+	<key>NSAccentColorName</key>
+	<string>AccentColor</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionPointIdentifier</key>
