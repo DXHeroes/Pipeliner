@@ -19,27 +19,27 @@ struct PipelineRowView: View {
             VStack(alignment: .center, content: {
                 HStack(content: {
                     Image(nsImage: pipeline.serviceType.serviceIcon(colorScheme: colorScheme))
-                    Text(pipeline.repositoryName.uppercased())
+                    Text(pipeline.repositoryName.uppercased()).lineLimit(1)
                 }).padding(.top, 5)
-                Text(pipeline.ref).foregroundColor(.gray)
+                Text(pipeline.ref).foregroundColor(Color("white-60")).lineLimit(1)
                 Spacer()
                 if(pipeline.status == PipelineStatus.FAILED) {
                     Image(systemName: "xmark").font(.system(size: 60)).foregroundColor(Color("error"))
                 } else if(pipeline.status == PipelineStatus.SUCCESS) {
                     Image(systemName: "checkmark").font(.system(size: 60)).foregroundColor(Color("ligtteal"))
                 } else {
-                    Image(systemName: "arrow.triangle.2.circlepath").font(.system(size: 60)).foregroundColor(.yellow)
+                    Image(systemName: "arrow.triangle.2.circlepath").font(.system(size: 60)).foregroundColor(Color("warning"))
                 }
                 Spacer()
                 Text(pipeline.duration)
-                Text("\(pipeline.age) ago").foregroundColor(.gray)
+                Text("\(pipeline.age) ago").foregroundColor(Color("white-60"))
             })
         default:
             HStack(content: {
                 Image( nsImage: pipeline.serviceType.serviceIcon(colorScheme: colorScheme))
                 VStack(alignment: .leading, content: {
-                    Text(pipeline.repositoryName.uppercased())
-                    Text(pipeline.ref).foregroundColor(.gray)
+                    Text(pipeline.repositoryName.uppercased()).lineLimit(1)
+                    Text(pipeline.ref).foregroundColor(Color("white-60")).lineLimit(1)
                 })
                 Spacer()
                 if(pipeline.status == PipelineStatus.FAILED) {
@@ -47,13 +47,13 @@ struct PipelineRowView: View {
                 } else if(pipeline.status == PipelineStatus.SUCCESS) {
                     Image(systemName: "checkmark").font(.title).foregroundColor(Color("lightteal"))
                 } else {
-                    Image(systemName: "arrow.triangle.2.circlepath").font(.title).foregroundColor(.yellow)
+                    Image(systemName: "arrow.triangle.2.circlepath").font(.title).foregroundColor(Color("warning"))
                 }
                 VStack(alignment: .leading, content: {
                     Text(pipeline.duration)
-                    Text("\(pipeline.age) ago").foregroundColor(.gray)
-                })
-            }).foregroundColor(Color.white).padding(.horizontal).padding([.vertical], isOdd ? 0 : 8) .background(isOdd ? Color("WidgetBackground") : Color("white-4"))
+                    Text("\(pipeline.age) ago").foregroundColor(Color("white-60"))
+                }).frame(width: 80, height: 40)
+            }).foregroundColor(Color.white).padding(.horizontal).padding([.vertical], isOdd ? 0 : 8).background(isOdd ? Color("WidgetBackground") : Color("white-4"))
         }
     }
 }

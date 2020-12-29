@@ -16,10 +16,9 @@ struct PipelineDetailView: View {
             Image( nsImage: pipeline.serviceType.serviceIcon(colorScheme: colorScheme))
             VStack(alignment: .leading, content: {
                 HStack(content: {
-                    Text(pipeline.repositoryName.uppercased())
+                    Text(pipeline.repositoryName.uppercased()).lineLimit(1)
                 })
-                Text(pipeline.ref).foregroundColor(.gray).lineLimit(nil)
-                
+                Text(pipeline.ref).foregroundColor(Color("white-60")).lineLimit(1)
             })
             Spacer()
             VStack(alignment: .leading, content: {
@@ -29,14 +28,14 @@ struct PipelineDetailView: View {
                     Image(systemName: "checkmark").font(.title).foregroundColor(Color("lightteal"))
                 } else {
                     VStack(alignment: .trailing, content: {
-                        Text(pipeline.status.rawValue).foregroundColor(.gray)
-                        Image(systemName: "arrow.triangle.2.circlepath").font(.title).foregroundColor(.yellow)
+                        Text(pipeline.status.rawValue).foregroundColor(Color("white-60"))
+                        Image(systemName: "arrow.triangle.2.circlepath").font(.title).foregroundColor(Color("warning"))
                     })
                 }
             })
             VStack(alignment: .leading, content: {
                 Text(pipeline.duration)
-                Text("\(pipeline.age) ago").foregroundColor(.gray)
+                Text("\(pipeline.age) ago").foregroundColor(Color("white-60"))
             }).frame(width: 80, height: 40)
             Link(destination: URL(string: pipeline.url)!) {
                 Image(systemName: "link").font(.title2).foregroundColor(.blue)
