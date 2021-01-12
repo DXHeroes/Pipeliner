@@ -20,8 +20,10 @@ struct DxTextField: View {
                 VStack() {
                     ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
                         TextField(placeholder, text: $value)
+                            .foregroundColor(Color("white-60"))
                             .frame(alignment: .center)
                             .textFieldStyle(PlainTextFieldStyle())
+                            .environment(\.colorScheme, .dark)
                     }
                 }
             }

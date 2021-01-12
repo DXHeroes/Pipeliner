@@ -44,16 +44,12 @@ enum ServiceType: String, CaseIterable, Codable {
         }
     }
     
-    func serviceIcon(colorScheme: ColorScheme) -> NSImage {
+    func serviceIcon() -> NSImage {
         switch self {
             case .GITLAB:
                 return NSImage(named: NSImage.Name("gitlab_icon18"))!
             case .GITHUB:
-                if(colorScheme == .dark){
-                    return NSImage(named: NSImage.Name("github_icon18_light"))!
-                }else{
-                    return NSImage(named: NSImage.Name("github_icon18"))!
-                }
+                return NSImage(named: NSImage.Name("github_icon18_light"))!
 //            case .BITBUCKET:
 //                return NSImage(named: NSImage.Name("bitbucket_icon18"))!
         }

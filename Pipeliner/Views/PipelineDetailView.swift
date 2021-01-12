@@ -13,7 +13,7 @@ struct PipelineDetailView: View {
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
         HStack(content: {
-            Image( nsImage: pipeline.serviceType.serviceIcon(colorScheme: colorScheme))
+            Image( nsImage: pipeline.serviceType.serviceIcon())
             VStack(alignment: .leading, content: {
                 HStack(content: {
                     Text(pipeline.repositoryName.uppercased()).lineLimit(1)
@@ -39,7 +39,13 @@ struct PipelineDetailView: View {
             }).frame(width: 80, height: 40)
             Link(destination: URL(string: pipeline.url)!) {
                 Image(systemName: "link").font(.title2).foregroundColor(.blue)
-            }.padding(.horizontal)
+            }.padding(.horizontal).onHover { inside in
+                if inside {
+                    NSCursor.pointingHand.push()
+                } else {
+                    NSCursor.pop()
+                }
+            }
         }).foregroundColor(Color.white).padding(.horizontal).padding([.vertical], self.index % 2 == 0 ? 8 : 0) .background(self.index % 2 == 0 ? Color("white-4") : Color("purple"))
     }
 }
