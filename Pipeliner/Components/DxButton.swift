@@ -21,8 +21,6 @@ private struct DxButtonStyle: ButtonStyle {
                 ZStack {
                     if(shadow) {
                         RoundedRectangle(cornerRadius: 4, style: .continuous)
-                            .shadow(color: Color("blueshadow"), radius: 27, x: 0, y: 6)
-                            .blendMode(.normal)
                     }
                     RoundedRectangle(cornerRadius: 4, style: .continuous)
                         .fill(bgColor)
@@ -43,5 +41,12 @@ struct DxButton: View {
         Button(action: action) {
             Text(label.uppercased()).font(.system(size: 14))
         }.buttonStyle(DxButtonStyle(bgColor: color, shadow: shadow))
+        .onHover { inside in
+                    if inside {
+                        NSCursor.pointingHand.push()
+                    } else {
+                        NSCursor.pop()
+                    }
+                }
     }
 }

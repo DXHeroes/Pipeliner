@@ -42,13 +42,14 @@ struct AddConfigurationView: View {
                 Picker("", selection: $serviceType.animation()) {
                     ForEach(allServices,id: \.self) { allServices in
                         HStack(content: {
-                            Image( nsImage: allServices.serviceIcon(colorScheme: colorScheme))
+                            Image( nsImage: allServices.serviceIcon())
                             Text(allServices.serviceName())
                         }).tag(allServices)
                     }
                 }
                 .pickerStyle(DefaultPickerStyle())
                 .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+                .environment(\.colorScheme, .dark)
             }.padding([.top, .horizontal])
             Form {
                 Section{
@@ -66,6 +67,12 @@ struct AddConfigurationView: View {
                         DxLabel(text: "Private Access Token")
                         Link(destination: serviceType.tokenDescriptionLink()) {
                             Image(systemName: "questionmark.circle").font(.title2).foregroundColor(.blue)
+                        }.onHover { inside in
+                            if inside {
+                                NSCursor.pointingHand.push()
+                            } else {
+                                NSCursor.pop()
+                            }
                         }
                     }.padding([.top, .leading])
                     DxTextField(value: $token,placeholder: "your-secret-token", animation: animation).padding(.horizontal)
