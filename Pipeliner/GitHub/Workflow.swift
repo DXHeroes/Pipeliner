@@ -33,6 +33,7 @@ struct Workflow: Decodable, Identifiable {
         case conclusion
         case createdAt
         case headSha
+        case headBranch
         case htmlUrl
         case id
         case repository
@@ -46,16 +47,17 @@ struct Workflow: Decodable, Identifiable {
     let createdAt: String
     let updatedAt: String
     let url: String
-    let repository: Repository
+    let ref: String
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.createdAt = try container.decode(String.self, forKey: .createdAt)
         self.id = try container.decode(Int.self, forKey: .id)
-        self.repository = try container.decode(Repository.self, forKey: .repository)
         self.sha = try container.decode(String.self, forKey: .headSha)
         self.updatedAt = try container.decode(String.self, forKey: .updatedAt)
         self.url = try container.decode(String.self, forKey: .htmlUrl)
+        self.ref = try container.decode(String.self, forKey: .headBranch)
+
         
         let status = try container.decode(String.self, forKey: .status)
         switch status {
@@ -78,7 +80,7 @@ extension Pipeline {
     init(_ workflow: Workflow) {
         self.id = workflow.id
         self.sha = workflow.sha
-        self.ref = workflow.repository.htmlUrl
+        self.ref = workflow.ref
         self.status = workflow.status.toPipelineStatus()
         self.created_at = workflow.createdAt
         self.updated_at = workflow.updatedAt
@@ -94,8 +96,4 @@ private extension Workflow.Status {
         
         return .FAILED
     }
-}
-
-struct Repository: Codable {
-    let htmlUrl: String
 }
