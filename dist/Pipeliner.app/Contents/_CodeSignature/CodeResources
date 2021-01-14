@@ -10,7 +10,7 @@
 		</data>
 		<key>Resources/Assets.car</key>
 		<data>
-		t+08AfxcviJIsqf4bWifha1do4M=
+		layl2x5rAETFjdAtJkw4/sTx2Nw=
 		</data>
 		<key>Resources/PipelinerWidget.intentdefinition</key>
 		<data>
@@ -23,10 +23,10 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			CMdsfQRQRZQ13GaeM4fBBVD9MoU=
+			T1h/hvMt7LyuYKGFS5tBfVSY+G4=
 			</data>
 			<key>requirement</key>
-			<string>identifier "DxHeroes.Pipeliner.PipelinerWidget" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: dx hero (54NNKY2VY8)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+			<string>identifier "DxHeroes.Pipeliner.PipelinerWidget" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: dev@dxheroes.io (76NPA5VB8V)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>Resources/AppIcon.icns</key>
 		<dict>
@@ -39,7 +39,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QFs0ykeXyRxsnMp0W1ZVInnl6wJ3aTiE1NmdNgdzcaA=
+			PW8JO7nl36RA5XkPK9lwDttbE6tnJo7Hr/yJvy8NtCs=
 			</data>
 		</dict>
 		<key>Resources/PipelinerWidget.intentdefinition</key>
