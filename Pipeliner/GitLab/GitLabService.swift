@@ -34,7 +34,13 @@ class GitLabService: IService {
         }
         var request = URLRequest(url: url)
         request.setValue(config.token, forHTTPHeaderField:"PRIVATE-TOKEN")
-        let data = try await(httpService.getData(request: request))
-        let pipelines = try JSONDecoder().decode([Pipeline].self, from: data)
-        return pipelines
+        do {
+            let data = try await(httpService.getData(request: request))
+            let pipelines = try JSONDecoder().decode([Pipeline].self, from: data)
+            return pipelines
+        }
+        catch {
+            print("GitLabService Error", error)
+            return []
+        }
     }}
