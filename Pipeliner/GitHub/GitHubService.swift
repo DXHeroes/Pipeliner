@@ -34,10 +34,17 @@ class GitHubService: IService {
         var request = URLRequest(url: url)
         request.setValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
         request.setValue("bearer \(config.token)", forHTTPHeaderField:"Authorization")
-        let data = try await(httpService.getData(request: request))
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        let workflows = try decoder.decode(Workflows.self, from: data)
-        return workflows.workflowRuns.map(Pipeline.init)
+        do {
+            
+            let data = try await(httpService.getData(request: request))
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            let workflows = try decoder.decode(Workflows.self, from: data)
+            return workflows.workflowRuns.map(Pipeline.init)
+        }
+        catch {
+            print("GitHubService Error", error)
+            return []
+        }
+        }
     }
-}
