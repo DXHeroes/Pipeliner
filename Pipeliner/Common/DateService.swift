@@ -7,18 +7,18 @@
 
 import Foundation
 struct DateService {
-    func parse(date: String, isWithFractionalSeconds: Bool = false) throws -> Date {
+    func parse(date: String) throws -> Date {
         let dateFormatter = ISO8601DateFormatter()
-        dateFormatter.formatOptions = isWithFractionalSeconds ? [.withFractionalSeconds, .withInternetDateTime] : [.withInternetDateTime]
-        guard let result = dateFormatter.date(from: date) else {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateFormatter.formatOptions = [.withInternetDateTime]
+        guard let firstTry = dateFormatter.date(from: date) else {
+            let dateFormatter = ISO8601DateFormatter()
+            dateFormatter.formatOptions = [.withFractionalSeconds, .withInternetDateTime]
             guard let secondTry = dateFormatter.date(from: date) else {
                 throw ApiError.invalidDate
             }
             return secondTry
         }
-        return result
+        return firstTry
     }
     func format(from: Date, to: Date) throws -> String {
         let formatter = DateComponentsFormatter()
