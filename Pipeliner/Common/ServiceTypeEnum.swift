@@ -49,7 +49,7 @@ enum ServiceType: String, CaseIterable, Codable {
             case .GITLAB:
                 return NSImage(named: NSImage.Name("gitlab_svg_icon"))!
             case .GITHUB:
-                return NSImage(named: NSImage.Name("github_svg_icon"))!
+                return NSImage(named: NSImage.Name("github_svg_icon")) ?? NSImage()
 //            case .BITBUCKET:
 //                return NSImage(named: NSImage.Name("bitbucket_svg_icon"))!
         }
