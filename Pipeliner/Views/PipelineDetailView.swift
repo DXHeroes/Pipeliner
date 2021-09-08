@@ -22,15 +22,13 @@ struct PipelineDetailView: View {
             })
             Spacer()
             VStack(alignment: .leading, content: {
-                if(pipeline.status == PipelineStatus.FAILED) {
-                    Image(systemName: "xmark").font(.title).foregroundColor(Color("error"))
-                }  else if(pipeline.status == PipelineStatus.SUCCESS) {
-                    Image(systemName: "checkmark").font(.title).foregroundColor(Color("lightteal"))
-                } else {
-                    VStack(alignment: .trailing, content: {
-                        Text(pipeline.status.rawValue).foregroundColor(Color("white-60"))
-                        Image(systemName: "arrow.triangle.2.circlepath").font(.title).foregroundColor(Color("warning"))
+                if pipeline.status.requiresTitle() {
+                    HStack(alignment: .center, content: {
+                        Text(pipeline.status.readableTitle()).foregroundColor(Color("white-60"))
+                        pipeline.status.icon()
                     })
+                } else {
+                    pipeline.status.icon()
                 }
             })
             VStack(alignment: .leading, content: {
