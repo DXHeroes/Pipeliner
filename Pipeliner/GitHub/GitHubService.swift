@@ -21,7 +21,7 @@ class GitHubService: IService {
         var request = URLRequest(url: url)
         request.setValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
         request.setValue("bearer \(token)", forHTTPHeaderField:"Authorization")
-        let data = try await(self.httpService.getData(request: request))
+        let data = try `await`(self.httpService.getData(request: request))
         let project = try JSONDecoder().decode(Project.self, from: data)
         return project.name
     }
@@ -36,7 +36,7 @@ class GitHubService: IService {
         request.setValue("bearer \(config.token)", forHTTPHeaderField:"Authorization")
         do {
             
-            let data = try await(httpService.getData(request: request))
+            let data = try `await`(httpService.getData(request: request))
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             let workflows = try decoder.decode(Workflows.self, from: data)
