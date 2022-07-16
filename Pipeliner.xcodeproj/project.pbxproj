@@ -727,8 +727,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/yannickl/AwaitKit";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.2.0;
+				kind = revision;
+				revision = 4b725f40dd189f40c0962cba792f06a2073bd977;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
