@@ -30,16 +30,15 @@ struct AddConfigurationView: View {
                 HStack {
                     DxLabel(text: "service")
                     Picker("", selection: $serviceType.animation()) {
-                        ForEach(allServices, id: \.self) { allServices in
+                        ForEach(allServices, id: \.self) { service in
                             HStack {
-                                Image(nsImage: allServices.serviceIcon())
-                                Text(allServices.serviceName())
+                                service.servicePickerIcon()
+                                Text(service.serviceName())
                             }
-                            .tag(allServices)
+                            .tag(service)
                         }
                     }
                     .pickerStyle(DefaultPickerStyle())
-                    .padding(.init(top: 8, leading: 0, bottom: 8, trailing: 0))
                     .environment(\.colorScheme, .dark)
                 }
                 VStack(alignment: .leading) {
