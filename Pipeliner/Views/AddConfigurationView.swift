@@ -12,7 +12,7 @@ struct AddConfigurationView: View {
     @State private var projectId = ""
     @State private var token = ""
     @State private var baseUrl = ""
-    @State private var serviceType: ServiceType = .GITLAB
+    @State private var serviceType: ServiceType = .gitlab
     let allServices = ServiceType.allCases
 
     @Namespace var animation
@@ -61,7 +61,7 @@ struct AddConfigurationView: View {
                         animation: animation
                     )
                 }
-                if serviceType != .GITHUB {
+                if serviceType != .github {
                     VStack(alignment: .leading) {
                         DxLabel(text: "Project Id")
                         DxTextField(
@@ -110,7 +110,7 @@ struct AddConfigurationView: View {
 private extension AddConfigurationView {
     func isFormValid() -> Bool {
         // GitHub service doesn't use projectId
-        if self.serviceType != .GITHUB && projectId.isEmpty {
+        if self.serviceType != .github && projectId.isEmpty {
             return false
         }
         if baseUrl.isEmpty {

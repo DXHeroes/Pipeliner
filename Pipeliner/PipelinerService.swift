@@ -135,9 +135,9 @@ private struct ServiceResolver {
     
     func resolve(_ serviceType: ServiceType) -> IService {
         switch serviceType {
-        case .GITHUB:
+        case .github:
             return self.gitHubService
-        case .GITLAB:
+        case .gitlab:
             return self.gitLabService
         }
     }
