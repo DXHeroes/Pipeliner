@@ -26,7 +26,7 @@ struct ContentView: View {
     var body: some View {
 
         ZStack(alignment: .top) {
-            Color("darkblue")
+            Colors.darkblue
             VStack(alignment: .leading) {
                 Link(destination: URL(string: "https://dxheroes.io")!) {
                     Images.DXLogos.green
@@ -68,7 +68,7 @@ struct ContentView: View {
                             VStack {
                                 Text("Configurations")
                                     .font(.largeTitle)
-                                    .foregroundColor(Color("white-60"))
+                                    .foregroundColor(Colors.white60)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding()
                                 if (configurations.count != 0) {
@@ -76,13 +76,13 @@ struct ContentView: View {
                                         VStack(alignment: .leading) {
                                             Text("name".uppercased())
                                                 .font(.system(size: 12))
-                                                .foregroundColor(Color("white-60"))
+                                                .foregroundColor(Colors.white60)
                                         }
                                         Spacer()
                                         VStack(alignment: .leading) {
                                                 Text("remove".uppercased())
                                                 .font(.system(size: 12))
-                                                .foregroundColor(Color("white-60"))
+                                                .foregroundColor(Colors.white60)
                                         }
                                     }
                                     .padding(.horizontal)
@@ -109,22 +109,22 @@ struct ContentView: View {
                                                         removeErrorInfo = error.localizedDescription
                                                         removeErrorModal.toggle()
                                                     }
-                                                }, color: Color("error"), shadow: false)
+                                                }, color: Colors.error, shadow: false)
                                             }
                                         }
                                         .foregroundColor(Color.white)
                                         .padding(.horizontal)
                                         .padding([.vertical], index % 2 == 0 ? 8 : 0)
-                                        .background(index % 2 == 0 ? Color("white-4") : Color("purple"))
+                                        .background(index % 2 == 0 ? Colors.white4 : Colors.purple)
                                     }
                                 } else {
                                     Text("There are no data")
                                         .font(.system(size: 18))
-                                        .foregroundColor(Color("white-60"))
+                                        .foregroundColor(Colors.white60)
                                 }
                             }
                             .padding(.bottom)
-                            .background(Color("purple"))
+                            .background(Colors.purple)
                             .alert(isPresented: $removeErrorModal) {
                                 Alert(title: Text("There was an error"),
                                       message: Text(removeErrorInfo),
