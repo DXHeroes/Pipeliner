@@ -83,11 +83,12 @@ struct AddConfigurationView: View {
                             inside ? NSCursor.pointingHand.push() : NSCursor.pop()
                         }
                     }
-                    DxTextField(
-                        value: $token,
-                        placeholder: "your-secret-token",
-                        animation: animation
-                    )
+                    SecureField("your-secret-token", text: $token)
+                        .textFieldStyle(.plain)
+                        .padding(.vertical, 10)
+                        .padding(.horizontal)
+                        .background(Color("white-10"))
+                        .environment(\.colorScheme, .dark)
                 }
             }
             .padding(.vertical)
