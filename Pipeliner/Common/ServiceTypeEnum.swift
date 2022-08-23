@@ -21,6 +21,17 @@ enum ServiceType: String, CaseIterable, Codable {
 //            return "dummy"
         }
     }
+
+    func webDescriptionLink() -> URL {
+        switch self {
+        case .GITLAB:
+            return URL(string: "https://gitlab.com")!
+        case .GITHUB:
+            return URL(string: "https://github.com")!
+//        case .BITBUCKET:
+//            return URL(string: "dummy")!
+        }
+    }
     
     func tokenDescriptionLink() -> URL {
         switch self {
