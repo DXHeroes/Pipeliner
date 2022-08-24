@@ -9,11 +9,18 @@ import Foundation
 import PromiseKit
 import AwaitKit
 
+enum GitLabAuthType {
+    case ACCESS_TOKEN
+    case O_AUTH2_TOKEN
+}
+
 struct Project: Codable{
     let name: String
 }
+
 class GitLabService: IService {
-    internal let httpService: HttpService = HttpService()
+
+    private let httpService = HttpService()
     
     func getProjectName(baseUrl: String, projectId: String, token: String) throws -> String {
         let urlString: String = "\(baseUrl)/api/v4/projects/\(projectId)"

@@ -53,6 +53,7 @@ struct ContentView: View {
                                 addErrorModal.toggle()
                             }
                             catch let error {
+                                print(error)
                                 addErrorInfo = error.localizedDescription
                                 addErrorModal.toggle()
                             }

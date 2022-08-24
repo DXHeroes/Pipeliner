@@ -7,6 +7,7 @@
 
 import Foundation
 import PromiseKit
+
 enum HTTPError: LocalizedError {
     case serverSideError(statusCode: Int, url: String)
     case noInternetConnection
@@ -22,6 +23,7 @@ extension HTTPError {
         }
     }
 }
+
 class HttpService {
     
     func getData(request: URLRequest) -> Promise<Data> {
@@ -39,6 +41,8 @@ class HttpService {
                     promise.reject(error)
                 }
                 if let data = data {
+                    print(statusCode)
+                    print(String(data: data, encoding: String.Encoding.utf8))
                     promise.fulfill(data)
                 }
             }.resume()

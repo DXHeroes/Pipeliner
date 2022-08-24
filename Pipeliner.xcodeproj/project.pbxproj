@@ -11,12 +11,13 @@
 		72B62F052532C9C9009DBE8A /* Workflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B62F042532C9C9009DBE8A /* Workflow.swift */; };
 		72B62F082532CA5D009DBE8A /* Workflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B62F042532C9C9009DBE8A /* Workflow.swift */; };
 		72D86CA5252AB3880071A45B /* GitHubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D86CA4252AB3880071A45B /* GitHubService.swift */; };
+		9F9CF5E328B64FB10070BC79 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9CF5E228B64FB10070BC79 /* ApiClient.swift */; };
+		9F9CF5E528B64FF80070BC79 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9CF5E428B64FF80070BC79 /* Logger.swift */; };
 		F220498F250112AF00ECC510 /* Pipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09AF2500BEF70058FBE7 /* Pipeline.swift */; };
 		F2204990250112C000ECC510 /* PipelineResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09DC2500E1760058FBE7 /* PipelineResult.swift */; };
 		F2204991250112F800ECC510 /* PipelineStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09DE2500E19E0058FBE7 /* PipelineStatus.swift */; };
 		F220499325011CED00ECC510 /* DateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F220499225011CED00ECC510 /* DateService.swift */; };
 		F220499425013B3200ECC510 /* PipelinerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09B52500C0A60058FBE7 /* PipelinerService.swift */; };
-		F220499625013B9F00ECC510 /* GitLabAuthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09AC2500BEBE0058FBE7 /* GitLabAuthType.swift */; };
 		F220499725013C3600ECC510 /* GitLabService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09A82500BE8D0058FBE7 /* GitLabService.swift */; };
 		F220499825013C3B00ECC510 /* DateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F220499225011CED00ECC510 /* DateService.swift */; };
 		F220499C2501407600ECC510 /* Pipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09AF2500BEF70058FBE7 /* Pipeline.swift */; };
@@ -46,7 +47,6 @@
 		F2FF09A32500BE1C0058FBE7 /* ServiceTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09A22500BE1C0058FBE7 /* ServiceTypeEnum.swift */; };
 		F2FF09A62500BE600058FBE7 /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09A52500BE600058FBE7 /* HttpService.swift */; };
 		F2FF09A92500BE8D0058FBE7 /* GitLabService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09A82500BE8D0058FBE7 /* GitLabService.swift */; };
-		F2FF09AD2500BEBE0058FBE7 /* GitLabAuthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09AC2500BEBE0058FBE7 /* GitLabAuthType.swift */; };
 		F2FF09B42500BF450058FBE7 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09B32500BF450058FBE7 /* ApiError.swift */; };
 		F2FF09B62500C0A60058FBE7 /* PipelinerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09B52500C0A60058FBE7 /* PipelinerService.swift */; };
 		F2FF09C32500C87B0058FBE7 /* PipelinerWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09C22500C87B0058FBE7 /* PipelinerWidget.swift */; };
@@ -87,6 +87,8 @@
 /* Begin PBXFileReference section */
 		72B62F042532C9C9009DBE8A /* Workflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflow.swift; sourceTree = "<group>"; };
 		72D86CA4252AB3880071A45B /* GitHubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubService.swift; sourceTree = "<group>"; };
+		9F9CF5E228B64FB10070BC79 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		9F9CF5E428B64FF80070BC79 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		F220499225011CED00ECC510 /* DateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateService.swift; sourceTree = "<group>"; };
 		F23B01002590F001003B4385 /* AddConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConfigurationView.swift; sourceTree = "<group>"; };
 		F26ECFB02506763100E62EDD /* PipelineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineDetailView.swift; sourceTree = "<group>"; };
@@ -106,7 +108,6 @@
 		F2FF09A22500BE1C0058FBE7 /* ServiceTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTypeEnum.swift; sourceTree = "<group>"; };
 		F2FF09A52500BE600058FBE7 /* HttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
 		F2FF09A82500BE8D0058FBE7 /* GitLabService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitLabService.swift; sourceTree = "<group>"; };
-		F2FF09AC2500BEBE0058FBE7 /* GitLabAuthType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitLabAuthType.swift; sourceTree = "<group>"; };
 		F2FF09AF2500BEF70058FBE7 /* Pipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pipeline.swift; sourceTree = "<group>"; };
 		F2FF09B32500BF450058FBE7 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		F2FF09B52500C0A60058FBE7 /* PipelinerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelinerService.swift; sourceTree = "<group>"; };
@@ -158,6 +159,15 @@
 			path = GitHub;
 			sourceTree = "<group>";
 		};
+		9F9CF5E128B64FA60070BC79 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				9F9CF5E228B64FB10070BC79 /* ApiClient.swift */,
+				9F9CF5E428B64FF80070BC79 /* Logger.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		F28349E6258C9B48004DC329 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +217,7 @@
 				72D86CA3252AB36F0071A45B /* GitHub */,
 				F2FF09A42500BE490058FBE7 /* Http */,
 				F2FF09922500BDA20058FBE7 /* PipelinerApp.swift */,
+				9F9CF5E128B64FA60070BC79 /* Networking */,
 				F2FF09942500BDA20058FBE7 /* ContentView.swift */,
 				F2FF09962500BDA30058FBE7 /* Assets.xcassets */,
 				F2FF099B2500BDA30058FBE7 /* Info.plist */,
@@ -237,7 +248,6 @@
 			isa = PBXGroup;
 			children = (
 				F2FF09A82500BE8D0058FBE7 /* GitLabService.swift */,
-				F2FF09AC2500BEBE0058FBE7 /* GitLabAuthType.swift */,
 			);
 			path = GitLab;
 			sourceTree = "<group>";
@@ -397,6 +407,7 @@
 				72B62F052532C9C9009DBE8A /* Workflow.swift in Sources */,
 				F2D16DBE2590B0C5004258CC /* PipelineView.swift in Sources */,
 				F220498F250112AF00ECC510 /* Pipeline.swift in Sources */,
+				9F9CF5E328B64FB10070BC79 /* ApiClient.swift in Sources */,
 				F2FF09DD2500E1760058FBE7 /* PipelineResult.swift in Sources */,
 				F28349E8258C9B75004DC329 /* DxButton.swift in Sources */,
 				F26ECFB12506763100E62EDD /* PipelineDetailView.swift in Sources */,
@@ -413,7 +424,7 @@
 				F2E52EAB2512306E002A4692 /* Config.swift in Sources */,
 				F2D16DBA25909D51004258CC /* DxLabel.swift in Sources */,
 				F2FF09A32500BE1C0058FBE7 /* ServiceTypeEnum.swift in Sources */,
-				F2FF09AD2500BEBE0058FBE7 /* GitLabAuthType.swift in Sources */,
+				9F9CF5E528B64FF80070BC79 /* Logger.swift in Sources */,
 				F2FF09A92500BE8D0058FBE7 /* GitLabService.swift in Sources */,
 				72D86CA5252AB3880071A45B /* GitHubService.swift in Sources */,
 				F23B01012590F001003B4385 /* AddConfigurationView.swift in Sources */,
@@ -433,7 +444,6 @@
 				F220499C2501407600ECC510 /* Pipeline.swift in Sources */,
 				F220499825013C3B00ECC510 /* DateService.swift in Sources */,
 				F220499725013C3600ECC510 /* GitLabService.swift in Sources */,
-				F220499625013B9F00ECC510 /* GitLabAuthType.swift in Sources */,
 				F220499425013B3200ECC510 /* PipelinerService.swift in Sources */,
 				F2204991250112F800ECC510 /* PipelineStatus.swift in Sources */,
 				F2204990250112C000ECC510 /* PipelineResult.swift in Sources */,
@@ -602,7 +612,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = DxHeroes.Pipeliner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -628,7 +638,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = DxHeroes.Pipeliner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
