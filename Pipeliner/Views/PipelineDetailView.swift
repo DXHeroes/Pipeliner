@@ -50,6 +50,6 @@ struct PipelineDetailView: View {
 
 struct PipelineDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PipelineDetailView(index: 0, pipeline: PipelineResult(id: 1, ref: "renovate/minor-version-update", status: PipelineStatus.FAILED, duration: "54 min", age: "4 min", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.GITHUB))
+        PipelineDetailView(index: 0, pipeline: PipelineResult(id: 1, ref: "renovate/minor-version-update", status: PipelineStatus.FAILED, duration: "54 min", age: "4 min", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.github))
     }
 }

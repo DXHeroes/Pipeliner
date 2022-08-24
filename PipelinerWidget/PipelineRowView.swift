@@ -61,6 +61,6 @@ struct PipelineRowView: View {
 
 struct PipelineRowView_Previews: PreviewProvider {
     static var previews: some View {
-        PipelineRowView(pipeline: PipelineResult(id: 1, ref: "test", status: PipelineStatus.FAILED, duration: "54 min", age: "4 min", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.GITLAB), size: .systemMedium, isOdd: false)
+        PipelineRowView(pipeline: PipelineResult(id: 1, ref: "test", status: PipelineStatus.FAILED, duration: "54 min", age: "4 min", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.gitlab), size: .systemMedium, isOdd: false)
     }
 }
