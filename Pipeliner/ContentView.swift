@@ -16,28 +16,30 @@ struct ContentView: View {
     @State private var addErrorModal = false
     @State private var addErrorInfo = ""
     @State private var removeErrorModal = false
-    @State private var removeErrorInfo = ""    
+    @State private var removeErrorInfo = ""
+
     init() {
-        
         _pipelines = State(initialValue: try! pipelinerService.getPipelines(pipelineCount: 10))
         _configurations = State(initialValue:  ConfigurationService.getConfigurations())
     }
     
     var body: some View {
-        ZStack(alignment: .top, content: {
-            Color("darkblue")
-            VStack(alignment: .leading, content: {
+
+        ZStack(alignment: .top) {
+            Colors.darkblue
+            VStack(alignment: .leading) {
                 Link(destination: URL(string: "https://dxheroes.io")!) {
-                    Image(nsImage: NSImage(named: NSImage.Name("dx-logo"))!).font(.title2).foregroundColor(.blue)
-                }.padding(.horizontal).onHover { inside in
-                    if inside {
-                        NSCursor.pointingHand.push()
-                    } else {
-                        NSCursor.pop()
-                    }
+                    Images.DXLogos.green
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 50)
                 }
-                HStack(alignment: .top, content: {
-                    VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
+                .padding([.horizontal, .top])
+                .onHover { inside in
+                    inside ? NSCursor.pointingHand.push() : NSCursor.pop()
+                }
+                HStack(alignment: .top) {
+                    VStack {
                         AddConfigurationView(onAdd: { baseUrl, token, projectId, serviceType in
                             do {
                                 let config = try pipelinerService.getConfig(
@@ -55,32 +57,44 @@ struct ContentView: View {
                                 addErrorModal.toggle()
                             }
                             
-                        }).alert(isPresented: $addErrorModal) {
+                        })
+                        .alert(isPresented: $addErrorModal) {
                             Alert(title: Text("There was an error"),
                                   message: Text(addErrorInfo),
                                   dismissButton: .default(Text("OK")))
-                        }.padding(.bottom, 40)
-                        ScrollView(content: {
+                        }
+                        .padding(.bottom, 40)
+                        ScrollView {
                             VStack {
-                                Text("Configurations").font(.system(size: 24)).foregroundColor(Color("white-60")).frame(maxWidth: .infinity, alignment: .topLeading).padding()
-                                if(configurations.count != 0) {
-                                    HStack(content: {
-                                        VStack(alignment: .leading, content: {
-                                            Text("name".uppercased()).font(.system(size: 12)).foregroundColor(Color("white-60"))
-                                        })
+                                Text("Configurations")
+                                    .font(.largeTitle)
+                                    .foregroundColor(Colors.white60)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding()
+                                if (configurations.count != 0) {
+                                    HStack {
+                                        VStack(alignment: .leading) {
+                                            Text("name".uppercased())
+                                                .font(.system(size: 12))
+                                                .foregroundColor(Colors.white60)
+                                        }
                                         Spacer()
-                                        VStack(alignment: .leading, content: {
-                                                Text("remove".uppercased()).font(.system(size: 12)).foregroundColor(Color("white-60"))                    })
-                                    }).padding(.horizontal)
+                                        VStack(alignment: .leading) {
+                                                Text("remove".uppercased())
+                                                .font(.system(size: 12))
+                                                .foregroundColor(Colors.white60)
+                                        }
+                                    }
+                                    .padding(.horizontal)
                                     ForEach(configurations.indices, id: \.self){ index in
-                                        HStack(content: {
+                                        HStack {
                                             Image( nsImage: configurations[index].serviceType.serviceIcon())
                                             VStack(alignment: .leading, content: {
                                                 Text(configurations[index].repositoryName.uppercased())
                                                 Text(configurations[index].baseUrl).foregroundColor(.gray)
                                             })
                                             Spacer()
-                                            VStack(alignment: .leading, content: {
+                                            VStack(alignment: .leading) {
                                                 DxButton(label: "remove", action: {
                                                     do {
                                                         configurations = ConfigurationService.deleteConfiguration(id: configurations[index].id)
@@ -95,27 +109,40 @@ struct ContentView: View {
                                                         removeErrorInfo = error.localizedDescription
                                                         removeErrorModal.toggle()
                                                     }
-                                                }, color: Color("error"), shadow: false)
-                                            })
-                                        }).foregroundColor(Color.white).padding(.horizontal)
-                                        .padding([.vertical], index % 2 == 0 ? 8 : 0).background(index % 2 == 0 ? Color("white-4") : Color("purple"))
+                                                }, color: Colors.error, shadow: false)
+                                            }
+                                        }
+                                        .foregroundColor(Color.white)
+                                        .padding(.horizontal)
+                                        .padding([.vertical], index % 2 == 0 ? 8 : 0)
+                                        .background(index % 2 == 0 ? Colors.white4 : Colors.purple)
                                     }
                                 } else {
-                                    Text("There are no data").font(.system(size: 18)).foregroundColor(Color("white-60"))
+                                    Text("There are no data")
+                                        .font(.system(size: 18))
+                                        .foregroundColor(Colors.white60)
                                 }
-                            }.padding(.bottom).background(Color("purple"))
+                            }
+                            .padding(.bottom)
+                            .background(Colors.purple)
                             .alert(isPresented: $removeErrorModal) {
                                 Alert(title: Text("There was an error"),
                                       message: Text(removeErrorInfo),
                                       dismissButton: .default(Text("OK")))
                             }
-                        })
-                    }).padding(.trailing, 40).frame(minWidth: 300)
-                    PipelineView(pipelines: pipelines).frame(minWidth: 500)
-                }).padding()
-            }).padding()
-        })
+                        }
+                    }
+                    .padding(.trailing, 40)
+                    .frame(minWidth: 300)
+                    PipelineView(pipelines: pipelines)
+                        .frame(minWidth: 500)
+                }
+                .padding()
+            }
+            .padding()
+        }
     }
+
 }
 
 struct ContentView_Previews: PreviewProvider {
