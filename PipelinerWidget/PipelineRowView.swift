@@ -10,23 +10,27 @@ import WidgetKit
 
 struct PipelineRowView: View {
 
+    @Environment(\.widgetFamily) var widgetFamily
+
     public let pipeline: PipelineResult
     public let size: WidgetFamily
     public let isOdd: Bool
     
     var body: some View {
-        switch size {
+
+        switch widgetFamily {
         case .systemSmall:
-            VStack(alignment: .center) {
+            VStack {
                 HStack {
                     pipeline.serviceType.servicePickerIcon()
                     Text(pipeline.repositoryName.uppercased())
                         .lineLimit(1)
+                        .truncationMode(.tail)
                 }
-                .padding(.top, 5)
                 Text(pipeline.ref)
                     .foregroundColor(Colors.white60)
                     .lineLimit(1)
+                    .truncationMode(.tail)
                 Spacer()
                 if (pipeline.status == PipelineStatus.FAILED) {
                     Image(systemName: "xmark")
@@ -44,8 +48,9 @@ struct PipelineRowView: View {
                 Spacer()
                 Text(pipeline.duration)
                 Text("\(pipeline.age) ago")
-                    .foregroundColor(Colors.white60)
+                    .foregroundColor(.secondary)
             }
+            .padding()
             .environment(\.colorScheme, .dark)
         default:
             HStack {
@@ -84,6 +89,7 @@ struct PipelineRowView: View {
             .background(isOdd ? Colors.widgetBackground : Colors.white4)
             .environment(\.colorScheme, .dark)
         }
+
     }
 }
 

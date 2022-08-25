@@ -15,15 +15,28 @@ struct PipelineListView: View {
 
     var body: some View {
         VStack {
-            ForEach(0..<pipelines.count){ index in
-                PipelineRowView(pipeline: pipelines[index], size: size, isOdd: index % 2 != 0)
+            ForEach(0..<pipelines.count) { index in
+                PipelineRowView(
+                    pipeline: pipelines[index],
+                    size: size,
+                    isOdd: index % 2 != 0
+                )
             }
-        }.padding(.bottom)
+        }
+        .padding(.bottom)
     }
 }
 
+// MARK: - Preview
+
 struct PipelineListView_Previews: PreviewProvider {
+
     static var previews: some View {
-        PipelineListView(pipelines: [], size: WidgetFamily.systemMedium)
+        PipelineListView(
+            pipelines: [],
+            size: WidgetFamily.systemMedium
+        )
+        .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
+
 }
