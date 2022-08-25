@@ -51,6 +51,8 @@
 		F2FF09DF2500E19E0058FBE7 /* PipelineStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09DE2500E19E0058FBE7 /* PipelineStatus.swift */; };
 		F40468A428B50F310054A5B4 /* UIAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40468A328B50F310054A5B4 /* UIAssets.swift */; };
 		F4C76ADD28BD0579006D33CF /* RootViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C76ADC28BD0579006D33CF /* RootViewViewModel.swift */; };
+		F456D20428B7AE4F005EC2AF /* UIAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40468A328B50F310054A5B4 /* UIAssets.swift */; };
+		F456D20528B7AF26005EC2AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FF09962500BDA30058FBE7 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -250,12 +252,12 @@
 			isa = PBXGroup;
 			children = (
 				F2FF09C22500C87B0058FBE7 /* PipelinerWidget.swift */,
+				F2FF09DA2500DB8F0058FBE7 /* PipelineListView.swift */,
+				F2FF09D82500DAB20058FBE7 /* PipelineRowView.swift */,
 				F2FF09C42500C87B0058FBE7 /* PipelinerWidget.intentdefinition */,
 				F2FF09C52500C87C0058FBE7 /* Assets.xcassets */,
 				F2FF09C72500C87C0058FBE7 /* Info.plist */,
 				F2FF09C82500C87C0058FBE7 /* PipelinerWidget.entitlements */,
-				F2FF09D82500DAB20058FBE7 /* PipelineRowView.swift */,
-				F2FF09DA2500DB8F0058FBE7 /* PipelineListView.swift */,
 			);
 			path = PipelinerWidget;
 			sourceTree = "<group>";
@@ -356,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F456D20528B7AF26005EC2AF /* Assets.xcassets in Resources */,
 				F2BE2A1E2591E6C400437E99 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,6 +401,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				72B62F082532CA5D009DBE8A /* Workflow.swift in Sources */,
+				F456D20428B7AE4F005EC2AF /* UIAssets.swift in Sources */,
+				F29E5B6125147D0B00963075 /* ServiceInterface.swift in Sources */,
 				F22049A02501409300ECC510 /* ServiceTypeEnum.swift in Sources */,
 				9F9CF5E828B652DB0070BC79 /* ApiClient.swift in Sources */,
 				F220499C2501407600ECC510 /* Pipeline.swift in Sources */,
