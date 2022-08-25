@@ -20,20 +20,25 @@ struct PipelineDetailView: View {
             VStack(alignment: .leading) {
                 Text(pipeline.repositoryName.uppercased())
                     .lineLimit(1)
+                    .truncationMode(.tail)
                 Text(pipeline.ref)
                     .foregroundColor(Colors.white60)
                     .lineLimit(1)
+                    .truncationMode(.tail)
             }
             Spacer()
-            if pipeline.status.requiresTitle() {
-                HStack(alignment: .center) {
-                    Text(pipeline.status.readableTitle())
-                        .foregroundColor(Colors.white60)
+            VStack {
+                if pipeline.status.requiresTitle() {
+                    HStack(alignment: .center) {
+                        Text(pipeline.status.readableTitle())
+                            .foregroundColor(Colors.white60)
+                        pipeline.status.icon()
+                    }
+                } else {
                     pipeline.status.icon()
                 }
-            } else {
-                pipeline.status.icon()
             }
+            .padding(.trailing)
             VStack(alignment: .leading) {
                 Text(pipeline.duration)
                 Text("\(pipeline.age) ago")
@@ -45,7 +50,7 @@ struct PipelineDetailView: View {
                     .font(.title2)
                     .foregroundColor(.blue)
             }
-            .padding(.horizontal)
+            .padding(.trailing)
             .onHover { $0 ? NSCursor.pointingHand.push() : NSCursor.pop() }
         }
         .foregroundColor(Color.white)
@@ -55,6 +60,8 @@ struct PipelineDetailView: View {
 
     }
 }
+
+// MARK: - Preview
 
 struct PipelineDetailView_Previews: PreviewProvider {
     static var previews: some View {
