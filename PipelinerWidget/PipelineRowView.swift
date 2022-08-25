@@ -58,30 +58,34 @@ struct PipelineRowView: View {
                 VStack(alignment: .leading) {
                     Text(pipeline.repositoryName.uppercased())
                         .lineLimit(1)
+                        .truncationMode(.tail)
                     Text(pipeline.ref)
-                        .foregroundColor(Colors.white60)
                         .lineLimit(1)
+                        .truncationMode(.tail)
+                        .foregroundColor(.secondary)
                 }
                 Spacer()
-                if (pipeline.status == PipelineStatus.FAILED) {
-                    Image(systemName: "xmark")
-                        .font(.title)
-                        .foregroundColor(Colors.error)
-                } else if (pipeline.status == PipelineStatus.SUCCESS) {
-                    Image(systemName: "checkmark")
-                        .font(.title)
-                        .foregroundColor(Colors.lightteal)
-                } else {
-                    Image(systemName: "arrow.triangle.2.circlepath")
-                        .font(.title)
-                        .foregroundColor(Colors.warning)
+                VStack {
+                    if (pipeline.status == PipelineStatus.FAILED) {
+                        Image(systemName: "xmark")
+                            .font(.title)
+                            .foregroundColor(Colors.error)
+                    } else if (pipeline.status == PipelineStatus.SUCCESS) {
+                        Image(systemName: "checkmark")
+                            .font(.title)
+                            .foregroundColor(Colors.lightteal)
+                    } else {
+                        Image(systemName: "arrow.triangle.2.circlepath")
+                            .font(.title)
+                            .foregroundColor(Colors.warning)
+                    }
                 }
-                VStack(alignment: .leading) {
+                .padding(.horizontal, 8)
+                VStack(alignment: .trailing) {
                     Text(pipeline.duration)
                     Text("\(pipeline.age) ago")
-                        .foregroundColor(Colors.white60)
+                        .foregroundColor(.secondary)
                 }
-                .frame(width: 80, height: 40)
             }
             .foregroundColor(Color.white)
             .padding(.horizontal)
