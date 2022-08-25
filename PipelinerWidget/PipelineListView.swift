@@ -9,8 +9,10 @@ import SwiftUI
 import WidgetKit
 
 struct PipelineListView: View {
+
     public var pipelines: [PipelineResult]
     public var size: WidgetFamily
+
     var body: some View {
         VStack {
             ForEach(0..<pipelines.count){ index in

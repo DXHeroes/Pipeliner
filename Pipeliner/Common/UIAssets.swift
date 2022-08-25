@@ -32,4 +32,5 @@ enum Colors {
     static let blueshadow = Color("blueshadow")
     static let warning = Color("warning")
     static let error = Color("error")
+    static let widgetBackground = Color("widgetBackground")
 }

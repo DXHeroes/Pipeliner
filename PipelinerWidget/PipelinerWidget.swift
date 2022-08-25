@@ -56,8 +56,6 @@ struct Provider: IntentTimelineProvider {
             return 3
         case .systemLarge:
             return 6
-        default:
-            return 2
         }
     }
 }
@@ -70,21 +68,24 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct PipelinerWidgetEntryView : View {
+
     var entry: Provider.Entry
-    
     @Environment(\.widgetFamily) var family
     
     @ViewBuilder
     var body: some View {
         ZStack {
-            Color("WidgetBackground").edgesIgnoringSafeArea(.all)
+            Color("WidgetBackground")
+                .edgesIgnoringSafeArea(.all)
             if(entry.pipelines.isEmpty){
-                Text("No data").foregroundColor(Color("white-60"))
+                Text("No data")
+                    .foregroundColor(Color("white-60"))
             } else {
                 PipelineListView(pipelines: entry.pipelines, size: family)
             }
         }
-    }}
+    }
+}
 
 @main
 struct PipelinerWidget: Widget {
@@ -103,5 +104,11 @@ struct PipelinerWidget_Previews: PreviewProvider {
     static var previews: some View {
         PipelinerWidgetEntryView(entry: SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "test", status: PipelineStatus.FAILED, duration: "54 min", age: "4 min", url: "url", repositoryName: "Cool project", serviceType: ServiceType.github)], error: false))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
+
+        PipelinerWidgetEntryView(entry: SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "test", status: PipelineStatus.FAILED, duration: "54 min", age: "4 min", url: "url", repositoryName: "Cool project", serviceType: ServiceType.github)], error: false))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+
+        PipelinerWidgetEntryView(entry: SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "test", status: PipelineStatus.FAILED, duration: "54 min", age: "4 min", url: "url", repositoryName: "Cool project", serviceType: ServiceType.github)], error: false))
+            .previewContext(WidgetPreviewContext(family: .systemLarge))
     }
 }
