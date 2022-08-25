@@ -19,7 +19,13 @@ struct ContentView: View {
     @State private var removeErrorInfo = ""
 
     init() {
-        _pipelines = State(initialValue: try! pipelinerService.getPipelines(pipelineCount: 10))
+        Task {
+            try await loadData()
+        }
+    }
+
+    func loadData() async {
+        _pipelines = State(initialValue: try! await pipelinerService.getPipelines(pipelineCount: 10))
         _configurations = State(initialValue:  ConfigurationService.getConfigurations())
     }
     
@@ -41,21 +47,23 @@ struct ContentView: View {
                 HStack(alignment: .top) {
                     VStack {
                         AddConfigurationView(onAdd: { baseUrl, token, projectId, serviceType in
-                            do {
-                                let config = try pipelinerService.getConfig(
-                                    serviceType, baseUrl: baseUrl, projectId: projectId, token: token)
-                                configurations =  ConfigurationService.addConfiguration(config: config)
-                                pipelines = try pipelinerService.getPipelines(pipelineCount: 10)
-                                WidgetCenter.shared.reloadAllTimelines()
-                            }
-                            catch let error as HTTPError {
-                                addErrorInfo = error.localizedDescription
-                                addErrorModal.toggle()
-                            }
-                            catch let error {
-                                print(error)
-                                addErrorInfo = error.localizedDescription
-                                addErrorModal.toggle()
+                            Task.init {
+                                do {
+                                    let config = try await pipelinerService.getConfig(
+                                        serviceType, baseUrl: baseUrl, projectId: projectId, token: token)
+                                    configurations =  ConfigurationService.addConfiguration(config: config)
+                                    pipelines = try await pipelinerService.getPipelines(pipelineCount: 10)
+                                    WidgetCenter.shared.reloadAllTimelines()
+                                }
+                                catch let error as HTTPError {
+                                    addErrorInfo = error.localizedDescription
+                                    addErrorModal.toggle()
+                                }
+                                catch let error {
+                                    print(error)
+                                    addErrorInfo = error.localizedDescription
+                                    addErrorModal.toggle()
+                                }
                             }
                             
                         })
@@ -97,18 +105,20 @@ struct ContentView: View {
                                             Spacer()
                                             VStack(alignment: .leading) {
                                                 DxButton(label: "remove", action: {
-                                                    do {
-                                                        configurations = ConfigurationService.deleteConfiguration(id: configurations[index].id)
-                                                        pipelines = try pipelinerService.getPipelines(pipelineCount: 10)
-                                                        WidgetCenter.shared.reloadAllTimelines()
-                                                    }
-                                                    catch let error as HTTPError {
-                                                        removeErrorInfo = error.localizedDescription
-                                                        removeErrorModal.toggle()
-                                                    }
-                                                    catch let error {
-                                                        removeErrorInfo = error.localizedDescription
-                                                        removeErrorModal.toggle()
+                                                    Task.init {
+                                                        do {
+                                                            configurations = ConfigurationService.deleteConfiguration(id: configurations[index].id)
+                                                            pipelines = try await pipelinerService.getPipelines(pipelineCount: 10)
+                                                            WidgetCenter.shared.reloadAllTimelines()
+                                                        }
+                                                        catch let error as HTTPError {
+                                                            removeErrorInfo = error.localizedDescription
+                                                            removeErrorModal.toggle()
+                                                        }
+                                                        catch let error {
+                                                            removeErrorInfo = error.localizedDescription
+                                                            removeErrorModal.toggle()
+                                                        }
                                                     }
                                                 }, color: Colors.error, shadow: false)
                                             }
@@ -148,6 +158,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Task.init {
+            ContentView()
+        }
     }
 }
