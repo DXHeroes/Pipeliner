@@ -13,7 +13,7 @@ struct Provider: IntentTimelineProvider {
     let service: PipelinerService = PipelinerService()
     
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry.provideOneEntry()
+        SimpleEntry.MockData.smallWidget()
     }
     
     func getSnapshot(
@@ -21,34 +21,26 @@ struct Provider: IntentTimelineProvider {
         in context: Context,
         completion: @escaping (SimpleEntry) -> ()
     ) {
-//        let entry: SimpleEntry
-//        // use mock data
-//        if (context.isPreview) {
-//            switch context.family {
-//            case .systemSmall:
-//                entry = SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "test", status: PipelineStatus.FAILED, duration: "4 min", age: "54 min", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.github)], error: false)
-//            case .systemMedium:
-//                entry = SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "fix:test", status: PipelineStatus.SUCCESS, duration: "4 min", age: "54 min", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.github), PipelineResult(id: 2, ref: "feat: make it cooler", status: PipelineStatus.SUCCESS, duration: "6 min", age: "4 hours", url: "url", repositoryName: "Second Project", serviceType: ServiceType.github), PipelineResult(id: 3, ref: "chore: clean up", status: PipelineStatus.FAILED, duration: "9 min", age: "8 hours", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.github)
-//                ], error: false)
-//            case .systemLarge:
-//                entry = SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "fix:test", status: PipelineStatus.SUCCESS, duration: "4 min", age: "54 min", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.github), PipelineResult(id: 2, ref: "feat: make it cooler", status: PipelineStatus.SUCCESS, duration: "6 min", age: "4 hours", url: "url", repositoryName: "Second Project", serviceType: ServiceType.github), PipelineResult(id: 3, ref: "chore: clean up", status: PipelineStatus.FAILED, duration: "9 min", age: "8 hours", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.github), PipelineResult(id: 4, ref: "fix:test", status: PipelineStatus.SUCCESS, duration: "4 min", age: "9 hours", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.github), PipelineResult(id: 5, ref: "feat: make it cooler", status: PipelineStatus.SUCCESS, duration: "6 min", age: "10 hours", url: "url", repositoryName: "Second Project", serviceType: ServiceType.github), PipelineResult(id: 6, ref: "chore: clean up", status: PipelineStatus.FAILED, duration: "9 min", age: "13 hours", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.github)
-//                ], error: false)
-//            default:
-//                entry = SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "fix:test", status: PipelineStatus.SUCCESS, duration: "4 min", age: "54 min", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.github), PipelineResult(id: 2, ref: "feat: make it cooler", status: PipelineStatus.SUCCESS, duration: "6 min", age: "4 hours", url: "url", repositoryName: "Second Project", serviceType: ServiceType.github), PipelineResult(id: 3, ref: "chore: clean up", status: PipelineStatus.FAILED, duration: "9 min", age: "8 hours", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.github)
-//                ], error: false)
-//            }
-//            // use real data
-//        } else {
-//            entry = SimpleEntry(date: Date(), pipelines: try! service.getPipelines(pipelineCount: getPipelineCount(context: context)), error: false)
-//        }
-//        completion(entry)
-
-        let entrySnapshot = SimpleEntry(
-            date: Date(),
-            error: false,
-            pipelines: try! service.getPipelines(pipelineCount: getPipelineCount(context: context))
-        )
-        completion(entrySnapshot)
+        let entry: SimpleEntry
+        if (context.isPreview) { // use mock data
+            switch context.family {
+            case .systemSmall:
+                entry = SimpleEntry.MockData.smallWidget()
+            case .systemMedium:
+                entry = SimpleEntry.MockData.mediumWidget()
+            case .systemLarge:
+                entry = SimpleEntry.MockData.largeWidget()
+            default:
+                entry = SimpleEntry.MockData.smallWidget()
+            }
+        } else { // use real data
+            entry = SimpleEntry(
+                date: Date(),
+                error: false,
+                pipelines: try! service.getPipelines(pipelineCount: getPipelineCount(context: context))
+            )
+        }
+        completion(entry)
     }
     
     func getTimeline(
@@ -87,11 +79,9 @@ struct Provider: IntentTimelineProvider {
 
 
 struct PipelinerWidgetEntryView : View {
-
     var entry: Provider.Entry
     @Environment(\.widgetFamily) var family
-    
-    @ViewBuilder
+
     var body: some View {
         ZStack {
             Colors.widgetBackground
@@ -137,13 +127,13 @@ struct PipelinerWidget: Widget {
 
 struct PipelinerWidget_Previews: PreviewProvider {
     static var previews: some View {
-        PipelinerWidgetEntryView(entry: SimpleEntry.provideOneEntry())
+        PipelinerWidgetEntryView(entry: SimpleEntry.MockData.smallWidget())
             .previewContext(WidgetPreviewContext(family: .systemSmall))
 
-        PipelinerWidgetEntryView(entry: SimpleEntry.provideMultipleEntries())
+        PipelinerWidgetEntryView(entry: SimpleEntry.MockData.mediumWidget())
             .previewContext(WidgetPreviewContext(family: .systemMedium))
 
-        PipelinerWidgetEntryView(entry: SimpleEntry.provideMultipleEntries())
+        PipelinerWidgetEntryView(entry: SimpleEntry.MockData.largeWidget())
             .previewContext(WidgetPreviewContext(family: .systemLarge))
     }
 }

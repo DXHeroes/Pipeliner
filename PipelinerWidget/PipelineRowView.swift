@@ -120,12 +120,12 @@ struct PipelineRowView_Previews: PreviewProvider {
             pipeline: PipelineResult(
                 id: 1,
                 ref: "test",
-                status: PipelineStatus.FAILED,
+                status: PipelineStatus.CANCELED,
                 duration: "54 min",
                 age: "4 min",
                 url: "url",
                 repositoryName: "Cool Project",
-                serviceType: ServiceType.gitlab
+                serviceType: ServiceType.github
             ),
             isOdd: false
         )
