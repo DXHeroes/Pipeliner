@@ -16,7 +16,7 @@ struct Provider: IntentTimelineProvider {
         return SimpleEntry(date: Date(), pipelines: [PipelineResult(id: 1, ref: "test", status: PipelineStatus.FAILED, duration: "54 min", age: "4 min", url: "url", repositoryName: "Cool Project", serviceType: ServiceType.github)], error: false)
     }
     
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
+    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) async {
         let entry: SimpleEntry
         // use mock data
         if(context.isPreview) {
@@ -35,7 +35,7 @@ struct Provider: IntentTimelineProvider {
             }
             // use real data
         } else {
-            entry = SimpleEntry(date: Date(), pipelines: try! service.getPipelines(pipelineCount: getPipelineCount(context: context)), error: false)
+            entry = await SimpleEntry(date: Date(), pipelines: try! service.getPipelines(pipelineCount: getPipelineCount(context: context)), error: false)
         }
         completion(entry)
     }

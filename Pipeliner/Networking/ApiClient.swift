@@ -13,11 +13,12 @@ enum HTTPMethod: String {
     case post = "POST"
 }
 
-enum APIError: Error {
-    case wrongURL
-    case genericError
-    case decodingError
-    case missingToken
+enum ApiError: String, Error {
+    case genericError = "Something went wrong"
+    case invalidUrl = "Invalid URL"
+    case invalidDate = "Invalid date"
+    case configurationNotFound = "Configuration not found"
+    case decodingError = "Wrong data"
 }
 
 final class APIClient {
@@ -25,7 +26,7 @@ final class APIClient {
     private let session: URLSession = URLSession.shared
     private let decoder: JSONDecoder = JSONDecoder()
 
-    private func generateRequest(
+    func generateRequest(
         for url: URL,
         with header: [String:String],
         method: HTTPMethod,
@@ -46,7 +47,7 @@ final class APIClient {
     ) async throws -> T {
         NetworkingLogger.logRequest(request, config: session.configuration)
         guard let (data, response) = try? await session.data(for: request) else {
-            throw(APIError.genericError)
+            throw(ApiError.genericError)
         }
         NetworkingLogger.logResponse(
             (response as? HTTPURLResponse),
@@ -55,13 +56,13 @@ final class APIClient {
         )
         let successRange = 200..<300
         guard successRange.contains((response as? HTTPURLResponse)?.statusCode ?? 0) else {
-            throw(APIError.genericError)
+            throw(ApiError.genericError)
         }
         do {
             return try JSONDecoder().decode(T.self, from: data)
         } catch {
             NetworkingLogger.log(error)
-            throw(APIError.decodingError)
+            throw(ApiError.decodingError)
         }
     }
 }
