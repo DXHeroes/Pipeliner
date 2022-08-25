@@ -52,6 +52,7 @@
 		F4C76ADD28BD0579006D33CF /* RootViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C76ADC28BD0579006D33CF /* RootViewViewModel.swift */; };
 		F456D20428B7AE4F005EC2AF /* UIAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40468A328B50F310054A5B4 /* UIAssets.swift */; };
 		F456D20528B7AF26005EC2AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FF09962500BDA30058FBE7 /* Assets.xcassets */; };
+		F456D20728B7D6F0005EC2AF /* SimpleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F456D20628B7D6F0005EC2AF /* SimpleEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		F2FF09DE2500E19E0058FBE7 /* PipelineStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineStatus.swift; sourceTree = "<group>"; };
 		F40468A328B50F310054A5B4 /* UIAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAssets.swift; sourceTree = "<group>"; };
 		F4C76ADC28BD0579006D33CF /* RootViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewViewModel.swift; sourceTree = "<group>"; };
+		F456D20628B7D6F0005EC2AF /* SimpleEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +252,7 @@
 			children = (
 				F2FF09C22500C87B0058FBE7 /* PipelinerWidget.swift */,
 				F2FF09D82500DAB20058FBE7 /* PipelineRowView.swift */,
+				F456D20628B7D6F0005EC2AF /* SimpleEntry.swift */,
 				F2FF09C42500C87B0058FBE7 /* PipelinerWidget.intentdefinition */,
 				F2FF09C72500C87C0058FBE7 /* Info.plist */,
 				F2FF09C82500C87C0058FBE7 /* PipelinerWidget.entitlements */,
@@ -411,6 +414,7 @@
 				9F9CF5F028B8FDD40070BC79 /* Project.swift in Sources */,
 				F2FF09C92500C87C0058FBE7 /* PipelinerWidget.intentdefinition in Sources */,
 				F2FF09C32500C87B0058FBE7 /* PipelinerWidget.swift in Sources */,
+				F456D20728B7D6F0005EC2AF /* SimpleEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
