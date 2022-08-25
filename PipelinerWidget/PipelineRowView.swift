@@ -13,7 +13,6 @@ struct PipelineRowView: View {
     @Environment(\.widgetFamily) var widgetFamily
 
     public let pipeline: PipelineResult
-    public let size: WidgetFamily
     public let isOdd: Bool
     
     var body: some View {
@@ -113,7 +112,6 @@ struct PipelineRowView_Previews: PreviewProvider {
                 repositoryName: "Cool Project",
                 serviceType: ServiceType.gitlab
             ),
-            size: .systemMedium,
             isOdd: false
         )
         .previewContext(WidgetPreviewContext(family: .systemSmall))
@@ -129,7 +127,6 @@ struct PipelineRowView_Previews: PreviewProvider {
                 repositoryName: "Cool Project",
                 serviceType: ServiceType.gitlab
             ),
-            size: .systemMedium,
             isOdd: false
         )
         .previewContext(WidgetPreviewContext(family: .systemMedium))
