@@ -70,7 +70,6 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
     let pipelines: [PipelineResult]
     let error: Bool
-    
 }
 
 struct PipelinerWidgetEntryView : View {
@@ -87,10 +86,17 @@ struct PipelinerWidgetEntryView : View {
                 Text("No data")
                     .foregroundColor(Colors.white60)
             } else {
-                PipelineListView(
-                    pipelines: entry.pipelines,
-                    size: family
-                )
+                VStack {
+                    ForEach(
+                        Array(entry.pipelines.enumerated()),
+                        id: \.element.id
+                    ) { index, pipeline in
+                        PipelineRowView(
+                            pipeline: pipeline,
+                            isOdd: index % 2 != 0
+                        )
+                    }
+                }
             }
         }
     }
@@ -101,13 +107,19 @@ struct PipelinerWidget: Widget {
     let kind: String = "PipelinerWidget"
     
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
+        IntentConfiguration(
+            kind: kind,
+            intent: ConfigurationIntent.self,
+            provider: Provider()
+        ) { entry in
             PipelinerWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("Pipeliner Widget")
         .description("See your pipelines!")
     }
 }
+
+// MARK: - Previews
 
 struct PipelinerWidget_Previews: PreviewProvider {
     static var previews: some View {
