@@ -108,7 +108,6 @@
 		F2FF09BF2500C87B0058FBE7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		F2FF09C22500C87B0058FBE7 /* PipelinerWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelinerWidget.swift; sourceTree = "<group>"; };
 		F2FF09C42500C87B0058FBE7 /* PipelinerWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = PipelinerWidget.intentdefinition; sourceTree = "<group>"; };
-		F2FF09C52500C87C0058FBE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2FF09C72500C87C0058FBE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2FF09C82500C87C0058FBE7 /* PipelinerWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PipelinerWidget.entitlements; sourceTree = "<group>"; };
 		F2FF09D82500DAB20058FBE7 /* PipelineRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineRowView.swift; sourceTree = "<group>"; };
@@ -255,7 +254,6 @@
 				F2FF09DA2500DB8F0058FBE7 /* PipelineListView.swift */,
 				F2FF09D82500DAB20058FBE7 /* PipelineRowView.swift */,
 				F2FF09C42500C87B0058FBE7 /* PipelinerWidget.intentdefinition */,
-				F2FF09C52500C87C0058FBE7 /* Assets.xcassets */,
 				F2FF09C72500C87C0058FBE7 /* Info.plist */,
 				F2FF09C82500C87C0058FBE7 /* PipelinerWidget.entitlements */,
 			);
@@ -359,7 +357,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F456D20528B7AF26005EC2AF /* Assets.xcassets in Resources */,
-				F2BE2A1E2591E6C400437E99 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

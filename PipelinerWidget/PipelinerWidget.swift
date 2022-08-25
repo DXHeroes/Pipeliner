@@ -81,13 +81,16 @@ struct PipelinerWidgetEntryView : View {
     @ViewBuilder
     var body: some View {
         ZStack {
-            Color("WidgetBackground")
+            Colors.widgetBackground
                 .edgesIgnoringSafeArea(.all)
-            if(entry.pipelines.isEmpty){
+            if (entry.pipelines.isEmpty) {
                 Text("No data")
-                    .foregroundColor(Color("white-60"))
+                    .foregroundColor(Colors.white60)
             } else {
-                PipelineListView(pipelines: entry.pipelines, size: family)
+                PipelineListView(
+                    pipelines: entry.pipelines,
+                    size: family
+                )
             }
         }
     }
