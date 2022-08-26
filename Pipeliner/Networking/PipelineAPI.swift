@@ -84,9 +84,17 @@ extension APIClient: PipelineAPI {
             method: .get,
             body: nil
         )
-        guard let workflows: [Workflow] = try? await self.getData(for: request) else {
-            throw(ApiError.genericError)
+        switch config.serviceType {
+        case .gitlab:
+            guard let workflows: [Workflow] = try? await self.getData(for: request) else {
+                throw(ApiError.genericError)
+            }
+            return workflows.map(Pipeline.init)
+        case .github:
+            guard let workflows: GithubWorkflows = try? await self.getData(for: request) else {
+                throw(ApiError.genericError)
+            }
+            return workflows.workflow_runs.map(Pipeline.init)
         }
-        return workflows.map(Pipeline.init)
     }
 }
