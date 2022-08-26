@@ -8,27 +8,45 @@
 import SwiftUI
 import WidgetKit
 
+final class MainViewViewModel: ObservableObject {
+
+    private let pipelinerService: PipelinerService = PipelinerService()
+    @Published var pipelines: [PipelineResult] = []
+    @Published var configurations: [Config] = []
+
+//    init() {
+//        do {
+//            self.loadData()
+//        } catch {
+//            print(error)
+//        }
+//    }
+
+    func loadData() async throws {
+        pipelines = try await self.pipelinerService.getPipelines(pipelineCount: 10)
+        configurations = ConfigurationService.getConfigurations()
+    }
+
+    func reloadPipelines() async {
+        do {
+            pipelines = try await self.pipelinerService.getPipelines(pipelineCount: 10)
+        } catch {
+            print(error)
+        }
+    }
+}
+
 struct ContentView: View {
-    internal let pipelinerService: PipelinerService = PipelinerService()
-    @State private var pipelines: [PipelineResult]
-    @State private var configurations: [Config]
+
+    @StateObject var viewModel = MainViewViewModel()
+    private let pipelinerService: PipelinerService = PipelinerService()
+
     @Environment(\.colorScheme) var colorScheme
     @State private var addErrorModal = false
     @State private var addErrorInfo = ""
     @State private var removeErrorModal = false
     @State private var removeErrorInfo = ""
 
-    init() {
-        Task {
-            try await loadData()
-        }
-    }
-
-    func loadData() async {
-        _pipelines = State(initialValue: try! await pipelinerService.getPipelines(pipelineCount: 10))
-        _configurations = State(initialValue:  ConfigurationService.getConfigurations())
-    }
-    
     var body: some View {
 
         ZStack(alignment: .top) {
@@ -51,8 +69,8 @@ struct ContentView: View {
                                 do {
                                     let config = try await pipelinerService.getConfig(
                                         serviceType, baseUrl: baseUrl, projectId: projectId, token: token)
-                                    configurations =  ConfigurationService.addConfiguration(config: config)
-                                    pipelines = try await pipelinerService.getPipelines(pipelineCount: 10)
+                                    viewModel.configurations =  ConfigurationService.addConfiguration(config: config)
+                                    viewModel.pipelines = try await pipelinerService.getPipelines(pipelineCount: 10)
                                     WidgetCenter.shared.reloadAllTimelines()
                                 }
                                 catch let error as HTTPError {
@@ -80,7 +98,7 @@ struct ContentView: View {
                                     .foregroundColor(Colors.white60)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding()
-                                if (configurations.count != 0) {
+                                if (viewModel.configurations.count != 0) {
                                     HStack {
                                         VStack(alignment: .leading) {
                                             Text("name".uppercased())
@@ -95,20 +113,20 @@ struct ContentView: View {
                                         }
                                     }
                                     .padding(.horizontal)
-                                    ForEach(configurations.indices, id: \.self){ index in
+                                    ForEach(viewModel.configurations.indices, id: \.self){ index in
                                         HStack {
-                                            Image( nsImage: configurations[index].serviceType.serviceIcon())
+                                            Image( nsImage: viewModel.configurations[index].serviceType.serviceIcon())
                                             VStack(alignment: .leading, content: {
-                                                Text(configurations[index].repositoryName.uppercased())
-                                                Text(configurations[index].baseUrl).foregroundColor(.gray)
+                                                Text(viewModel.configurations[index].repositoryName.uppercased())
+                                                Text(viewModel.configurations[index].baseUrl).foregroundColor(.gray)
                                             })
                                             Spacer()
                                             VStack(alignment: .leading) {
                                                 DxButton(label: "remove", action: {
                                                     Task.init {
                                                         do {
-                                                            configurations = ConfigurationService.deleteConfiguration(id: configurations[index].id)
-                                                            pipelines = try await pipelinerService.getPipelines(pipelineCount: 10)
+                                                            viewModel.configurations = ConfigurationService.deleteConfiguration(id: viewModel.configurations[index].id)
+                                                            await viewModel.reloadPipelines()
                                                             WidgetCenter.shared.reloadAllTimelines()
                                                         }
                                                         catch let error as HTTPError {
@@ -145,7 +163,7 @@ struct ContentView: View {
                     }
                     .padding(.trailing, 40)
                     .frame(minWidth: 300)
-                    PipelineView(pipelines: pipelines)
+                    PipelineView(pipelines: viewModel.pipelines)
                         .frame(minWidth: 500)
                 }
                 .padding()
@@ -158,8 +176,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        Task.init {
-            ContentView()
-        }
+        ContentView()
     }
 }

@@ -31,7 +31,11 @@ extension APIClient: PipelineAPI {
         projectId: String,
         token: String
     ) async throws -> Project {
-        let urlString: String = "\(baseUrl)"
+        //github
+        //let urlString: String = "\(baseUrl)"
+
+        //gitlab
+        let urlString: String = "\(baseUrl)/api/v4/projects/\(projectId)"
         guard let url = URL(string: urlString) else {
             throw ApiError.invalidUrl
         }
