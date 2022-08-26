@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  RootView.swift
 //  Pipeliner
 //
 //  Created by dx hero on 03.09.2020.
@@ -8,37 +8,9 @@
 import SwiftUI
 import WidgetKit
 
-final class MainViewViewModel: ObservableObject {
+struct RootView: View {
 
-    private let pipelinerService: PipelinerService = PipelinerService()
-    @Published var pipelines: [PipelineResult] = []
-    @Published var configurations: [Config] = []
-
-//    init() {
-//        do {
-//            self.loadData()
-//        } catch {
-//            print(error)
-//        }
-//    }
-
-    func loadData() async throws {
-        pipelines = try await self.pipelinerService.getPipelines(pipelineCount: 10)
-        configurations = ConfigurationService.getConfigurations()
-    }
-
-    func reloadPipelines() async {
-        do {
-            pipelines = try await self.pipelinerService.getPipelines(pipelineCount: 10)
-        } catch {
-            print(error)
-        }
-    }
-}
-
-struct ContentView: View {
-
-    @StateObject var viewModel = MainViewViewModel()
+    @StateObject var viewModel = RootViewViewModel()
     private let pipelinerService: PipelinerService = PipelinerService()
 
     @Environment(\.colorScheme) var colorScheme
@@ -67,10 +39,12 @@ struct ContentView: View {
                         AddConfigurationView(onAdd: { baseUrl, token, projectId, serviceType in
                             Task.init {
                                 do {
-                                    let config = try await pipelinerService.getConfig(
-                                        serviceType, baseUrl: baseUrl, projectId: projectId, token: token)
-                                    viewModel.configurations =  ConfigurationService.addConfiguration(config: config)
-                                    viewModel.pipelines = try await pipelinerService.getPipelines(pipelineCount: 10)
+                                    try await viewModel.loadData(
+                                        serviceType,
+                                        baseUrl: baseUrl,
+                                        projectId: projectId,
+                                        token: token
+                                    )
                                     WidgetCenter.shared.reloadAllTimelines()
                                 }
                                 catch let error as HTTPError {
@@ -126,7 +100,7 @@ struct ContentView: View {
                                                     Task.init {
                                                         do {
                                                             viewModel.configurations = ConfigurationService.deleteConfiguration(id: viewModel.configurations[index].id)
-                                                            await viewModel.reloadPipelines()
+                                                            try await viewModel.reloadPipelines()
                                                             WidgetCenter.shared.reloadAllTimelines()
                                                         }
                                                         catch let error as HTTPError {
@@ -176,6 +150,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        RootView()
     }
 }

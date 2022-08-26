@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,8 @@
 		9F9CF5EC28B6593E0070BC79 /* PipelineAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9CF5E628B6511C0070BC79 /* PipelineAPI.swift */; };
 		9F9CF5EF28B8FDD40070BC79 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9CF5EE28B8FDD40070BC79 /* Project.swift */; };
 		9F9CF5F028B8FDD40070BC79 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9CF5EE28B8FDD40070BC79 /* Project.swift */; };
+		9F9CF5F228B908E90070BC79 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9CF5F128B908E90070BC79 /* MainViewViewModel.swift */; };
+		9F9CF5F328B908E90070BC79 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9CF5F128B908E90070BC79 /* MainViewViewModel.swift */; };
 		F220498F250112AF00ECC510 /* Pipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09AF2500BEF70058FBE7 /* Pipeline.swift */; };
 		F2204990250112C000ECC510 /* PipelineResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09DC2500E1760058FBE7 /* PipelineResult.swift */; };
 		F2204991250112F800ECC510 /* PipelineStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09DE2500E19E0058FBE7 /* PipelineStatus.swift */; };
@@ -26,7 +28,6 @@
 		F220499C2501407600ECC510 /* Pipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09AF2500BEF70058FBE7 /* Pipeline.swift */; };
 		F22049A02501409300ECC510 /* ServiceTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09A22500BE1C0058FBE7 /* ServiceTypeEnum.swift */; };
 		F23B01012590F001003B4385 /* AddConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23B01002590F001003B4385 /* AddConfigurationView.swift */; };
-		F26C86C025125423002841FE /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = F26C86BF25125423002841FE /* PromiseKit */; };
 		F26ECFB12506763100E62EDD /* PipelineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26ECFB02506763100E62EDD /* PipelineDetailView.swift */; };
 		F28349E4258BA573004DC329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FF09962500BDA30058FBE7 /* Assets.xcassets */; };
 		F28349E8258C9B75004DC329 /* DxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28349E7258C9B75004DC329 /* DxButton.swift */; };
@@ -35,16 +36,13 @@
 		F29E5B5E25147CCB00963075 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FF09BF2500C87B0058FBE7 /* SwiftUI.framework */; };
 		F29E5B6125147D0B00963075 /* ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29E5B5C2513937500963075 /* ServiceInterface.swift */; };
 		F2AAB709251370DA00D152A1 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FF09BD2500C87B0058FBE7 /* WidgetKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		F2B13A13251254F0007EA0C9 /* AwaitKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2B13A12251254F0007EA0C9 /* AwaitKit */; };
-		F2B13A1525125527007EA0C9 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2B13A1425125527007EA0C9 /* PromiseKit */; };
-		F2B13A172512552C007EA0C9 /* AwaitKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2B13A162512552C007EA0C9 /* AwaitKit */; };
 		F2BE2A1E2591E6C400437E99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FF09C52500C87C0058FBE7 /* Assets.xcassets */; };
 		F2D16DBA25909D51004258CC /* DxLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D16DB925909D51004258CC /* DxLabel.swift */; };
 		F2D16DBE2590B0C5004258CC /* PipelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D16DBD2590B0C5004258CC /* PipelineView.swift */; };
 		F2E52EAB2512306E002A4692 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E52EAA2512306E002A4692 /* Config.swift */; };
 		F2E52EAC2512306E002A4692 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E52EAA2512306E002A4692 /* Config.swift */; };
 		F2FF09932500BDA20058FBE7 /* PipelinerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09922500BDA20058FBE7 /* PipelinerApp.swift */; };
-		F2FF09952500BDA20058FBE7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09942500BDA20058FBE7 /* ContentView.swift */; };
+		F2FF09952500BDA20058FBE7 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09942500BDA20058FBE7 /* RootView.swift */; };
 		F2FF09A32500BE1C0058FBE7 /* ServiceTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09A22500BE1C0058FBE7 /* ServiceTypeEnum.swift */; };
 		F2FF09B62500C0A60058FBE7 /* PipelinerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09B52500C0A60058FBE7 /* PipelinerService.swift */; };
 		F2FF09C32500C87B0058FBE7 /* PipelinerWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09C22500C87B0058FBE7 /* PipelinerWidget.swift */; };
@@ -88,6 +86,7 @@
 		9F9CF5E428B64FF80070BC79 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		9F9CF5E628B6511C0070BC79 /* PipelineAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineAPI.swift; sourceTree = "<group>"; };
 		9F9CF5EE28B8FDD40070BC79 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		9F9CF5F128B908E90070BC79 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
 		F220499225011CED00ECC510 /* DateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateService.swift; sourceTree = "<group>"; };
 		F23B01002590F001003B4385 /* AddConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConfigurationView.swift; sourceTree = "<group>"; };
 		F26ECFB02506763100E62EDD /* PipelineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineDetailView.swift; sourceTree = "<group>"; };
@@ -99,7 +98,7 @@
 		F2E52EAA2512306E002A4692 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		F2FF098F2500BDA20058FBE7 /* Pipeliner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pipeliner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FF09922500BDA20058FBE7 /* PipelinerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelinerApp.swift; sourceTree = "<group>"; };
-		F2FF09942500BDA20058FBE7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F2FF09942500BDA20058FBE7 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		F2FF09962500BDA30058FBE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2FF09992500BDA30058FBE7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F2FF099B2500BDA30058FBE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -127,8 +126,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2B13A13251254F0007EA0C9 /* AwaitKit in Frameworks */,
-				F26C86C025125423002841FE /* PromiseKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +134,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F29E5B5E25147CCB00963075 /* SwiftUI.framework in Frameworks */,
-				F2B13A1525125527007EA0C9 /* PromiseKit in Frameworks */,
-				F2B13A172512552C007EA0C9 /* AwaitKit in Frameworks */,
 				F2AAB709251370DA00D152A1 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,7 +208,8 @@
 				F2FF09922500BDA20058FBE7 /* PipelinerApp.swift */,
 				9F9CF5ED28B8FDB30070BC79 /* Model */,
 				9F9CF5E128B64FA60070BC79 /* Networking */,
-				F2FF09942500BDA20058FBE7 /* ContentView.swift */,
+				F2FF09942500BDA20058FBE7 /* RootView.swift */,
+				9F9CF5F128B908E90070BC79 /* MainViewViewModel.swift */,
 				F2FF09962500BDA30058FBE7 /* Assets.xcassets */,
 				F2FF099B2500BDA30058FBE7 /* Info.plist */,
 				F2FF099C2500BDA30058FBE7 /* Pipeliner.entitlements */,
@@ -288,8 +284,6 @@
 			);
 			name = Pipeliner;
 			packageProductDependencies = (
-				F26C86BF25125423002841FE /* PromiseKit */,
-				F2B13A12251254F0007EA0C9 /* AwaitKit */,
 			);
 			productName = Pipeliner;
 			productReference = F2FF098F2500BDA20058FBE7 /* Pipeliner.app */;
@@ -311,8 +305,6 @@
 			);
 			name = PipelinerWidgetExtension;
 			packageProductDependencies = (
-				F2B13A1425125527007EA0C9 /* PromiseKit */,
-				F2B13A162512552C007EA0C9 /* AwaitKit */,
 			);
 			productName = PipelinerWidgetExtension;
 			productReference = F2FF09BB2500C87B0058FBE7 /* PipelinerWidgetExtension.appex */;
@@ -345,8 +337,6 @@
 			);
 			mainGroup = F2FF09862500BDA20058FBE7;
 			packageReferences = (
-				F26C86BE25125423002841FE /* XCRemoteSwiftPackageReference "PromiseKit" */,
-				F2B13A11251254F0007EA0C9 /* XCRemoteSwiftPackageReference "AwaitKit" */,
 			);
 			productRefGroup = F2FF09902500BDA20058FBE7 /* Products */;
 			projectDirPath = "";
@@ -390,12 +380,13 @@
 				F28349E8258C9B75004DC329 /* DxButton.swift in Sources */,
 				F26ECFB12506763100E62EDD /* PipelineDetailView.swift in Sources */,
 				F29E5B5D2513937500963075 /* ServiceInterface.swift in Sources */,
-				F2FF09952500BDA20058FBE7 /* ContentView.swift in Sources */,
+				F2FF09952500BDA20058FBE7 /* RootView.swift in Sources */,
 				F2FF09932500BDA20058FBE7 /* PipelinerApp.swift in Sources */,
 				F28349EC258CBEF8004DC329 /* DxTextField.swift in Sources */,
 				F2FF09DF2500E19E0058FBE7 /* PipelineStatus.swift in Sources */,
 				F40468A428B50F310054A5B4 /* UIAssets.swift in Sources */,
 				F2FF09B62500C0A60058FBE7 /* PipelinerService.swift in Sources */,
+				9F9CF5F228B908E90070BC79 /* MainViewViewModel.swift in Sources */,
 				9F9CF5EF28B8FDD40070BC79 /* Project.swift in Sources */,
 				F220499325011CED00ECC510 /* DateService.swift in Sources */,
 				9F9CF5E728B6511C0070BC79 /* PipelineAPI.swift in Sources */,
@@ -414,6 +405,7 @@
 			files = (
 				72B62F082532CA5D009DBE8A /* Workflow.swift in Sources */,
 				F29E5B6125147D0B00963075 /* ServiceInterface.swift in Sources */,
+				9F9CF5F328B908E90070BC79 /* MainViewViewModel.swift in Sources */,
 				F22049A02501409300ECC510 /* ServiceTypeEnum.swift in Sources */,
 				9F9CF5E828B652DB0070BC79 /* ApiClient.swift in Sources */,
 				F220499C2501407600ECC510 /* Pipeline.swift in Sources */,
@@ -724,32 +716,12 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F26C86BF25125423002841FE /* PromiseKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F26C86BE25125423002841FE /* XCRemoteSwiftPackageReference "PromiseKit" */;
-			productName = PromiseKit;
-		};
 		F2AAB70D251374A600D152A1 /* PromiseKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F26C86BE25125423002841FE /* XCRemoteSwiftPackageReference "PromiseKit" */;
 			productName = PromiseKit;
 		};
 		F2AAB70F251374AB00D152A1 /* AwaitKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F2B13A11251254F0007EA0C9 /* XCRemoteSwiftPackageReference "AwaitKit" */;
-			productName = AwaitKit;
-		};
-		F2B13A12251254F0007EA0C9 /* AwaitKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F2B13A11251254F0007EA0C9 /* XCRemoteSwiftPackageReference "AwaitKit" */;
-			productName = AwaitKit;
-		};
-		F2B13A1425125527007EA0C9 /* PromiseKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F26C86BE25125423002841FE /* XCRemoteSwiftPackageReference "PromiseKit" */;
-			productName = PromiseKit;
-		};
-		F2B13A162512552C007EA0C9 /* AwaitKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F2B13A11251254F0007EA0C9 /* XCRemoteSwiftPackageReference "AwaitKit" */;
 			productName = AwaitKit;
