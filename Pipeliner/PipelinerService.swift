@@ -22,19 +22,9 @@ class PipelinerService {
         projectId: String,
         token: String
     ) async throws -> Config {
-        let headers: [String: String]
-        switch serviceType {
-        case .gitlab:
-            headers = ["PRIVATE-TOKEN" : token]
-        case .github:
-            headers = [
-                "Accept": "application/vnd.github.v3+json",
-                "Authorization": "bearer \(token)"
-            ]
-        }
         let project = try await api.getProjectName(
+            for: serviceType,
             baseUrl: baseUrl,
-            headers: headers,
             projectId: projectId,
             token: token
         )
@@ -58,19 +48,9 @@ class PipelinerService {
         var pipelinesWithRepoName: [PipelineWithRepoName] = []
         //Get pipelines from API
         for config in configs {
-            let headers: [String: String]
-            switch config.serviceType {
-            case .gitlab:
-                headers = ["PRIVATE-TOKEN" : config.token]
-            case .github:
-                headers = [
-                    "Accept": "application/vnd.github.v3+json",
-                    "Authorization": "bearer \(config.token)"
-                ]
-            }
+
             let pipelines = try await api.getPipelines(
                 config: config,
-                headers: headers,
                 pipelineCount: pipelineCountPerRepo
             )
             for pipeline in pipelines {

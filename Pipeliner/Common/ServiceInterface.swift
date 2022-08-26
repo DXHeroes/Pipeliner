@@ -6,7 +6,7 @@
 //
 
 import Foundation
-protocol IService {
-    func getProjectName(baseUrl: String, projectId: String, token: String) throws -> String
-    func getPipelines(config: Config, pipelineCount: Int) throws -> [Pipeline]
-}
+//protocol IService {
+//    func getProjectName(baseUrl: String, projectId: String, token: String) throws -> String
+//    func getPipelines(config: Config, pipelineCount: Int) throws -> [Pipeline]
+//}
