@@ -84,9 +84,9 @@ extension APIClient: PipelineAPI {
             method: .get,
             body: nil
         )
-        guard let workflows: Workflows = try? await self.getData(for: request) else {
+        guard let workflows: [Workflow] = try? await self.getData(for: request) else {
             throw(ApiError.genericError)
         }
-        return workflows.workflowRuns.map(Pipeline.init)
+        return workflows.map(Pipeline.init)
     }
 }
