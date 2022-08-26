@@ -7,9 +7,8 @@
 
 import WidgetKit
 
-struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let error: Bool
+public struct SimpleEntry: TimelineEntry {
+    public let date: Date
     let pipelines: [PipelineResult]
 
     struct MockData {
@@ -87,14 +86,12 @@ struct SimpleEntry: TimelineEntry {
         static func smallWidget() -> SimpleEntry {
             SimpleEntry(
                 date: Date(),
-                error: false,
                 pipelines: [pipelineResult1]
             )
         }
         static func mediumWidget() -> SimpleEntry {
             SimpleEntry(
                 date: Date(),
-                error: false,
                 pipelines: [
                     pipelineResult1,
                     pipelineResult2,
@@ -105,7 +102,6 @@ struct SimpleEntry: TimelineEntry {
         static func largeWidget() -> SimpleEntry {
             SimpleEntry(
                 date: Date(),
-                error: false,
                 pipelines: [
                     pipelineResult1, pipelineResult2,
                     pipelineResult3, pipelineResult4,
