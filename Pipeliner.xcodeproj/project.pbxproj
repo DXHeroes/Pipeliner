@@ -32,9 +32,7 @@
 		F28349E4258BA573004DC329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FF09962500BDA30058FBE7 /* Assets.xcassets */; };
 		F28349E8258C9B75004DC329 /* DxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28349E7258C9B75004DC329 /* DxButton.swift */; };
 		F28349EC258CBEF8004DC329 /* DxTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28349EB258CBEF8004DC329 /* DxTextField.swift */; };
-		F29E5B5D2513937500963075 /* ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29E5B5C2513937500963075 /* ServiceInterface.swift */; };
 		F29E5B5E25147CCB00963075 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FF09BF2500C87B0058FBE7 /* SwiftUI.framework */; };
-		F29E5B6125147D0B00963075 /* ServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29E5B5C2513937500963075 /* ServiceInterface.swift */; };
 		F2AAB709251370DA00D152A1 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FF09BD2500C87B0058FBE7 /* WidgetKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F2BE2A1E2591E6C400437E99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FF09C52500C87C0058FBE7 /* Assets.xcassets */; };
 		F2D16DBA25909D51004258CC /* DxLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D16DB925909D51004258CC /* DxLabel.swift */; };
@@ -92,7 +90,6 @@
 		F26ECFB02506763100E62EDD /* PipelineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineDetailView.swift; sourceTree = "<group>"; };
 		F28349E7258C9B75004DC329 /* DxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DxButton.swift; sourceTree = "<group>"; };
 		F28349EB258CBEF8004DC329 /* DxTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DxTextField.swift; sourceTree = "<group>"; };
-		F29E5B5C2513937500963075 /* ServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceInterface.swift; sourceTree = "<group>"; };
 		F2D16DB925909D51004258CC /* DxLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DxLabel.swift; sourceTree = "<group>"; };
 		F2D16DBD2590B0C5004258CC /* PipelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineView.swift; sourceTree = "<group>"; };
 		F2E52EAA2512306E002A4692 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -202,10 +199,10 @@
 		F2FF09912500BDA20058FBE7 /* Pipeliner */ = {
 			isa = PBXGroup;
 			children = (
+				F2FF09922500BDA20058FBE7 /* PipelinerApp.swift */,
 				F2D16DBC2590B098004258CC /* Views */,
 				F28349E6258C9B48004DC329 /* Components */,
 				F2FF09AE2500BEEC0058FBE7 /* Common */,
-				F2FF09922500BDA20058FBE7 /* PipelinerApp.swift */,
 				9F9CF5ED28B8FDB30070BC79 /* Model */,
 				9F9CF5E128B64FA60070BC79 /* Networking */,
 				F2FF09942500BDA20058FBE7 /* RootView.swift */,
@@ -236,7 +233,6 @@
 				F2FF09DE2500E19E0058FBE7 /* PipelineStatus.swift */,
 				F220499225011CED00ECC510 /* DateService.swift */,
 				F2E52EAA2512306E002A4692 /* Config.swift */,
-				F29E5B5C2513937500963075 /* ServiceInterface.swift */,
 				F40468A328B50F310054A5B4 /* UIAssets.swift */,
 			);
 			path = Common;
@@ -379,7 +375,6 @@
 				F2FF09DD2500E1760058FBE7 /* PipelineResult.swift in Sources */,
 				F28349E8258C9B75004DC329 /* DxButton.swift in Sources */,
 				F26ECFB12506763100E62EDD /* PipelineDetailView.swift in Sources */,
-				F29E5B5D2513937500963075 /* ServiceInterface.swift in Sources */,
 				F2FF09952500BDA20058FBE7 /* RootView.swift in Sources */,
 				F2FF09932500BDA20058FBE7 /* PipelinerApp.swift in Sources */,
 				F28349EC258CBEF8004DC329 /* DxTextField.swift in Sources */,
@@ -404,7 +399,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				72B62F082532CA5D009DBE8A /* Workflow.swift in Sources */,
-				F29E5B6125147D0B00963075 /* ServiceInterface.swift in Sources */,
 				9F9CF5F328B908E90070BC79 /* MainViewViewModel.swift in Sources */,
 				F22049A02501409300ECC510 /* ServiceTypeEnum.swift in Sources */,
 				9F9CF5E828B652DB0070BC79 /* ApiClient.swift in Sources */,

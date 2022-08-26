@@ -141,22 +141,3 @@ class ConfigurationService {
         return []
     }
 }
-
-//private struct ServiceResolver {
-//    private let gitHubService: GitHubService
-//    private let gitLabService: PipelineAPI
-//
-//    init() {
-//        self.gitHubService = GitHubService()
-//        self.gitLabService = APIClient()
-//    }
-//
-//    func resolve(_ serviceType: ServiceType) -> IService {
-//        switch serviceType {
-//        case .github:
-//            return self.gitHubService
-//        case .gitlab:
-//            return self.gitLabService
-//        }
-//    }
-//}
