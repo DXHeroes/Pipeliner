@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct PipelinerApp: App {
-    
     var body: some Scene {
         WindowGroup {
             ContentView()

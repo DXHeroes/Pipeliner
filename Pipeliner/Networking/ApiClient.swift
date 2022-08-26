@@ -13,6 +13,22 @@ enum HTTPMethod: String {
     case post = "POST"
 }
 
+enum HTTPError: LocalizedError {
+    case serverSideError(statusCode: Int, url: String)
+    case noInternetConnection
+}
+
+extension HTTPError {
+    public var localizedDescription: String {
+        switch self {
+        case .serverSideError(statusCode: let statusCode, url: let url):
+            return NSLocalizedString("Request to \(url) returned response with \(statusCode) status code" , comment: "Check input values")
+        case .noInternetConnection:
+            return NSLocalizedString("Are you connected?" , comment: "Check internet connection")
+        }
+    }
+}
+
 enum ApiError: String, Error {
     case genericError = "Something went wrong"
     case invalidUrl = "Invalid URL"
