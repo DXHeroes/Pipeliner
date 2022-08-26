@@ -69,16 +69,14 @@ struct Provider: IntentTimelineProvider {
         case .systemMedium:
             return 3
         case .systemLarge:
-            return 6
+            return 7
         @unknown default:
             return 1
         }
     }
 }
 
-
-
-struct PipelinerWidgetEntryView : View {
+struct PipelinerWidgetEntryView: View {
     var entry: Provider.Entry
     @Environment(\.widgetFamily) var family
 
@@ -90,7 +88,7 @@ struct PipelinerWidgetEntryView : View {
                 Text("No data")
                     .foregroundColor(Colors.white60)
             } else {
-                VStack {
+                VStack(spacing: 0) {
                     ForEach(
                         Array(entry.pipelines.enumerated()),
                         id: \.element.id

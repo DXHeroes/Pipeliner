@@ -13,7 +13,7 @@ struct SimpleEntry: TimelineEntry {
     let pipelines: [PipelineResult]
 
     struct MockData {
-        static let pipelineResult1 = PipelineResult(
+        static private let pipelineResult1 = PipelineResult(
             id: 1,
             ref: "test",
             status: PipelineStatus.SUCCESS,
@@ -23,7 +23,7 @@ struct SimpleEntry: TimelineEntry {
             repositoryName: "Cool Project",
             serviceType: ServiceType.github
         )
-        static let pipelineResult2 = PipelineResult(
+        static private let pipelineResult2 = PipelineResult(
             id: 2,
             ref: "test",
             status: PipelineStatus.FAILED,
@@ -33,7 +33,7 @@ struct SimpleEntry: TimelineEntry {
             repositoryName: "Failing Project",
             serviceType: ServiceType.gitlab
         )
-        static let pipelineResult3 = PipelineResult(
+        static private let pipelineResult3 = PipelineResult(
             id: 3,
             ref: "test",
             status: PipelineStatus.MANUAL,
@@ -43,7 +43,7 @@ struct SimpleEntry: TimelineEntry {
             repositoryName: "Another Cool Project",
             serviceType: ServiceType.github
         )
-        static let pipelineResult4 = PipelineResult(
+        static private let pipelineResult4 = PipelineResult(
             id: 4,
             ref: "test",
             status: PipelineStatus.SUCCESS,
@@ -53,7 +53,7 @@ struct SimpleEntry: TimelineEntry {
             repositoryName: "Cool Project",
             serviceType: ServiceType.github
         )
-        static let pipelineResult5 = PipelineResult(
+        static private let pipelineResult5 = PipelineResult(
             id: 5,
             ref: "test",
             status: PipelineStatus.FAILED,
@@ -63,7 +63,7 @@ struct SimpleEntry: TimelineEntry {
             repositoryName: "Failing Project",
             serviceType: ServiceType.gitlab
         )
-        static let pipelineResult6 = PipelineResult(
+        static private let pipelineResult6 = PipelineResult(
             id: 6,
             ref: "test",
             status: PipelineStatus.MANUAL,
@@ -71,6 +71,16 @@ struct SimpleEntry: TimelineEntry {
             age: "54min",
             url: "url",
             repositoryName: "Another Cool Project",
+            serviceType: ServiceType.github
+        )
+        static private let pipelineResult7 = PipelineResult(
+            id: 7,
+            ref: "test",
+            status: PipelineStatus.SUCCESS,
+            duration: "4 min",
+            age: "54min",
+            url: "url",
+            repositoryName: "Cool Project",
             serviceType: ServiceType.github
         )
 
@@ -99,7 +109,8 @@ struct SimpleEntry: TimelineEntry {
                 pipelines: [
                     pipelineResult1, pipelineResult2,
                     pipelineResult3, pipelineResult4,
-                    pipelineResult5, pipelineResult6
+                    pipelineResult5, pipelineResult6,
+                    pipelineResult7
                 ]
             )
         }

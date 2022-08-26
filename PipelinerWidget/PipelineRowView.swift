@@ -86,10 +86,10 @@ struct PipelineRowView: View {
                         .foregroundColor(.secondary)
                 }
             }
-            .foregroundColor(Color.white)
             .padding(.horizontal)
-            .padding(.vertical, isOdd ? 0 : 8)
-            .background(isOdd ? Colors.widgetBackground : Colors.white4)
+            .padding(.vertical, 8)
+            .foregroundColor(Color.white)
+            .background(!isOdd ? Color.clear : Colors.white4)
             .environment(\.colorScheme, .dark)
         }
 
@@ -129,6 +129,7 @@ struct PipelineRowView_Previews: PreviewProvider {
             ),
             isOdd: false
         )
+        .background(Colors.widgetBackground)
         .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
     
