@@ -46,7 +46,8 @@ enum ServiceType: String, CaseIterable, Codable {
                 return "GitHub"
         }
     }
-    
+
+    #warning("Get rid of NSImage")
     func serviceIcon() -> NSImage {
         switch self {
         case .gitlab:
@@ -56,6 +57,7 @@ enum ServiceType: String, CaseIterable, Codable {
         }
     }
 
+    #warning("Rename to serviceIcon")
     func servicePickerIcon() -> Image {
         switch self {
         case .gitlab:
