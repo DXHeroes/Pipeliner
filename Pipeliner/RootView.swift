@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  RootView.swift
 //  Pipeliner
 //
 //  Created by dx hero on 03.09.2020.
@@ -8,21 +8,17 @@
 import SwiftUI
 import WidgetKit
 
-struct ContentView: View {
-    internal let pipelinerService: PipelinerService = PipelinerService()
-    @State private var pipelines: [PipelineResult]
-    @State private var configurations: [Config]
+struct RootView: View {
+
+    @StateObject var viewModel = RootViewViewModel()
+    private let pipelinerService: PipelinerService = PipelinerService()
+
     @Environment(\.colorScheme) var colorScheme
     @State private var addErrorModal = false
     @State private var addErrorInfo = ""
     @State private var removeErrorModal = false
     @State private var removeErrorInfo = ""
 
-    init() {
-        _pipelines = State(initialValue: try! pipelinerService.getPipelines(pipelineCount: 10))
-        _configurations = State(initialValue:  ConfigurationService.getConfigurations())
-    }
-    
     var body: some View {
 
         ZStack(alignment: .top) {
@@ -41,20 +37,25 @@ struct ContentView: View {
                 HStack(alignment: .top) {
                     VStack {
                         AddConfigurationView(onAdd: { baseUrl, token, projectId, serviceType in
-                            do {
-                                let config = try pipelinerService.getConfig(
-                                    serviceType, baseUrl: baseUrl, projectId: projectId, token: token)
-                                configurations =  ConfigurationService.addConfiguration(config: config)
-                                pipelines = try pipelinerService.getPipelines(pipelineCount: 10)
-                                WidgetCenter.shared.reloadAllTimelines()
-                            }
-                            catch let error as HTTPError {
-                                addErrorInfo = error.localizedDescription
-                                addErrorModal.toggle()
-                            }
-                            catch let error {
-                                addErrorInfo = error.localizedDescription
-                                addErrorModal.toggle()
+                            Task.init {
+                                do {
+                                    try await viewModel.loadData(
+                                        serviceType,
+                                        baseUrl: baseUrl,
+                                        projectId: projectId,
+                                        token: token
+                                    )
+                                    WidgetCenter.shared.reloadAllTimelines()
+                                }
+                                catch let error as HTTPError {
+                                    addErrorInfo = error.localizedDescription
+                                    addErrorModal.toggle()
+                                }
+                                catch let error {
+                                    print(error)
+                                    addErrorInfo = error.localizedDescription
+                                    addErrorModal.toggle()
+                                }
                             }
                             
                         })
@@ -71,7 +72,7 @@ struct ContentView: View {
                                     .foregroundColor(Colors.white60)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding()
-                                if (configurations.count != 0) {
+                                if (viewModel.configurations.count != 0) {
                                     HStack {
                                         VStack(alignment: .leading) {
                                             Text("name".uppercased())
@@ -86,28 +87,30 @@ struct ContentView: View {
                                         }
                                     }
                                     .padding(.horizontal)
-                                    ForEach(configurations.indices, id: \.self){ index in
+                                    ForEach(viewModel.configurations.indices, id: \.self){ index in
                                         HStack {
-                                            Image( nsImage: configurations[index].serviceType.serviceIcon())
+                                            Image( nsImage: viewModel.configurations[index].serviceType.serviceIcon())
                                             VStack(alignment: .leading, content: {
-                                                Text(configurations[index].repositoryName.uppercased())
-                                                Text(configurations[index].baseUrl).foregroundColor(.gray)
+                                                Text(viewModel.configurations[index].repositoryName.uppercased())
+                                                Text(viewModel.configurations[index].baseUrl).foregroundColor(.gray)
                                             })
                                             Spacer()
                                             VStack(alignment: .leading) {
                                                 DxButton(label: "remove", action: {
-                                                    do {
-                                                        configurations = ConfigurationService.deleteConfiguration(id: configurations[index].id)
-                                                        pipelines = try pipelinerService.getPipelines(pipelineCount: 10)
-                                                        WidgetCenter.shared.reloadAllTimelines()
-                                                    }
-                                                    catch let error as HTTPError {
-                                                        removeErrorInfo = error.localizedDescription
-                                                        removeErrorModal.toggle()
-                                                    }
-                                                    catch let error {
-                                                        removeErrorInfo = error.localizedDescription
-                                                        removeErrorModal.toggle()
+                                                    Task.init {
+                                                        do {
+                                                            viewModel.configurations = ConfigurationService.deleteConfiguration(id: viewModel.configurations[index].id)
+                                                            try await viewModel.reloadPipelines()
+                                                            WidgetCenter.shared.reloadAllTimelines()
+                                                        }
+                                                        catch let error as HTTPError {
+                                                            removeErrorInfo = error.localizedDescription
+                                                            removeErrorModal.toggle()
+                                                        }
+                                                        catch let error {
+                                                            removeErrorInfo = error.localizedDescription
+                                                            removeErrorModal.toggle()
+                                                        }
                                                     }
                                                 }, color: Colors.error, shadow: false)
                                             }
@@ -134,7 +137,7 @@ struct ContentView: View {
                     }
                     .padding(.trailing, 40)
                     .frame(minWidth: 300)
-                    PipelineView(pipelines: pipelines)
+                    PipelineView(pipelines: viewModel.pipelines)
                         .frame(minWidth: 500)
                 }
                 .padding()
@@ -147,6 +150,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        RootView()
     }
 }

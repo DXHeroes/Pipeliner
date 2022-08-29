@@ -8,26 +8,36 @@
 import Foundation
 
 class PipelinerService {
+
     internal let dateService: DateService
-    private let resolver = ServiceResolver()
+    private let api: PipelineAPI = APIClient()
     
     init() {
         self.dateService = DateService()
     }
     
-    func getConfig(_ serviceType: ServiceType, baseUrl: String, projectId: String, token: String) throws -> Config {
-        let service = self.resolver.resolve(serviceType)
-        let projectName = try service.getProjectName(baseUrl: baseUrl, projectId: projectId, token: token)
+    func getConfig(
+        _ serviceType: ServiceType,
+        baseUrl: String,
+        projectId: String,
+        token: String
+    ) async throws -> Config {
+        let project = try await api.getProjectName(
+            for: serviceType,
+            baseUrl: baseUrl,
+            projectId: projectId,
+            token: token
+        )
         return Config(
             id: UUID().uuidString,
             baseUrl: baseUrl,
             projectId: projectId,
             token: token,
-            repositoryName: projectName,
+            repositoryName: project.name,
             serviceType: serviceType)
     }
     
-    func getPipelines(pipelineCount: Int) throws -> [PipelineResult]{
+    func getPipelines(pipelineCount: Int) async throws -> [PipelineResult]{
         let configs = ConfigurationService.getConfigurations()
         //count number of pipelines per repository
         var pipelineCountPerRepo = pipelineCount
@@ -38,10 +48,18 @@ class PipelinerService {
         var pipelinesWithRepoName: [PipelineWithRepoName] = []
         //Get pipelines from API
         for config in configs {
-            let service = self.resolver.resolve(config.serviceType)
-            let pipelines = try service.getPipelines(config: config, pipelineCount: pipelineCountPerRepo)
+
+            let pipelines = try await api.getPipelines(
+                config: config,
+                pipelineCount: pipelineCountPerRepo
+            )
             for pipeline in pipelines {
-                pipelinesWithRepoName.append(PipelineWithRepoName(pipeline: pipeline, name: config.repositoryName, date: try dateService.parse(date: pipeline.updated_at), serviceType: config.serviceType))
+                pipelinesWithRepoName.append(PipelineWithRepoName(
+                    pipeline: pipeline,
+                    name: config.repositoryName,
+                    date: try dateService.parse(date: pipeline.updated_at),
+                    serviceType: config.serviceType)
+                )
             }
         }
         //Sort pipelines according to date
@@ -121,24 +139,5 @@ class ConfigurationService {
             }
         }
         return []
-    }
-}
-
-private struct ServiceResolver {
-    private let gitHubService: GitHubService
-    private let gitLabService: GitLabService
-    
-    init() {
-        self.gitHubService = GitHubService()
-        self.gitLabService = GitLabService()
-    }
-    
-    func resolve(_ serviceType: ServiceType) -> IService {
-        switch serviceType {
-        case .github:
-            return self.gitHubService
-        case .gitlab:
-            return self.gitLabService
-        }
     }
 }
