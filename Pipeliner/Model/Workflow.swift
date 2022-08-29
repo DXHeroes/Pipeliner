@@ -24,10 +24,11 @@ struct Workflow: Decodable, Identifiable {
             case timedOut
         }
 
-       case completed(conclusion: Conclusion)
+        case completed(conclusion: Conclusion)
         case inProgress
         case queued
         case success
+        case failed
     }
 
     let id: Int
@@ -72,6 +73,8 @@ struct Workflow: Decodable, Identifiable {
             self.status = .queued
         case "success":
             self.status = .success
+        case "failed":
+            self.status = .failed
         default:
             let errorDescription = "[\(status)] is not recognized as status value"
             throw DecodingError.typeMismatch(
