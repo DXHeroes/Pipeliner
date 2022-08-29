@@ -17,8 +17,6 @@
 		9F9CF5EC28B6593E0070BC79 /* PipelineAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9CF5E628B6511C0070BC79 /* PipelineAPI.swift */; };
 		9F9CF5EF28B8FDD40070BC79 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9CF5EE28B8FDD40070BC79 /* Project.swift */; };
 		9F9CF5F028B8FDD40070BC79 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9CF5EE28B8FDD40070BC79 /* Project.swift */; };
-		9F9CF5F228B908E90070BC79 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9CF5F128B908E90070BC79 /* MainViewViewModel.swift */; };
-		9F9CF5F328B908E90070BC79 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9CF5F128B908E90070BC79 /* MainViewViewModel.swift */; };
 		F220498F250112AF00ECC510 /* Pipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09AF2500BEF70058FBE7 /* Pipeline.swift */; };
 		F2204990250112C000ECC510 /* PipelineResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09DC2500E1760058FBE7 /* PipelineResult.swift */; };
 		F2204991250112F800ECC510 /* PipelineStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09DE2500E19E0058FBE7 /* PipelineStatus.swift */; };
@@ -52,6 +50,7 @@
 		F2FF09DD2500E1760058FBE7 /* PipelineResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09DC2500E1760058FBE7 /* PipelineResult.swift */; };
 		F2FF09DF2500E19E0058FBE7 /* PipelineStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FF09DE2500E19E0058FBE7 /* PipelineStatus.swift */; };
 		F40468A428B50F310054A5B4 /* UIAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40468A328B50F310054A5B4 /* UIAssets.swift */; };
+		F4C76ADD28BD0579006D33CF /* RootViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C76ADC28BD0579006D33CF /* RootViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +83,6 @@
 		9F9CF5E428B64FF80070BC79 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		9F9CF5E628B6511C0070BC79 /* PipelineAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineAPI.swift; sourceTree = "<group>"; };
 		9F9CF5EE28B8FDD40070BC79 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
-		9F9CF5F128B908E90070BC79 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
 		F220499225011CED00ECC510 /* DateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateService.swift; sourceTree = "<group>"; };
 		F23B01002590F001003B4385 /* AddConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConfigurationView.swift; sourceTree = "<group>"; };
 		F26ECFB02506763100E62EDD /* PipelineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineDetailView.swift; sourceTree = "<group>"; };
@@ -116,6 +114,7 @@
 		F2FF09DC2500E1760058FBE7 /* PipelineResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineResult.swift; sourceTree = "<group>"; };
 		F2FF09DE2500E19E0058FBE7 /* PipelineStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineStatus.swift; sourceTree = "<group>"; };
 		F40468A328B50F310054A5B4 /* UIAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAssets.swift; sourceTree = "<group>"; };
+		F4C76ADC28BD0579006D33CF /* RootViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +205,7 @@
 				9F9CF5ED28B8FDB30070BC79 /* Model */,
 				9F9CF5E128B64FA60070BC79 /* Networking */,
 				F2FF09942500BDA20058FBE7 /* RootView.swift */,
-				9F9CF5F128B908E90070BC79 /* MainViewViewModel.swift */,
+				F4C76ADC28BD0579006D33CF /* RootViewViewModel.swift */,
 				F2FF09962500BDA30058FBE7 /* Assets.xcassets */,
 				F2FF099B2500BDA30058FBE7 /* Info.plist */,
 				F2FF099C2500BDA30058FBE7 /* Pipeliner.entitlements */,
@@ -381,7 +380,6 @@
 				F2FF09DF2500E19E0058FBE7 /* PipelineStatus.swift in Sources */,
 				F40468A428B50F310054A5B4 /* UIAssets.swift in Sources */,
 				F2FF09B62500C0A60058FBE7 /* PipelinerService.swift in Sources */,
-				9F9CF5F228B908E90070BC79 /* MainViewViewModel.swift in Sources */,
 				9F9CF5EF28B8FDD40070BC79 /* Project.swift in Sources */,
 				F220499325011CED00ECC510 /* DateService.swift in Sources */,
 				9F9CF5E728B6511C0070BC79 /* PipelineAPI.swift in Sources */,
@@ -389,6 +387,7 @@
 				F2D16DBA25909D51004258CC /* DxLabel.swift in Sources */,
 				F2FF09A32500BE1C0058FBE7 /* ServiceTypeEnum.swift in Sources */,
 				9F9CF5E528B64FF80070BC79 /* Logger.swift in Sources */,
+				F4C76ADD28BD0579006D33CF /* RootViewViewModel.swift in Sources */,
 				F23B01012590F001003B4385 /* AddConfigurationView.swift in Sources */,
 				F2FF09CA2500C87C0058FBE7 /* PipelinerWidget.intentdefinition in Sources */,
 			);
@@ -399,7 +398,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				72B62F082532CA5D009DBE8A /* Workflow.swift in Sources */,
-				9F9CF5F328B908E90070BC79 /* MainViewViewModel.swift in Sources */,
 				F22049A02501409300ECC510 /* ServiceTypeEnum.swift in Sources */,
 				9F9CF5E828B652DB0070BC79 /* ApiClient.swift in Sources */,
 				F220499C2501407600ECC510 /* Pipeline.swift in Sources */,
